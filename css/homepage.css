@@ -1,0 +1,41 @@
+body {
+    background-color: #242424;
+}
+
+.top-bar 
+
+.navbar-container {
+    flex-direction: column;
+    -webkit-box-orient: vertical;
+    /* max-width: 100%; */
+    justify-content: flex-start;
+    border: 5px solid red;
+}
+
+.navbar {
+    flex-direction: column;
+    -webkit-box-orient: vertical;
+    background-color: #121212;
+    align-items: flex-start;
+    
+    border: 3px solid azure;
+}
+
+#navbarSupportedContent {
+    flex-direction: column;
+    align-items: flex-start;
+    -webkit-box-orient: vertical;
+    border: 3px solid yellow;
+}
+
+.navbar-nav {
+    flex-direction: column;
+}
+
+.nav-item {
+    flex-direction: column;
+}
+
+.good-morning-container {
+    border: 3px solid greenyellow;
+}

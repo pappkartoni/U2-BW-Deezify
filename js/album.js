@@ -19,6 +19,7 @@ const url = "https://striveschool-api.herokuapp.com/api/deezer/album",
   };
 
 window.onload = async () => {
+  window.addEventListener("scroll", changeBGColorOnScroll);
   try {
     const response = await fetch(`${url}/${albumID}`, options),
       albumData = await response.json(),
@@ -80,11 +81,10 @@ const displayTrackList = (tracksArray) => {
     `;
     })
     .join("");
-
   musicTableBody.innerHTML = tracksHTML;
 };
 
-// header related
+// header related (check window.addEventListener at line 22)
 const topButtonWrapper = document.querySelector("#topButtonWrapper"),
   showOnScroll = document.querySelector("#topButtonWrapper .showOnScroll"),
   titleShowsUpOnScroll = document.querySelector("#topButtonWrapper h5");
@@ -99,6 +99,3 @@ const changeBGColorOnScroll = () => {
     showOnScroll.classList.remove("opacity-100");
   }
 };
-changeBGColorOnScroll();
-
-window.addEventListener("scroll", changeBGColorOnScroll);

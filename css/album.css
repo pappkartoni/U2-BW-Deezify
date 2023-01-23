@@ -12,6 +12,7 @@
 }
 
 #topButtonWrapper {
+  padding-inline: 15px;
   transition: background-color 300ms, opacity 300ms;
 }
 
@@ -65,6 +66,7 @@
 
 #albumWrapper {
   color: #fff;
+  padding-inline: 0;
 }
 
 #albumInfoWrapper img {
@@ -91,13 +93,26 @@
 }
 
 #musicTableWrapper {
-  background-color: #1e1e1e;
+  background-color: #181818;
 }
 
 #musicTableWrapper thead {
-  top: 105px;
-  background-color: #1e1e1e;
+  top: 77px;
+  background-color: #181818;
 }
+
+/* maybe later it might be needed */
+/* @media (max-width: 625px) {
+  #musicTableWrapper thead {
+    top: 85px;
+  }
+}
+
+@media (max-width: 565px) {
+  #musicTableWrapper thead {
+    top: 105px;
+  }
+} */
 
 #musicTableWrapper table {
   background-color: transparent;

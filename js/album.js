@@ -10,31 +10,41 @@ const url = "https://striveschool-api.herokuapp.com/api/deezer/album",
   durationOfTrackList = document.querySelector("#durationOfTrackList"),
   musicTableBody = document.querySelector("#musicTableWrapper tbody"),
   browserTabTitle = document.querySelector("title"),
-  options = {
-    method: "GET",
-    headers: {
-      "X-RapidAPI-Key": "000a57005dmsh95a0332ee97d51fp16e40cjsn07c5dcf98f81",
-      "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
-    },
-  };
+  albumOrSomethingElse = document.querySelector("#albumInfoWrapper h2");
+options = {
+  method: "GET",
+  headers: {
+    "X-RapidAPI-Key": "000a57005dmsh95a0332ee97d51fp16e40cjsn07c5dcf98f81",
+    "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
+  },
+};
 
 window.onload = async () => {
   window.addEventListener("scroll", changeBGColorOnScroll);
   try {
     const response = await fetch(`${url}/${albumID}`, options),
       albumData = await response.json(),
-      { title, cover_xl, artist, tracks, duration, link, release_date } =
-        albumData,
+      {
+        title,
+        cover_xl,
+        artist,
+        tracks,
+        duration,
+        link,
+        release_date,
+        record_type,
+      } = albumData,
       { name, picture } = artist,
       tracksArray = tracks.data;
 
-    titleShowsUpOnScroll.innerText = title;
     browserTabTitle.innerText = `Spotify - ${title}`;
+    titleShowsUpOnScroll.innerText = title;
     albumTitle.innerText = title;
     albumCover.src = cover_xl;
     artistName.innerText = name;
     artistName.href = link;
     artistPicture.src = picture;
+    albumOrSomethingElse.innerText = record_type.toUpperCase();
     year.innerText = release_date.substring(0, 4);
     numOfSongsOnPage.innerText = `${tracksArray.length} songs`;
     durationOfTrackList.innerText =

@@ -21,13 +21,19 @@
     />
     <!-- Own Stylesheet -->
     <link rel="stylesheet" href="./css/album.css" />
+    <link rel="stylesheet" href="./css/style.css">
   </head>
   <body>
+    <nav class="navbar navbar-dark bg-black navbar-fixed-left">
+      <div class="d-flex flex-column justify-content-start">
+        <a class="navbar-brand" href="./index.html">Spotify</a>
+      </div>
+    </nav>
     <div id="main">
       <div>
-        <section id="albumWrapper">
+        <section id="albumWrapper" class="navbar-fix">
           <!--  between line 30 and 73 is related with header -->
-          <div id="topButtonWrapper" class="container fixed-top py-3">
+          <div id="topButtonWrapper" class="navbar-fix fixed-top py-0">
             <div class="d-flex align-items-center">
               <div class="ml-2 btn-group" role="group">
                 <button type="button" class="btn btn-dark">
@@ -54,8 +60,8 @@
                 <img src="https://e-cdns-images.dzcdn.net/images/artist/0b17b99897d17ceb7027ed57cdbb7044/120x120-000000-80-0-0.jpg" style="border-radius: 50%; width: 30px;">
                   <span class="d-flex align-items-center">
                     <!-- <i class="bi bi-person-circle"></i> -->
-                    <span class="d-none d-md-inline mx-2">TEAM 2</span>
-                    <i class="bi bi-caret-down-fill d-none d-md-inline mr-2"></i
+                    <span class="d-none d-lg-inline mx-2" style="min-width: 75px;">TEAM 2</span>
+                    <i class="bi bi-caret-down-fill d-none d-lg-inline mr-2"></i
                   ></span>
                 </button>
                 <div class="dropdown-menu dropdown-menu-right">
@@ -73,12 +79,12 @@
           </div>
           <div
             id="albumInfoWrapper"
-            class="container px-4 pt-5"
+            class="container-fluid px-4 pt-5"
             style="background-color: #505050"
           >
             <!-- BACKGROUND COLOR SHOULD SYNC WITH THE IMAGE COLOR -->
             <div class="row pt-5 pb-4">
-              <div class="col-sm-4 col-md-3 align-self-end">
+              <div class="col-md-4 col-lg-3 align-self-end">
                 <img id="albumCover"
                   src=""
                   class="w-100"
@@ -86,7 +92,7 @@
                 />
               </div>
               <div class="col align-self-end">
-                <h2 style="font-size: 1vw; margin: 0; font-weight: 700" class="d-none d-lg-block">ALBUM</h2>
+                <h2 style="font-size: 1vw; margin: 0; font-weight: 700" class="d-none d-lg-block"></h2>
                 <h1 id="albumTitle" style="font-size: 4.5vw; font-weight: 700" class="mt-3">Album Title</h1>
                 <div class="d-flex flex-wrap align-items-center">
                   <img
@@ -106,8 +112,8 @@
             </div>
           </div>
         </section>
-        <section id="songsWrapper">
-          <div id="mediaButtonsWrapper" class="container">
+        <section id="songsWrapper" class="navbar-fix">
+          <div id="mediaButtonsWrapper" class="container-fluid">
             <button class="btn">
               <!-- MUSIC STOPPED -->
               <svg
@@ -165,7 +171,7 @@
               </svg>
             </button>
           </div>
-          <div id="musicTableWrapper" class="container">
+          <div id="musicTableWrapper" class="container-fluid">
             <table class="table table-hover table-dark table-borderless">
             <thead class="sticky-top">
               <tr>

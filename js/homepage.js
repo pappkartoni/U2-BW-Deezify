@@ -21,15 +21,20 @@ const renderData = async function (rawData) {
   console.log(songs);
   const rowNode = document.querySelector(".good-morning-container .row");
   songs.forEach((song) => {
-    rowNode.innerHTML += `<div class="col">
-    <div class="card">
-    //   <img src="${song.album.cover_medium}" class="card-img-top" alt="...">
-      <div class="card-body">
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    rowNode.innerHTML += `<div class="col-4">
+    <div class="card mb-5"  >
+      <div class="row no-gutters">
+        <div class="col-md-4">
+          <img src="${song.album.cover_medium}" alt="...">
+        </div>
+        <div class="col-md-8">
+          <div id="try" class="card-body d-flex">
+            <h5 class="card-title">${song.album.title}</h5>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-    `;
+  </div>`;
   });
   console.log(rawData.data);
 };

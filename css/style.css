@@ -1,6 +1,6 @@
 @font-face {
     font-family: circular;
-    src: url("./fonts/Circular/CircularStd-Book.otf") format("opentype");
+    src: url("../fonts/Circular/CircularStd-Book.otf") format("opentype");
 }
 body {
     background-color: #121212;

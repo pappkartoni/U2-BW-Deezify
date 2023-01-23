@@ -1,0 +1,63 @@
+body {
+    background-color: #242424;
+    color: rgb(255, 255, 255);
+}
+
+.navbar-fixed-left {
+    position: fixed;
+    width: 241px;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 4;
+    flex-direction: column;
+    align-items: start;
+}
+
+.bg-black {
+    background-color: black;
+}
+
+.navbar-fix {
+    margin-left: 241px;
+}
+
+
+
+/* .top-bar 
+
+.navbar-container {
+    flex-direction: column;
+    -webkit-box-orient: vertical;
+    
+    justify-content: flex-start;
+    border: 5px solid red;
+}
+
+.navbar {
+    flex-direction: column;
+    -webkit-box-orient: vertical;
+    background-color: #121212;
+    align-items: flex-start;
+    
+    border: 3px solid azure;
+}
+
+#navbarSupportedContent {
+    flex-direction: column;
+    align-items: flex-start;
+    -webkit-box-orient: vertical;
+    border: 3px solid yellow;
+}
+
+.navbar-nav {
+    flex-direction: column;
+}
+
+.nav-item {
+    flex-direction: column;
+}
+
+.good-morning-container {
+    border: 3px solid greenyellow;
+} */

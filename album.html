@@ -7,7 +7,7 @@
     <title>Spotify - Album Name</title>
     <!-- TODO: CHANGE THE ALBUM NAME AUTOMATICALLY -->
     <link rel="shortcut icon" href="./assets/spotify.svg" />
-    <!-- Bootstrap 4.6 -->
+    <!-- Bootstrap 4.6 CSS -->
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
@@ -20,7 +20,178 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css"
     />
     <!-- Own Stylesheet -->
-    <link rel="stylesheet" href="./css/album-style.css" />
+    <link rel="stylesheet" href="./css/album.css" />
   </head>
-  <body></body>
+  <body>
+    <div id="main">
+      <div>
+        <section id="albumWrapper">
+          <div id="topButtonWrapper" class="container fixed-top mt-3">
+            <div class="d-flex">
+              <div class="ml-2 btn-group" role="group">
+                <button type="button" class="btn btn-dark">
+                  <i class="bi bi-chevron-left"></i>
+                </button>
+                <button type="button" class="btn btn-dark ml-3">
+                  <i class="bi bi-chevron-right"></i>
+                </button>
+              </div>
+              <div class="btn-group ml-auto mr-2">
+                <but
+                  type="button"
+                  class="btn btn-dark justify-content-center align-items-center"
+                  data-toggle="dropdown"
+                  aria-expanded="false"
+                  style="border-radius: 1.5rem"
+                >
+                  <span
+                    ><i class="bi bi-person-circle justify-content-between"></i>
+                    Username
+                    <i class="bi bi-caret-down-fill"></i
+                  ></span>
+                </but>
+                <div class="dropdown-menu dropdown-menu-right">
+                  <button class="dropdown-item" type="button">Action</button>
+                  <button class="dropdown-item" type="button">
+                    Another action
+                  </button>
+                  <button class="dropdown-item" type="button">
+                    Something else here
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            id="albumInfoWrapper"
+            class="container px-4 pt-5"
+            style="background-color: #505050"
+          >
+            <!-- BACKGROUND COLOR SHOULD SYNC WITH THE IMAGE COLOR -->
+            <div class="row pt-5 pb-4">
+              <div class="col-3 align-self-end">
+                <img id="albumCover"
+                  src=""
+                  class="w-100"
+                  alt="img placeholder"
+                />
+              </div>
+              <div class="col align-self-end">
+                <h2 style="font-size: 1vw; margin: 0; font-weight: 700">ALBUM</h2>
+                <h1 id="albumTitle" style="font-size: 3.5vw; font-weight: 700">Album Title</h1>
+                <div class="d-flex flex-wrap align-items-center">
+                  <img
+                    id="artistPicture"
+                    src=""
+                    alt="artist placeholder"
+                    style="width: 24px; height: 24px; border-radius: 50%"
+                  />
+                  <a href="" id="artistName">Artist Name</a>
+                  <span>•</span>
+                  <span id="year">Year</span>
+                  <span>•</span>
+                  <span id="numOfSongs">X Songs,</span>
+                  <span id="durationOfTrackList">a mins b secs</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section id="songsWrapper">
+          <div id="mediaButtonsWrapper" class="container">
+            <button class="btn">
+              <!-- MUSIC STOPPED -->
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="#1fdf64"
+                class="bi bi-play-circle-fill"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814l-3.5-2.5z"
+                />
+              </svg>
+              <!-- MUSIC PLAYING -->
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="#1fdf64"
+                class="bi bi-pause-circle-fill"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM6.25 5C5.56 5 5 5.56 5 6.25v3.5a1.25 1.25 0 1 0 2.5 0v-3.5C7.5 5.56 6.94 5 6.25 5zm3.5 0c-.69 0-1.25.56-1.25 1.25v3.5a1.25 1.25 0 1 0 2.5 0v-3.5C11 5.56 10.44 5 9.75 5z"
+                />
+              </svg>
+            </button>
+            <button class="btn">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="rgb(183, 183, 183)"
+                class="bi bi-heart"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"
+                />
+              </svg>
+            </button>
+            <button class="btn">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="rgb(183, 183, 183)"
+                class="bi bi-three-dots"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
+                />
+              </svg>
+            </button>
+          </div>
+          <div id="musicTableWrapper" class="container">
+            <table class="table table-hover table-dark table-borderless">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Title</th>
+                <th scope="col" class="text-right"><i class="bi bi-clock"></i></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>Song Title</td>
+                <td class="text-right">Duration</td>
+              </tr><tr>
+                <th scope="row">2</th>
+                <td>Song Title</td>
+                <td class="text-right">Duration</td>
+              </tr>
+            </tbody>
+          </div>
+        </section>
+      </div>
+    </div>
+    <!-- Own Script -->
+    <script src="./js/album.js"></script>
+    <!-- Bootstrap 4.6 JS -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>

@@ -12,6 +12,9 @@ const durationOfTrackList = document.querySelector("#durationOfTrackList");
 const musicTableBody = document.querySelector("#musicTableWrapper tbody");
 
 const browserTabTitle = document.querySelector("title");
+const topButtonWrapper = document.querySelector("#topButtonWrapper");
+const showOnScroll = document.querySelector("#topButtonWrapper .showOnScroll");
+const titleShowsUpOnScroll = document.querySelector("#topButtonWrapper h5");
 
 const options = {
   method: "GET",
@@ -35,6 +38,7 @@ window.onload = async () => {
 
     const tracksArray = tracks.data;
 
+    titleShowsUpOnScroll.innerText = title;
     browserTabTitle.innerText = `Spotify - ${title}`;
     albumTitle.innerText = title;
     albumCover.src = cover_xl;
@@ -62,7 +66,9 @@ const secToMin = (duration) => {
 const secToSec = (duration) => {
   const sec = duration % 60;
   if (sec !== 0) {
-    return sec;
+    if (sec < 10) {
+      return "0" + sec;
+    } else return sec;
   } else {
     return;
   }
@@ -76,13 +82,13 @@ const displayTrackList = (tracksArray) => {
     .map((song) => {
       return `
             <tr>
-                <td scope="col" style="width: 30px" class="numberToPlayIcon">${i++}</td>
+                <td scope="col" style="width: 30px" class="numberToPlayIcon position-relative"><span>${i++}</span><i class="bi bi-play-fill position-absolute"></i></td>
                 <td>${song.title_short}</br><span class="text-muted">${
         song.artist.name
       }</span></td>
-                <td class="text-right">${secToMin(song.duration)}:${secToSec(
-        song.duration
-      )}</td>
+                <td class="text-right"><i class="bi bi-heart mr-5"></i>${secToMin(
+                  song.duration
+                )}:${secToSec(song.duration)}</td>
             </tr>
     `;
     })
@@ -90,3 +96,17 @@ const displayTrackList = (tracksArray) => {
 
   musicTableBody.innerHTML = tracksHTML;
 };
+
+const changeBGColorOnScroll = () => {
+  var scroll = window.scrollY;
+  if (scroll >= 260) {
+    topButtonWrapper.classList.add("changedBG");
+    showOnScroll.classList.add("opacity-100");
+  } else {
+    topButtonWrapper.classList.remove("changedBG");
+    showOnScroll.classList.remove("opacity-100");
+  }
+};
+changeBGColorOnScroll();
+
+window.addEventListener("scroll", changeBGColorOnScroll);

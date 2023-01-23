@@ -27,37 +27,45 @@
       <div>
         <section id="albumWrapper">
           <div id="topButtonWrapper" class="container fixed-top py-3">
-            <div class="d-flex">
+            <div class="d-flex align-items-center">
               <div class="ml-2 btn-group" role="group">
                 <button type="button" class="btn btn-dark">
                   <i class="bi bi-chevron-left"></i>
                 </button>
-                <button type="button" class="btn btn-dark ml-3">
+                <button type="button" class="btn btn-dark ml-3 d-none d-md-block">
                   <i class="bi bi-chevron-right"></i>
                 </button>
               </div>
+              <div class="showOnScroll d-flex align-items-center">
+                <div class="ml-3">
+                  <i class="bi bi-play-circle-fill" style="color: #1fdf64; font-size: 3.2rem "></i>
+                </div>
+                <h5 class="m-0 ml-3">Album Title</h5>
+              </div>
               <div class="btn-group ml-auto mr-2">
-                <but
+                <button
                   type="button"
-                  class="btn btn-dark justify-content-center align-items-center"
+                  class="dropdownButton btn btn-dark d-flex"
                   data-toggle="dropdown"
                   aria-expanded="false"
                   style="border-radius: 1.5rem"
                 >
-                  <span
-                    ><i class="bi bi-person-circle justify-content-between"></i>
-                    Username
-                    <i class="bi bi-caret-down-fill"></i
+                <img src="https://e-cdns-images.dzcdn.net/images/artist/0b17b99897d17ceb7027ed57cdbb7044/120x120-000000-80-0-0.jpg" style="border-radius: 50%; width: 30px;">
+                  <span class="d-flex align-items-center">
+                    <!-- <i class="bi bi-person-circle"></i> -->
+                    <span class="d-none d-md-inline mx-2">username</span>
+                    <i class="bi bi-caret-down-fill d-none d-md-inline mr-2"></i
                   ></span>
-                </but>
+                </button>
                 <div class="dropdown-menu dropdown-menu-right">
-                  <button class="dropdown-item" type="button">Action</button>
-                  <button class="dropdown-item" type="button">
-                    Another action
-                  </button>
-                  <button class="dropdown-item" type="button">
-                    Something else here
-                  </button>
+                  <a class="dropdown-item d-flex" type="button">Account <i class="bi bi-box-arrow-up-right ml-auto"></i></a>
+                  <a class="dropdown-item mt-1" type="button">Profile</a>
+                  <a class="dropdown-item mt-1 pb-1" type="button" style="border-bottom: solid 0.5px rgb(59, 55, 55);">
+                    Settings
+                  </a>
+                  <a class="dropdown-item my-1" type="button">
+                    Log out
+                  </a>
                 </div>
               </div>
             </div>
@@ -69,7 +77,7 @@
           >
             <!-- BACKGROUND COLOR SHOULD SYNC WITH THE IMAGE COLOR -->
             <div class="row pt-5 pb-4">
-              <div class="col-3 align-self-end">
+              <div class="col-sm-4 col-md-3 align-self-end">
                 <img id="albumCover"
                   src=""
                   class="w-100"
@@ -77,21 +85,21 @@
                 />
               </div>
               <div class="col align-self-end">
-                <h2 style="font-size: 1vw; margin: 0; font-weight: 700">ALBUM</h2>
-                <h1 id="albumTitle" style="font-size: 3.5vw; font-weight: 700">Album Title</h1>
+                <h2 style="font-size: 1vw; margin: 0; font-weight: 700" class="d-none d-lg-block">ALBUM</h2>
+                <h1 id="albumTitle" style="font-size: 4.5vw; font-weight: 700" class="mt-3">Album Title</h1>
                 <div class="d-flex flex-wrap align-items-center">
                   <img
                     id="artistPicture"
                     src=""
                     alt="artist placeholder"
-                    style="width: 24px; height: 24px; border-radius: 50%"
+                    style="width: 24px; height: 24px; border-radius: 50%;"
                   />
                   <a href="" id="artistName">Artist Name</a>
                   <span>•</span>
-                  <span id="year">Year</span>
-                  <span>•</span>
-                  <span id="numOfSongs">X Songs,</span>
-                  <span id="durationOfTrackList">a mins b secs</span>
+                  <span id="year" >Year</span>
+                  <span class="d-none d-lg-block">•</span>
+                  <span id="numOfSongs" class="d-none d-lg-block">X Songs,</span>
+                  <span id="durationOfTrackList" class="d-none d-lg-block">a mins b secs</span>
                 </div>
               </div>
             </div>
@@ -158,7 +166,7 @@
           </div>
           <div id="musicTableWrapper" class="container">
             <table class="table table-hover table-dark table-borderless">
-            <thead>
+            <thead class="sticky-top">
               <tr>
                 <th scope="col">#</th>
                 <th scope="col">Title</th>

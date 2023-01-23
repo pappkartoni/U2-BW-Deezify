@@ -9,6 +9,47 @@
   box-shadow: none;
 }
 
+#topButtonWrapper {
+  transition: background-color 300ms;
+}
+
+#topButtonWrapper.changedBG {
+  background-color: #1e1e1e;
+}
+
+.dropdownButton {
+  padding: 0 0;
+}
+
+.showOnScroll {
+  opacity: 0%;
+  transition: opacity 300ms;
+}
+
+.showOnScroll.opacity-100 {
+  opacity: 100%;
+}
+
+.dropdown-menu.dropdown-menu-right {
+  width: 200px;
+  background-color: #2e2e2e;
+  color: #fff;
+  padding-block: 0.2rem;
+  padding-inline: 0.2rem;
+}
+
+.dropdown-item {
+  padding: 0.25rem 1rem;
+}
+
+.dropdown-menu.dropdown-menu-right a {
+  color: inherit;
+}
+
+.dropdown-menu.dropdown-menu-right a:hover {
+  background-color: #626262;
+}
+
 #albumWrapper {
   color: #fff;
 }
@@ -40,8 +81,17 @@
   background-color: #1e1e1e;
 }
 
+#musicTableWrapper thead {
+  top: 105px;
+  background-color: #1e1e1e;
+}
+
 #musicTableWrapper table {
   background-color: transparent;
+}
+
+#musicTableWrapper table tbody {
+  color: #d3d3d3;
 }
 
 #musicTableWrapper table tbody th {
@@ -50,4 +100,28 @@
 
 #musicTableWrapper tbody td {
   vertical-align: middle;
+}
+
+.bi.bi-heart.mr-5 {
+  opacity: 0%;
+}
+
+#musicTableWrapper tbody tr:hover .bi.bi-heart.mr-5 {
+  opacity: 100%;
+  cursor: pointer;
+}
+
+#musicTableWrapper tbody tr:hover .numberToPlayIcon > i {
+  opacity: 100%;
+  cursor: pointer;
+}
+#musicTableWrapper tbody tr:hover .numberToPlayIcon span {
+  opacity: 0%;
+}
+
+.numberToPlayIcon > i {
+  top: 17%;
+  left: 4px;
+  font-size: 2rem;
+  opacity: 0;
 }

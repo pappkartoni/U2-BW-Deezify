@@ -1,3 +1,5 @@
+/* --------------------------------------------------------------HEADER RELATED PART------------------------------------------------------------------------------ */
+
 #topButtonWrapper .btn-group:nth-of-type(1) button {
   border-radius: 50%;
   justify-content: center;
@@ -49,6 +51,8 @@
 .dropdown-menu.dropdown-menu-right a:hover {
   background-color: #626262;
 }
+
+/* -------------------------------------------------------------------------------------------------------------------------------------------- */
 
 #albumWrapper {
   color: #fff;

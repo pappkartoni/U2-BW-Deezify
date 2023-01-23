@@ -12,6 +12,8 @@ const durationOfTrackList = document.querySelector("#durationOfTrackList");
 const musicTableBody = document.querySelector("#musicTableWrapper tbody");
 
 const browserTabTitle = document.querySelector("title");
+
+// following three lines related w the header
 const topButtonWrapper = document.querySelector("#topButtonWrapper");
 const showOnScroll = document.querySelector("#topButtonWrapper .showOnScroll");
 const titleShowsUpOnScroll = document.querySelector("#topButtonWrapper h5");
@@ -97,6 +99,7 @@ const displayTrackList = (tracksArray) => {
   musicTableBody.innerHTML = tracksHTML;
 };
 
+// header related
 const changeBGColorOnScroll = () => {
   var scroll = window.scrollY;
   if (scroll >= 260) {

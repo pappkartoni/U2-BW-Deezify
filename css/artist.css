@@ -1,0 +1,15 @@
+.jumbotron-fluid {
+    height: 40vh;
+    min-height: 340px;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    background-size: 100% 100%;
+    background-size: cover;
+    background-position: center;
+}
+
+.card {
+    border: none;
+    background: none
+}

@@ -1,39 +1,31 @@
-const url = "https://striveschool-api.herokuapp.com/api/deezer/album";
-const parameters = new URLSearchParams(location.search);
-const albumID = parameters.get("id");
-
-const albumTitle = document.querySelector("#albumTitle");
-const albumCover = document.querySelector("#albumCover");
-const artistName = document.querySelector("#artistName");
-const artistPicture = document.querySelector("#artistPicture");
-const year = document.querySelector("#year");
-const numOfSongsOnPage = document.querySelector("#numOfSongs");
-const durationOfTrackList = document.querySelector("#durationOfTrackList");
-const musicTableBody = document.querySelector("#musicTableWrapper tbody");
-
-const browserTabTitle = document.querySelector("title");
-
-const options = {
-  method: "GET",
-  headers: {
-    "X-RapidAPI-Key": "000a57005dmsh95a0332ee97d51fp16e40cjsn07c5dcf98f81",
-    "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
-  },
-};
+const url = "https://striveschool-api.herokuapp.com/api/deezer/album",
+  parameters = new URLSearchParams(location.search),
+  albumID = parameters.get("id"),
+  albumTitle = document.querySelector("#albumTitle"),
+  albumCover = document.querySelector("#albumCover"),
+  artistName = document.querySelector("#artistName"),
+  artistPicture = document.querySelector("#artistPicture"),
+  year = document.querySelector("#year"),
+  numOfSongsOnPage = document.querySelector("#numOfSongs"),
+  durationOfTrackList = document.querySelector("#durationOfTrackList"),
+  musicTableBody = document.querySelector("#musicTableWrapper tbody"),
+  browserTabTitle = document.querySelector("title"),
+  options = {
+    method: "GET",
+    headers: {
+      "X-RapidAPI-Key": "000a57005dmsh95a0332ee97d51fp16e40cjsn07c5dcf98f81",
+      "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
+    },
+  };
 
 window.onload = async () => {
   try {
-    const response = await fetch(`${url}/${albumID}`, options);
-    const albumData = await response.json();
-
-    const { title, cover_xl, artist, tracks, duration, link, release_date } =
-      albumData;
-    console.log(title, cover_xl, artist, tracks, duration, link, release_date);
-
-    const { name, picture } = artist;
-    console.log(name, picture);
-
-    const tracksArray = tracks.data;
+    const response = await fetch(`${url}/${albumID}`, options),
+      albumData = await response.json(),
+      { title, cover_xl, artist, tracks, duration, link, release_date } =
+        albumData,
+      { name, picture } = artist,
+      tracksArray = tracks.data;
 
     titleShowsUpOnScroll.innerText = title;
     browserTabTitle.innerText = `Spotify - ${title}`;
@@ -72,8 +64,6 @@ const secToSec = (duration) => {
 };
 
 const displayTrackList = (tracksArray) => {
-  console.log(tracksArray);
-
   let i = 1;
   const tracksHTML = tracksArray
     .map((song) => {
@@ -95,9 +85,9 @@ const displayTrackList = (tracksArray) => {
 };
 
 // header related
-const topButtonWrapper = document.querySelector("#topButtonWrapper");
-const showOnScroll = document.querySelector("#topButtonWrapper .showOnScroll");
-const titleShowsUpOnScroll = document.querySelector("#topButtonWrapper h5");
+const topButtonWrapper = document.querySelector("#topButtonWrapper"),
+  showOnScroll = document.querySelector("#topButtonWrapper .showOnScroll"),
+  titleShowsUpOnScroll = document.querySelector("#topButtonWrapper h5");
 
 const changeBGColorOnScroll = () => {
   var scroll = window.scrollY;

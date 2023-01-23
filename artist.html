@@ -17,11 +17,16 @@
     href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css"
     />
     <style>
+        @font-face {
+            font-family: circular;
+            src: url("./fonts/Circular/CircularStd-Book.otf") format("opentype");
+        }
         body {
             background-color: #121212;
             color: #a7a7a7;
+            font-family: circular;
         }
-        h1, h2 {
+        h1, h2, h5 {
             color: white;
         }
         .jumbotron-fluid {
@@ -34,29 +39,64 @@
             background-size: cover;
             background-position: center;
         }
+
+        .card {
+            border: none;
+            background: none
+        }
+        .navbar-fixed-left {
+            position: fixed;
+            width: 241px;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            z-index: 4;
+            flex-direction: column;
+            align-items: start;
+        }
+
+        .bg-black {
+            background-color: black;
+        }
+
+        .navbar-fix {
+            margin-left: 241px;
+        }
     </style>
 </head>
 <body>
-    <section id="jumbo">
-        <div class="jumbotron-fluid">
+    <nav class="navbar navbar-dark bg-black navbar-fixed-left">
+        <div class="d-flex flex-column justify-content-start">
+            <a class="navbar-brand" href="./index.html">Spotify</a>
+        </div>
+    </nav>
+    <main class="navbar-fix">
+        <section id="jumbo">
+            <div class="jumbotron-fluid">
+                <div class="container-fluid">
+                    <h1></h1>
+                    <p><span></span> monthly listeners</p>
+                </div>
+            </div>
+        </section>
+        <section id="popular">
             <div class="container-fluid">
-                <h1></h1>
-                <p><span></span> monthly listeners</p>
-            </div>
-        </div>
-    </section>
-    <section id="popular">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-12 col-md-8">
-                    <h2>Popular</h2>
+                <div class="row">
+                    <div class="col-12 col-md-8">
+                        <h2>Popular</h2>
+                        <div id="top" class="d-flex flex-column">
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-4">
+                        <h2>Artist Pick</h2>
+                        <div id="artpick">
+                            
+                        </div>
+                    </div>
                 </div>
-                <div class="col-12 col-md-4">
-                    <h2>Artist Pick</h2>
-                </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
     <script src="./js/artist.js"></script>
     <script
         src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"

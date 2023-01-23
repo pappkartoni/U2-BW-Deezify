@@ -24,8 +24,9 @@ window.onload = async () => {
     const albumData = await response.json();
     // console.log(albumData);
 
-    const { title, cover_xl, artist, tracks, duration, link } = albumData;
-    console.log(title, cover_xl, artist, tracks, duration, link);
+    const { title, cover_xl, artist, tracks, duration, link, release_date } =
+      albumData;
+    console.log(title, cover_xl, artist, tracks, duration, link, release_date);
 
     const { name, picture } = artist;
     console.log(name, picture);
@@ -35,7 +36,9 @@ window.onload = async () => {
     albumTitle.innerText = title;
     albumCover.src = cover_xl;
     artistName.innerText = name;
+    artistName.href = link;
     artistPicture.src = picture;
+    year.innerText = release_date.substring(0, 4);
     numOfSongsOnPage.innerText = `${tracksArray.length} songs`;
   } catch (error) {}
 };

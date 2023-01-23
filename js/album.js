@@ -13,11 +13,6 @@ const musicTableBody = document.querySelector("#musicTableWrapper tbody");
 
 const browserTabTitle = document.querySelector("title");
 
-// following three lines related w the header
-const topButtonWrapper = document.querySelector("#topButtonWrapper");
-const showOnScroll = document.querySelector("#topButtonWrapper .showOnScroll");
-const titleShowsUpOnScroll = document.querySelector("#topButtonWrapper h5");
-
 const options = {
   method: "GET",
   headers: {
@@ -100,6 +95,10 @@ const displayTrackList = (tracksArray) => {
 };
 
 // header related
+const topButtonWrapper = document.querySelector("#topButtonWrapper");
+const showOnScroll = document.querySelector("#topButtonWrapper .showOnScroll");
+const titleShowsUpOnScroll = document.querySelector("#topButtonWrapper h5");
+
 const changeBGColorOnScroll = () => {
   var scroll = window.scrollY;
   if (scroll >= 260) {

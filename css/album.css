@@ -47,3 +47,7 @@
 #musicTableWrapper table tbody th {
   width: 30px;
 }
+
+#musicTableWrapper tbody td {
+  vertical-align: middle;
+}

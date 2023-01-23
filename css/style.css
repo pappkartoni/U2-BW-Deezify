@@ -1,0 +1,31 @@
+@font-face {
+    font-family: circular;
+    src: url("../fonts/Circular/CircularStd-Book.otf") format("opentype");
+}
+body {
+    background-color: #121212;
+    color: #a7a7a7;
+    font-family: circular;
+}
+h1, h2, h3, h4, h5, h6 {
+    color: white;
+}
+
+.navbar-fixed-left {
+    position: fixed;
+    width: 241px;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 4;
+    flex-direction: column;
+    align-items: start;
+}
+
+.bg-black {
+    background-color: black;
+}
+
+.navbar-fix {
+    margin-left: 241px;
+}

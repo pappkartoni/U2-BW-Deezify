@@ -12,11 +12,16 @@
 }
 
 #topButtonWrapper {
-  transition: background-color 300ms;
+  transition: background-color 300ms, opacity 300ms;
+}
+
+#topButtonWrapper.halfOp {
+  background-color: #1e1e1e;
+  opacity: 75%;
 }
 
 #topButtonWrapper.changedBG {
-  background-color: #1e1e1e;
+  opacity: 100%;
 }
 
 .dropdownButton {
@@ -26,6 +31,10 @@
 .showOnScroll {
   opacity: 0%;
   transition: opacity 300ms;
+}
+
+.showOnScroll.opacity-75 {
+  opacity: 75%;
 }
 
 .showOnScroll.opacity-100 {

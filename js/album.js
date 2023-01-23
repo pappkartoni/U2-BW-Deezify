@@ -91,11 +91,18 @@ const topButtonWrapper = document.querySelector("#topButtonWrapper"),
 
 const changeBGColorOnScroll = () => {
   var scroll = window.scrollY;
-  if (scroll >= 260) {
+  if (scroll >= 175) {
+    topButtonWrapper.classList.add("halfOp");
+    showOnScroll.classList.add("opacity-75");
+  }
+
+  if (scroll >= 300) {
     topButtonWrapper.classList.add("changedBG");
     showOnScroll.classList.add("opacity-100");
-  } else {
-    topButtonWrapper.classList.remove("changedBG");
-    showOnScroll.classList.remove("opacity-100");
+  }
+
+  if (scroll <= 175) {
+    topButtonWrapper.classList.remove("changedBG", "halfOp");
+    showOnScroll.classList.remove("opacity-75", "opacity-100");
   }
 };

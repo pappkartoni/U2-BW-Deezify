@@ -84,7 +84,7 @@ const displayTrackList = (tracksArray) => {
                 <td>${song.title_short}</br><span class="text-muted">${
         song.artist.name
       }</span></td>
-                <td class="text-right"><i class="bi bi-heart mr-5"></i>${secToMin(
+                <td class="text-right"><i class="bi bi-heart mr-5 d-none d-md-inline"></i>${secToMin(
                   song.duration
                 )}:${secToSec(song.duration)}</td>
             </tr>

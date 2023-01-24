@@ -112,6 +112,7 @@ h6 {
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: default !important;
   background-color: #1fdf64;
   min-width: 48px;
   min-height: 48px;

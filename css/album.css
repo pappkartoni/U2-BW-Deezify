@@ -30,9 +30,17 @@
 @media (max-width: 685px) {
   #topButtonWrapper h5 {
     white-space: nowrap;
-    max-width: 150px;
+    max-width: 230px;
     overflow: hidden;
     text-overflow: ellipsis;
+  }
+
+  #topButtonWrapper #prevButton {
+    display: none;
+  }
+
+  #topButtonWrapper .dropdownButton {
+    display: none !important;
   }
 }
 

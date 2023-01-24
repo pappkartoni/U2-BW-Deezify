@@ -27,7 +27,7 @@ const renderData = async function (rawData) {
     ".good-morning-container .row"
   );
   for (let i = 0; i < 6; i++) {
-    goodMorningRowNode.innerHTML += `<div class="col-4">
+    goodMorningRowNode.innerHTML += `<div class="col-lg-4 col-md-6 col-sm-6">
       <div class="card mb-5"  >
         <div class="row no-gutters">
           <div class="col-md-4">

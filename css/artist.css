@@ -76,7 +76,17 @@ h2 {
 main > .container-fluid {
     padding: 24px 32px;
 }
+#top > div {
+    padding: 0 16px;
+    border-radius: 4px;
+}
+#top > div:hover {
+    background-color: hsla(0,0%,100%,.1)
+}
 
+#top > div.highlighted {
+    background-color: hsla(0,0%,100%,.3);
+}
 #artist {
     padding: 0 16px;
 }
@@ -220,11 +230,11 @@ input[type=range] {
   }
 
   input[type=range]::-ms-fill-lower {
-    background: red;
+    background: #1ed760;
     border-radius: 2px;
   }
   input[type=range]:focus::-ms-fill-lower {
-    background: green;
+    background: #1ed760;
   }
   input[type=range]::-ms-fill-upper {
     background: hsla(0,0%,100%,.3);

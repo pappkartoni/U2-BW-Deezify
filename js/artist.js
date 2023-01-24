@@ -47,14 +47,15 @@ const getTopSongs = async (tUrl) => {
 const renderTopSongs = (songs) => {
     const top = document.getElementById("top")
     for (let i = 0; i < songs.length; i++) {
-
+        const {title, explicit_lyrics, rank, album, artist, duration, preview} = songs[i]
         top.innerHTML += `
-                        <div class="d-flex align-items-center  py-1">
+                        <div class="d-flex align-items-center py-1" onclick="highlightSong(this)" ondblclick="playSong(this)">
+                            <span class="d-none" data-preview="${preview}" data-img="${album.cover}" data-artist="${artist.name}" data-title="${title}"></span>
                             <div class="mr-4">${i+1}</div>
-                            <div class="mr-4"><img src="${songs[i].album.cover}" style="width: 40px"></div>
-                            <div class="mr-auto">${songs[i].title} ${songs[i].explicit_lyrics ? "<span class='badge badge-light'>E</span>" : ""}</div>
-                            <div class="mr-4 d-none d-md-block">${songs[i].rank.toLocaleString("en-US")}</div>
-                            <div>${durationFormatter(songs[i].duration)}</div>
+                            <div class="mr-4"><img src="${album.cover}" style="width: 40px"></div>
+                            <div class="text-white mr-auto">${title} ${explicit_lyrics ? "<span class='badge badge-light'>E</span>" : ""}</div>
+                            <div class="mr-4 d-none d-md-block">${rank.toLocaleString("en-US")}</div>
+                            <div>${durationFormatter(duration)}</div>
                         </div>`
     }
     renderArtistPick(songs[0].album, songs[0].artist)
@@ -90,6 +91,22 @@ const togglePlay = () => {
         audio.classList.add("playing")
         audio.play()
     }
+}
+const highlightSong = (div) => {
+    const prevHighlighted = document.querySelector(".highlighted")
+    if (prevHighlighted) {
+        prevHighlighted.classList.remove("highlighted")
+    }
+    div.classList.add("highlighted")
+}
+
+const playSong = (div) => {
+    const data = div.firstElementChild.dataset
+    document.querySelector("audio").src = data.preview
+    document.querySelector(".footer-info img").src = data.img
+    document.querySelector(".footer-info h6").innerText = data.title
+    document.querySelector(".footer-info span").innerText = data.artist
+    document.querySelector("audio").play()
 }
 
 const setVolume = () => {

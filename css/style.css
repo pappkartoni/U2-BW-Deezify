@@ -1,35 +1,40 @@
 @font-face {
-    font-family: circular;
-    src: url("../fonts/Circular/CircularStd-Book.otf") format("opentype");
+  font-family: circular;
+  src: url("../fonts/Circular/CircularStd-Book.otf") format("opentype");
 }
 body {
-    background-color: #121212;
-    color: #a7a7a7;
-    font-family: circular;
-    line-height: 1.6;
+  background-color: #121212;
+  color: #a7a7a7;
+  font-family: circular;
+  line-height: 1.6;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    color: white;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: white;
 }
 
 .navbar-fixed-left {
-    position: fixed;
-    width: 241px;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    z-index: 4;
-    flex-direction: column;
-    align-items: start;
+  position: fixed;
+  width: 241px;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 4;
+  flex-direction: column;
+  align-items: start;
 }
 
 .bg-black {
-    background-color: black;
+  background-color: black;
 }
 
 .navbar-fix {
-    margin-left: 241px;
+  margin-left: 241px;
 }
 
 /* --------------------------------------------------------------HEADER RELATED PART------------------------------------------------------------------------------ */
@@ -64,9 +69,17 @@ h1, h2, h3, h4, h5, h6 {
 @media (max-width: 685px) {
   #topButtonWrapper h5 {
     white-space: nowrap;
-    max-width: 150px;
+    max-width: 230px;
     overflow: hidden;
     text-overflow: ellipsis;
+  }
+
+  #topButtonWrapper #prevButton {
+    display: none;
+  }
+
+  #topButtonWrapper .dropdownButton {
+    display: none !important;
   }
 }
 

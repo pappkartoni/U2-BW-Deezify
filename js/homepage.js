@@ -46,7 +46,7 @@ const renderData = async function (rawData) {
     ".main-container .recently-played"
   );
   for (let i = 0; i < 8; i++) {
-    recentlyPlayedRowNode.innerHTML += `<div class="col-4">
+    recentlyPlayedRowNode.innerHTML += `<div class="col">
     <div class="card">
     <img src="${songs[i].album.cover_medium}" class="card-img-top" alt="...">
     <div class="card-body">
@@ -58,7 +58,7 @@ const renderData = async function (rawData) {
     ".main-container .shows-to-try"
   );
   for (let i = 0; i < 8; i++) {
-    showsToTryRowNode.innerHTML += `<div class="col-4">
+    showsToTryRowNode.innerHTML += `<div class="col">
     <div class="card">
     <img src="${songs[i].album.cover_medium}" class="card-img-top" alt="...">
     <div class="card-body">

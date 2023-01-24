@@ -36,3 +36,23 @@ body {
 .good-morning-container img {
     width: 80%;
 }
+
+.recently-played .card {
+    background-color: #525252;
+    color: #fff;
+    max-width: fit-content;
+}
+
+.recently-played img {
+    width: 100%;
+}
+
+.shows-to-try .card {
+    background-color: #525252;
+    color: #fff;
+    max-width: fit-content;
+}
+
+.shows-to-try img {
+    width: 100%;
+}

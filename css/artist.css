@@ -9,7 +9,9 @@
     background-position: center;
     padding: 0 16px 24px 16px;
 }
-
+body {
+    height: 200vh;
+}
 .jumbotron-fluid h1 {
     font-size: 6rem;
     font-weight: 900;

@@ -19,12 +19,9 @@ h1, h2, h3, h4, h5, h6 {
 
 .navbar .d-flex img {
     width: 130px;
-<<<<<<< Updated upstream
-=======
     margin-left: 8%;
     margin-top: 10%;
     margin-bottom: 8%;
->>>>>>> Stashed changes
 }
 
 .navbar-fixed-left {
@@ -36,11 +33,8 @@ h1, h2, h3, h4, h5, h6 {
     z-index: 4;
     flex-direction: column;
     align-items: start;
-<<<<<<< Updated upstream
-=======
     align-items: flex-start;
     justify-content: flex-start;
->>>>>>> Stashed changes
 }
 
 .bg-black {
@@ -55,22 +49,6 @@ h1, h2, h3, h4, h5, h6 {
     margin-left: 241px;
 }
 
-<<<<<<< Updated upstream
-.navbar-fixed-left .navigation {
-    /* border: 3px solid rgb(0, 255, 221); */
-    justify-content: flex-end;
-    
-}
-
-.navbar .navigation ul li {
-    list-style: none;
-    margin-top: 20px;
-   
-}
-
-.navbar .navigation ul li {
-    padding: 10px 0px;
-=======
 /* .navbar-fixed-left .navigation {
     border: 3px solid rgb(0, 255, 221);
 } */
@@ -83,18 +61,13 @@ h1, h2, h3, h4, h5, h6 {
 
 .navbar .navigation ul li {
     padding: 0px 5px;
->>>>>>> Stashed changes
 }
 
 .navbar .navigation ul li a {
     color: #b3b3b3;
     text-decoration: none;
     font-weight: bold;
-<<<<<<< Updated upstream
-    font-size: 13px;
-=======
     font-size: 90%;
->>>>>>> Stashed changes
 }
 
 .navbar .navigation ul li a:hover,
@@ -110,13 +83,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .navbar .navigation ul li ion-icon {
-<<<<<<< Updated upstream
-    font-size: 20px;
-    margin-right: 10px;
-=======
     font-size: 150%;
     margin-right: 2vh;
->>>>>>> Stashed changes
 }
 
 .navbar .navigation ul li a:hover ion-icon:hover,

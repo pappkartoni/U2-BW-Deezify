@@ -107,6 +107,10 @@ h6 {
   opacity: 100%;
 }
 
+#playButton {
+  cursor: default;
+}
+
 .showOnScroll button {
   border: none;
   display: flex;
@@ -131,6 +135,10 @@ h6 {
   color: #fff;
   padding-block: 0.2rem;
   padding-inline: 0.2rem;
+}
+
+.dropdown-menu.dropdown-menu-right a {
+  cursor: default !important;
 }
 
 .dropdown-item {

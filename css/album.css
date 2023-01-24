@@ -1,5 +1,6 @@
 body {
   line-height: 1.6;
+  user-select: none;
 }
 
 #albumWrapper {

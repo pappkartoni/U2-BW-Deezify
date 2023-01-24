@@ -30,7 +30,6 @@ body {
 #mediaButtonsWrapper {
   padding-inline: 22px;
   height: 100px;
-  background-color: #121212;
 }
 
 .play-button {
@@ -81,12 +80,7 @@ body {
   cursor: default;
 }
 
-#songsWrapper {
-  background-color: #1a1a1a;
-}
-
 #musicTableWrapper {
-  background-color: #121212;
   padding-inline: 20px;
   padding-bottom: 10px;
 }
@@ -95,9 +89,6 @@ body {
   top: 77px;
   background-color: #121212;
 }
-
-/* #musicTableWrapper thead tr {
-} */
 
 #musicTableWrapper table {
   background-color: transparent;
@@ -148,7 +139,7 @@ body {
   opacity: 0;
 }
 
-/* ------------------------------ FOOTER RELATED PART --------------------------------- */
+/*  FOOTER RELATED PART  */
 
 .socialLinks a {
   display: inline-flex;

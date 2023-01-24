@@ -1,5 +1,5 @@
 body {
-    background-color: #242424;
+    background-color: #1b1b1b;
     color: rgb(255, 255, 255);
 }
 
@@ -27,6 +27,12 @@ body {
     background-color: #525252;
 }
 
+.good-morning-container .card:hover {
+    cursor: pointer;
+    background-color: #767676;
+    transition: 0.7s;
+}
+
 .good-morning-container .card-body {
     justify-content: flex-start; 
     color: #fff;
@@ -38,7 +44,7 @@ body {
 }
 
 .recently-played .card {
-    background-color: #525252;
+    background-color: #2d2d2d;
     color: #fff;
     max-width: fit-content;
 }
@@ -48,11 +54,18 @@ body {
 }
 
 .shows-to-try .card {
-    background-color: #525252;
+    background-color: #2d2d2d;
     color: #fff;
     max-width: fit-content;
 }
 
 .shows-to-try img {
     width: 100%;
+}
+
+.recently-played .card:hover,
+.shows-to-try .card:hover {
+    cursor: pointer;
+    background-color: #525252;
+    transition: 0.7s;
 }

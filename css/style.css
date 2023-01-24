@@ -37,7 +37,7 @@ h6 {
 
 /* --------------------------------------------------------------HEADER RELATED PART------------------------------------------------------------------------------ */
 
-#topButtonWrapper .btn-group:nth-of-type(1) button {
+header .btn-group:nth-of-type(1) button {
   display: inline-flex;
   border-radius: 50%;
   justify-content: center;
@@ -50,43 +50,43 @@ h6 {
   cursor: pointer;
 }
 
-#topButtonWrapper .btn-group:nth-of-type(1) button i {
+header .btn-group:nth-of-type(1) button i {
   line-height: 16px;
 }
 
-#topButtonWrapper button:focus,
+header button:focus,
 #mediaButtonsWrapper button:focus {
   box-shadow: none;
 }
 
-#topButtonWrapper {
+header {
   padding-inline: 15px;
   transition: background-color 300ms, opacity 300ms;
 }
 
 @media (max-width: 685px) {
-  #topButtonWrapper h5 {
+  header h5 {
     white-space: nowrap;
     max-width: 230px;
     overflow: hidden;
     text-overflow: ellipsis;
   }
 
-  #topButtonWrapper #prevButton {
+  header #prevButton {
     display: none;
   }
 
-  #topButtonWrapper .dropdownButton {
+  header .dropdownButton {
     display: none !important;
   }
 }
 
-#topButtonWrapper.halfOp {
+header.halfOp {
   background-color: #1e1e1e;
   opacity: 75%;
 }
 
-#topButtonWrapper.changedBG {
+header.changedBG {
   opacity: 100%;
 }
 

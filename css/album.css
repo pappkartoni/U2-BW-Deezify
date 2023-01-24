@@ -87,6 +87,7 @@ body {
 #musicTableWrapper {
   background-color: #181818;
   padding-inline: 20px;
+  padding-bottom: 10px;
 }
 
 #musicTableWrapper thead {
@@ -144,4 +145,47 @@ body {
   left: 4px;
   font-size: 2rem;
   opacity: 0;
+}
+
+.socialLinks a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background-color: #292929;
+  border-radius: 50%;
+}
+
+.socialLinks a:hover {
+  background-color: #727272;
+  cursor: default !important;
+}
+
+#footer span {
+  font-weight: 700;
+  color: #fff;
+}
+
+#footer span:nth-last-child(1) {
+  font-weight: 400;
+  color: #a6a6a6;
+}
+
+#footer a {
+  color: #a6a6a6;
+}
+
+#footer a:hover {
+  color: #fff;
+}
+
+.footerLegal {
+  border-top: solid 0.3px rgba(245, 245, 245, 0.226);
+  padding-top: 3rem;
+  margin-top: 3rem;
+}
+
+.footerLegal a {
+  text-decoration: none;
 }

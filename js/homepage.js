@@ -28,12 +28,12 @@ const renderData = async function (rawData) {
   );
   for (let i = 0; i < 6; i++) {
     goodMorningRowNode.innerHTML += `<div class="col-lg-4 col-md-6 col-sm-6">
-      <div class="card mb-5"  >
+      <div class="card mb-3"  >
         <div class="row no-gutters">
-          <div class="col-md-4">
+          <div class="col-md-3">
             <img src="${songs[i].album.cover_medium}" alt="...">
           </div>
-          <div class="col-md-8">
+          <div class="col-md-8 ">
             <div class="card-body d-flex">
               <h5 class="card-title">${songs[i].album.title}</h5>
             </div>

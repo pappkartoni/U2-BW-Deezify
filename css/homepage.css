@@ -40,8 +40,11 @@ h3 {
 }
 
 .good-morning-container .card { 
-    width: 40vh;
+    width: 50vh;
     background-color: #525252;
+    text-align: left;
+    position: relative;
+    /* border: 3px solid red; */
 }
 
 .good-morning-container .card:hover {
@@ -51,9 +54,15 @@ h3 {
 }
 
 .good-morning-container .card-body {
-    justify-content: flex-start; 
+    justify-content: flex-start;
     color: #fff;
-     
+    padding-left: 0%;
+    position: inherit;
+    /* border: 3px solid yellow; */
+}
+
+.good-morning-container .card-body .card-title {
+    padding-top: 5%;
 }
 
 .good-morning-container img {

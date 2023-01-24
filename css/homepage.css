@@ -3,6 +3,23 @@ body {
     color: rgb(255, 255, 255);
 }
 
+.d-flex .arrows-container ion-icon {
+    color:#1b1b1b;
+}
+
+section {
+    background-color: #1b1b1b;
+}
+
+h2 {
+    font-weight:700;
+    margin-bottom: 2%;
+}
+
+h3 {
+    margin-bottom: 2%;
+}
+
 .navbar-fixed-left {
     position: fixed;
     width: 241px;

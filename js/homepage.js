@@ -23,9 +23,11 @@ const renderData = async function (rawData) {
 
   const songs = rawData.data;
   console.log(songs);
-  const rowNode = document.querySelector(".good-morning-container .row");
+  const goodMorningRowNode = document.querySelector(
+    ".good-morning-container .row"
+  );
   for (let i = 0; i < 6; i++) {
-    rowNode.innerHTML += `<div class="col-4">
+    goodMorningRowNode.innerHTML += `<div class="col-4">
       <div class="card mb-5"  >
         <div class="row no-gutters">
           <div class="col-md-4">
@@ -39,6 +41,30 @@ const renderData = async function (rawData) {
         </div>
       </div>
     </div>`;
+  }
+  const recentlyPlayedRowNode = document.querySelector(
+    ".main-container .recently-played"
+  );
+  for (let i = 0; i < 8; i++) {
+    recentlyPlayedRowNode.innerHTML += `<div class="col-4">
+    <div class="card">
+    <img src="${songs[i].album.cover_medium}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <p class="card-text">${songs[i].album.title}</p>
+    </div>
+  </div>`;
+  }
+  const showsToTryRowNode = document.querySelector(
+    ".main-container .shows-to-try"
+  );
+  for (let i = 0; i < 8; i++) {
+    showsToTryRowNode.innerHTML += `<div class="col-4">
+    <div class="card">
+    <img src="${songs[i].album.cover_medium}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <p class="card-text">${songs[i].album.title}</p>
+    </div>
+  </div>`;
   }
 
   // songs.forEach((song) => {

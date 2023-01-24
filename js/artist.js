@@ -81,6 +81,23 @@ const renderArtistPick = (pick, artist) => {
                         `
 }
 
+const togglePlay = () => {
+    const audio = document.querySelector("audio")
+    if (audio.classList.contains("playing")) {
+        audio.classList.remove("playing")
+        audio.pause()
+    } else {
+        audio.classList.add("playing")
+        audio.play()
+    }
+}
+
+const setVolume = () => {
+    const slider = document.querySelector(".slider")
+    const audio = document.querySelector("audio")
+    audio.volume = slider.value
+}
+
 const followMock = (btn) => {
     btn.innerText === "FOLLOW" ? btn.innerText = "FOLLOWING" : btn.innerText = "FOLLOW"
 }
@@ -94,5 +111,8 @@ const capitalize = (str) => {
 }
 
 window.onload = () => {
+    setVolume()
+    const slider = document.querySelector(".slider")
+    slider.addEventListener("input", setVolume)
     getArtist()
 }

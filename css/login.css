@@ -1,0 +1,68 @@
+body {
+  user-select: none;
+}
+
+header > div {
+  border-bottom: 1px solid rgb(217, 218, 220);
+  padding: 25px 0px 10px;
+}
+
+header > div > div {
+  height: 10vh;
+  padding: 0px 0px 12px;
+}
+
+#loginWrapper button {
+  cursor: default;
+  color: white;
+  border-radius: 500px;
+  font-weight: 500;
+  padding: 13px 31px;
+  position: relative;
+  border: 1px solid #878787;
+}
+
+#loginWrapper button:hover {
+  outline: 0.5px solid #ffffff;
+}
+
+#loginWrapper button:nth-of-type(1) {
+  background-color: #1877f2;
+}
+
+#loginWrapper button:nth-of-type(2) {
+  background-color: #191919;
+}
+
+#loginWrapper button:nth-of-type(3) {
+  background-color: #ffffff;
+  color: #878787;
+}
+
+#loginWrapper > div > div hr {
+  margin: 12px 0px 20px;
+  flex: 1 1 0%;
+  border: 1px solid rgb(217, 218, 220);
+}
+
+#loginWrapper > div > div span {
+  flex: 0.3 1 0%;
+  color: #fff;
+  align-self: center;
+  text-align: center;
+  line-height: 1px;
+  font-weight: 700;
+  font-size: 12px;
+}
+
+#loginWrapper #login {
+  background-color: #169b45;
+  color: #191919;
+  transition: all 100ms;
+}
+
+#loginWrapper #login:hover {
+  background-color: #1fdf64;
+  transform: scale(1.05);
+  outline: none;
+}

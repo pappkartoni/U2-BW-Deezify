@@ -34,7 +34,7 @@ const renderData = async function (rawData) {
             <img src="${songs[i].album.cover_medium}" alt="...">
           </div>
           <div class="col-md-8">
-            <div id="try" class="card-body d-flex">
+            <div class="card-body d-flex">
               <h5 class="card-title">${songs[i].album.title}</h5>
             </div>
           </div>

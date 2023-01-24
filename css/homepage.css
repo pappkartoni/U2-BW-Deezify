@@ -22,11 +22,17 @@ body {
     margin-left: 241px;
 }
 
-.good-morning-container .card {
-    color: black;
+.good-morning-container .card { 
+    width: 40vh;
+    background-color: #525252;
 }
 
 .good-morning-container .card-body {
     justify-content: flex-start; 
+    color: #fff;
+     
 }
 
+.good-morning-container img {
+    width: 80%;
+}

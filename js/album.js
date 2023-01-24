@@ -98,9 +98,9 @@ const displayTrackList = (tracksArray) => {
 };
 
 // header related (check window.addEventListener at line 22)
-const topButtonWrapper = document.querySelector("#topButtonWrapper"),
-  showOnScroll = document.querySelector("#topButtonWrapper .showOnScroll"),
-  titleShowsUpOnScroll = document.querySelector("#topButtonWrapper h5"),
+const header = document.querySelector("header"),
+  showOnScroll = document.querySelector("header .showOnScroll"),
+  titleShowsUpOnScroll = document.querySelector("header h5"),
   prevButton = document.querySelector("#prevButton"),
   nextButton = document.querySelector("#nextButton");
 
@@ -111,17 +111,17 @@ nextButton.addEventListener("click", window.history.forward);
 const changeBGColorOnScroll = () => {
   var scroll = window.scrollY;
   if (scroll >= 175) {
-    topButtonWrapper.classList.add("halfOp");
+    header.classList.add("halfOp");
     showOnScroll.classList.add("opacity-75");
   }
 
   if (scroll >= 300) {
-    topButtonWrapper.classList.add("changedBG");
+    header.classList.add("changedBG");
     showOnScroll.classList.add("opacity-100");
   }
 
   if (scroll <= 175) {
-    topButtonWrapper.classList.remove("changedBG", "halfOp");
+    header.classList.remove("changedBG", "halfOp");
     showOnScroll.classList.remove("opacity-75", "opacity-100");
   }
 };

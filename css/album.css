@@ -156,6 +156,10 @@ body {
   cursor: default !important;
 }
 
+#footer {
+  margin-bottom: 6rem;
+}
+
 #footer span {
   font-weight: 700;
   color: #fff;

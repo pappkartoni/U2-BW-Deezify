@@ -119,3 +119,145 @@ footer span {
 footer path {
     fill: #a7a7a7;
 }
+
+footer .btn-transparent {
+    width: 32px;
+    height: 32px;
+}
+
+footer .btn-transparent:hover > svg > path {
+    fill: white;
+}
+.play {
+    margin-inline: 16px;
+}
+.play-button-footer {
+    background-color: white;
+    border-radius: 500px;
+    height: 32px;
+    width: 32px;
+}
+
+.play-button-footer path {
+    fill: black;
+}
+
+.play-button-footer:hover {
+    scale: 1.04;
+}
+.buttonbar {
+    margin-bottom: 8px;
+}
+.progress {
+    height: 4px;
+    background-color: hsla(0,0%,100%,.3);
+    border-radius: 2px;
+    margin-inline: 8px;
+}
+.curDur, .maxDur {
+    font-size: 0.6875rem;
+    font-weight: 400;
+}
+.w-40 {
+    width: 40%;
+}
+
+.volume {
+    flex: 0 1 125px;
+    margin-right: 4px;
+}
+input[type=range] {
+    -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
+    width: 100%; /* Specific width is required for Firefox. */
+    background: transparent; /* Otherwise white in Chrome */
+  }
+ 
+  input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+  } 
+  
+  input[type=range]:focus {
+    outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
+  }
+  
+  input[type=range]::-ms-track {
+    width: 100%;
+    cursor: pointer;
+  
+    /* Hides the slider so custom styles can be added */
+    background: transparent; 
+    border-color: transparent;
+    color: transparent;
+  }
+/* bar */
+  input[type=range]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 4px;
+    cursor: pointer;
+    background: hsla(0,0%,100%,.3);
+    border-radius: 2px;
+
+  }
+  
+  input[type=range]:focus::-webkit-slider-runnable-track {
+    background: hsla(0,0%,100%,.3);
+  }
+  
+  input[type=range]::-moz-range-track {
+    width: 100%;
+    height: 4px;
+    cursor: pointer;
+    background: hsla(0,0%,100%,.3);
+    border-radius: 2px;
+  }
+  
+  input[type=range]::-ms-track {
+    width: 100%;
+    height: 4px;
+    cursor: pointer;
+    background: hsla(0,0%,100%,.3);
+    border-radius: 2px;
+  }
+
+  input[type=range]::-ms-fill-lower {
+    background: red;
+    border-radius: 2px;
+  }
+  input[type=range]:focus::-ms-fill-lower {
+    background: green;
+  }
+  input[type=range]::-ms-fill-upper {
+    background: hsla(0,0%,100%,.3);
+    border-radius: 2px;
+  }
+
+  input[type=range]:focus::-ms-fill-upper {
+    background: hsla(0,0%,100%,.3);
+  }
+
+  /* thumb */
+  /* Chrome */
+  input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 12px;
+    width: 12px;
+    border-radius: 500px;
+    background: white;
+    margin-top: -4px;
+  }
+  
+  /* Firefox */
+  input[type=range]::-moz-range-thumb {
+    height: 12px;
+    width: 12px;
+    border-radius: 500px;
+    background: white;
+  }
+  
+  /* IE */
+  input[type=range]::-ms-thumb {
+    height: 12px;
+    width: 12px;
+    border-radius: 500px;
+    background: white;
+  }

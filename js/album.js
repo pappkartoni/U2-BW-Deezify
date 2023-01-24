@@ -124,8 +124,6 @@ const changeDropDownIconWhenShowing = () => {
     ).innerHTML = `<path d="M14 6l-6 6-6-6h12z"></path>`;
   }
 };
-// d="M14 10L8 4l-6 6h12z"
-// d="M14 10L8 4l-6 6h12z"
 
 const changeBGColorOnScroll = () => {
   var scroll = window.scrollY;

@@ -2,6 +2,12 @@
     font-family: circular;
     src: url("../fonts/Circular/CircularStd-Book.otf") format("opentype");
 }
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
 body {
     background-color: #121212;
     color: #a7a7a7;
@@ -9,6 +15,10 @@ body {
 }
 h1, h2, h3, h4, h5, h6 {
     color: white;
+}
+
+.navbar .d-flex img {
+width: 130px;
 }
 
 .navbar-fixed-left {
@@ -49,6 +59,23 @@ h1, h2, h3, h4, h5, h6 {
 .navbar .navigation ul li a:hover,
 .navbar .navigation ul li a:active,
 .navbar .navigation ul li a:focus {
+    color: #ffffff;
+}
+
+.navbar .navigation ul li a:hover ion-icon,
+.navbar .navigation ul li a:active ion-icon,
+.navbar .navigation ul li a:focus ion-icon {
+    color: #b3b3b3;
+}
+
+.navbar .navigation ul li ion-icon {
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+.navbar .navigation ul li a:hover ion-icon:hover,
+.navbar .navigation ul li a:active ion-icon:active,
+.navbar .navigation ul li a:focus ion-icon:focus {
     color: #ffffff;
 }
 

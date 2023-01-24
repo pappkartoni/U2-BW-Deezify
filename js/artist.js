@@ -31,6 +31,7 @@ const getArtist = async () => {
 
 const getTopSongs = async (tUrl) => {
     try {
+        console.log(tUrl)
         const res = await fetch(tUrl, {headers: headers})
         if (res.ok) {
             const songs = await res.json()
@@ -120,7 +121,7 @@ const followMock = (btn) => {
 }
 
 const durationFormatter = (dur) => {
-    return (Math.floor(dur / 60)) + ":" + (dur % 60)
+    return (Math.floor(dur / 60)) + ":" + ((dur % 60) < 10 ? "0" + (dur % 60) : dur % 60)
 }
 
 const capitalize = (str) => {

@@ -39,6 +39,9 @@ body {
   background-color: #181818;
 }
 
+/* #musicTableWrapper thead tr {
+} */
+
 #musicTableWrapper table {
   background-color: transparent;
 }

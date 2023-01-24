@@ -34,19 +34,26 @@
         <section id="albumWrapper" class="navbar-fix">
           <!--  between line 30 and 73 is related with header -->
           <div id="topButtonWrapper" class="navbar-fix fixed-top py-0">
-            <div class="d-flex align-items-center">
+            <div class="d-flex align-items-center" style="height: 80px;">
               <div class="ml-2 btn-group" role="group">
-                <button type="button" class="btn btn-dark">
-                  <i class="bi bi-chevron-left"></i>
+                <button type="button" aria-label="Go back">
+                  <svg role="img" height="16" width="16" aria-hidden="true" viewBox="0 0 16 16" fill="#fff">
+                     <path d="M11.03.47a.75.75 0 010 1.06L4.56 8l6.47 6.47a.75.75 0 11-1.06 1.06L2.44 8 9.97.47a.75.75 0 011.06 0z"></path>
+                  </svg>
                 </button>
-                <button type="button" class="btn btn-dark ml-3 d-none d-md-block">
-                  <i class="bi bi-chevron-right"></i>
+                <button type="button" class="ml-3 d-none d-md-inline-flex" aria-label="Go forward">
+                  <svg role="img" height="16" width="16" aria-hidden="true" viewBox="0 0 16 16" fill="#fff">
+                     <path d="M4.97.47a.75.75 0 000 1.06L11.44 8l-6.47 6.47a.75.75 0 101.06 1.06L13.56 8 6.03.47a.75.75 0 00-1.06 0z"></path>
+                  </svg>
                 </button>
               </div>
-              <div class="showOnScroll d-flex align-items-center">
-                <div class="ml-3">
-                  <i class="bi bi-play-circle-fill" style="color: #1fdf64; font-size: 3.2rem "></i>
-                </div>
+              <div class="showOnScroll d-flex align-items-center ml-3">
+                <button id="playButton" type="button">
+                  <svg role="img" height="24" width="24" viewBox="0 0 24 24">
+                    <path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z"></path>
+                    <!-- !!ON PLAY <path d="M5.7 3a.7.7 0 00-.7.7v16.6a.7.7 0 00.7.7h2.6a.7.7 0 00.7-.7V3.7a.7.7 0 00-.7-.7H5.7zm10 0a.7.7 0 00-.7.7v16.6a.7.7 0 00.7.7h2.6a.7.7 0 00.7-.7V3.7a.7.7 0 00-.7-.7h-2.6z"></path> -->
+                  </svg>
+                </button>
                 <h5 class="m-0 ml-3">Album Title</h5>
               </div>
               <div class="btn-group ml-auto mr-2">
@@ -57,12 +64,13 @@
                   aria-expanded="false"
                   style="border-radius: 1.5rem"
                 >
-                <img src="https://e-cdns-images.dzcdn.net/images/artist/0b17b99897d17ceb7027ed57cdbb7044/120x120-000000-80-0-0.jpg" style="border-radius: 50%; width: 30px;">
+                <img src="https://e-cdns-images.dzcdn.net/images/artist/0b17b99897d17ceb7027ed57cdbb7044/120x120-000000-80-0-0.jpg" style="border-radius: 50%; width: 28px; height: 28px;">
                   <span class="d-flex align-items-center">
-                    <!-- <i class="bi bi-person-circle"></i> -->
-                    <span class="d-none d-lg-inline mx-2" style="min-width: 75px;">TEAM 2</span>
-                    <i class="bi bi-caret-down-fill d-none d-lg-inline mr-2"></i
-                  ></span>
+                    <span class="d-none d-lg-inline mx-2" style="min-width: 60px;">username</span>
+                    <svg class="d-none d-lg-inline" fill="#fff" role="img" width="16" height="16" viewBox="0 0 16 16" style="margin-inline-end: 6px">
+                      <path d="M14 6l-6 6-6-6h12z"></path>
+                    </svg>
+                  </span>
                 </button>
                 <div class="dropdown-menu dropdown-menu-right">
                   <a class="dropdown-item d-flex" type="button">Account <i class="bi bi-box-arrow-up-right ml-auto"></i></a>

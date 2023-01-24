@@ -1,9 +1,20 @@
 /* --------------------------------------------------------------HEADER RELATED PART------------------------------------------------------------------------------ */
 
 #topButtonWrapper .btn-group:nth-of-type(1) button {
+  display: inline-flex;
   border-radius: 50%;
   justify-content: center;
   align-items: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  border: none;
+  color: #fff;
+  height: 32px;
+  width: 32px;
+  cursor: pointer;
+}
+
+#topButtonWrapper .btn-group:nth-of-type(1) button i {
+  line-height: 16px;
 }
 
 #topButtonWrapper button:focus,
@@ -14,6 +25,15 @@
 #topButtonWrapper {
   padding-inline: 15px;
   transition: background-color 300ms, opacity 300ms;
+}
+
+@media (max-width: 685px) {
+  #topButtonWrapper h5 {
+    white-space: nowrap;
+    max-width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 }
 
 #topButtonWrapper.halfOp {
@@ -42,6 +62,23 @@
   opacity: 100%;
 }
 
+.showOnScroll button {
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #1fdf64;
+  min-width: 48px;
+  min-height: 48px;
+  border-radius: 50%;
+  transition: all 150ms;
+}
+
+.showOnScroll button:hover {
+  transform: scale(1.15);
+  background-color: #39e678;
+}
+
 .dropdown-menu.dropdown-menu-right {
   width: 200px;
   background-color: #2e2e2e;
@@ -63,6 +100,9 @@
 }
 
 /* -------------------------------------------------------------------------------------------------------------------------------------------- */
+body {
+  line-height: 1.6;
+}
 
 #albumWrapper {
   color: #fff;

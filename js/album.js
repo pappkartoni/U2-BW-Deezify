@@ -70,7 +70,7 @@ const secToSec = (duration) => {
       return "0" + sec;
     } else return sec;
   } else {
-    return;
+    return "00";
   }
 };
 
@@ -80,11 +80,14 @@ const displayTrackList = (tracksArray) => {
     .map((song) => {
       return `
             <tr>
-                <td scope="col" style="width: 30px" class="numberToPlayIcon position-relative"><span>${i++}</span><i class="bi bi-play-fill position-absolute"></i></td>
+                <td scope="col" style="width: 30px" class="numberToPlayIcon position-relative">
+                  <span>${i++}</span>
+                  <i class="bi bi-play-fill position-absolute"></i>
+                </td>
                 <td>${song.title_short}</br><span class="text-muted">${
         song.artist.name
       }</span></td>
-                <td class="text-right"><i class="bi bi-heart mr-5"></i>${secToMin(
+                <td class="text-right"><i class="bi bi-heart mr-5 d-none d-md-inline"></i>${secToMin(
                   song.duration
                 )}:${secToSec(song.duration)}</td>
             </tr>
@@ -97,7 +100,13 @@ const displayTrackList = (tracksArray) => {
 // header related (check window.addEventListener at line 22)
 const topButtonWrapper = document.querySelector("#topButtonWrapper"),
   showOnScroll = document.querySelector("#topButtonWrapper .showOnScroll"),
-  titleShowsUpOnScroll = document.querySelector("#topButtonWrapper h5");
+  titleShowsUpOnScroll = document.querySelector("#topButtonWrapper h5"),
+  prevButton = document.querySelector("#prevButton"),
+  nextButton = document.querySelector("#nextButton");
+
+// we'll see whether it works or not
+prevButton.addEventListener("click", window.history.back);
+nextButton.addEventListener("click", window.history.forward);
 
 const changeBGColorOnScroll = () => {
   var scroll = window.scrollY;

@@ -21,7 +21,7 @@
     />
     <!-- Own Stylesheet -->
     <link rel="stylesheet" href="./css/album.css" />
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
     <nav class="navbar navbar-dark bg-black navbar-fixed-left">
@@ -30,27 +30,52 @@
       </div>
     </nav>
     <div id="main">
-      <div>
-        <section id="albumWrapper" class="navbar-fix">
+      <div class="navbar-fix">
+        <section id="albumWrapper">
           <!--  between line 30 and 73 is related with header -->
           <div id="topButtonWrapper" class="navbar-fix fixed-top py-0">
-            <div class="d-flex align-items-center" style="height: 80px;">
+            <div class="d-flex align-items-center" style="height: 80px">
               <div class="ml-2 btn-group" role="group">
-                <button type="button" aria-label="Go back">
-                  <svg role="img" height="16" width="16" aria-hidden="true" viewBox="0 0 16 16" fill="#fff">
-                     <path d="M11.03.47a.75.75 0 010 1.06L4.56 8l6.47 6.47a.75.75 0 11-1.06 1.06L2.44 8 9.97.47a.75.75 0 011.06 0z"></path>
+                <button type="button" id="prevButton" aria-label="Go back">
+                  <svg
+                    role="img"
+                    height="16"
+                    width="16"
+                    aria-hidden="true"
+                    viewBox="0 0 16 16"
+                    fill="#fff"
+                  >
+                    <path
+                      d="M11.03.47a.75.75 0 010 1.06L4.56 8l6.47 6.47a.75.75 0 11-1.06 1.06L2.44 8 9.97.47a.75.75 0 011.06 0z"
+                    ></path>
                   </svg>
                 </button>
-                <button type="button" class="ml-3 d-none d-md-inline-flex" aria-label="Go forward">
-                  <svg role="img" height="16" width="16" aria-hidden="true" viewBox="0 0 16 16" fill="#fff">
-                     <path d="M4.97.47a.75.75 0 000 1.06L11.44 8l-6.47 6.47a.75.75 0 101.06 1.06L13.56 8 6.03.47a.75.75 0 00-1.06 0z"></path>
+                <button
+                  type="button"
+                  id="nextButton"
+                  class="ml-3 d-none d-md-inline-flex"
+                  aria-label="Go forward"
+                >
+                  <svg
+                    role="img"
+                    height="16"
+                    width="16"
+                    aria-hidden="true"
+                    viewBox="0 0 16 16"
+                    fill="#fff"
+                  >
+                    <path
+                      d="M4.97.47a.75.75 0 000 1.06L11.44 8l-6.47 6.47a.75.75 0 101.06 1.06L13.56 8 6.03.47a.75.75 0 00-1.06 0z"
+                    ></path>
                   </svg>
                 </button>
               </div>
               <div class="showOnScroll d-flex align-items-center ml-3">
                 <button id="playButton" type="button">
                   <svg role="img" height="24" width="24" viewBox="0 0 24 24">
-                    <path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z"></path>
+                    <path
+                      d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z"
+                    ></path>
                     <!-- !!ON PLAY <path d="M5.7 3a.7.7 0 00-.7.7v16.6a.7.7 0 00.7.7h2.6a.7.7 0 00.7-.7V3.7a.7.7 0 00-.7-.7H5.7zm10 0a.7.7 0 00-.7.7v16.6a.7.7 0 00.7.7h2.6a.7.7 0 00.7-.7V3.7a.7.7 0 00-.7-.7h-2.6z"></path> -->
                   </svg>
                 </button>
@@ -64,23 +89,42 @@
                   aria-expanded="false"
                   style="border-radius: 1.5rem"
                 >
-                <img src="https://e-cdns-images.dzcdn.net/images/artist/0b17b99897d17ceb7027ed57cdbb7044/120x120-000000-80-0-0.jpg" style="border-radius: 50%; width: 28px; height: 28px;">
+                  <img
+                    src="https://e-cdns-images.dzcdn.net/images/artist/0b17b99897d17ceb7027ed57cdbb7044/120x120-000000-80-0-0.jpg"
+                    style="border-radius: 50%; width: 28px; height: 28px"
+                  />
                   <span class="d-flex align-items-center">
-                    <span class="d-none d-lg-inline mx-2" style="min-width: 60px;">username</span>
-                    <svg class="d-none d-lg-inline" fill="#fff" role="img" width="16" height="16" viewBox="0 0 16 16" style="margin-inline-end: 6px">
+                    <span
+                      class="d-none d-lg-inline mx-2"
+                      style="min-width: 60px"
+                      >username</span
+                    >
+                    <svg
+                      class="d-none d-lg-inline"
+                      fill="#fff"
+                      role="img"
+                      width="16"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      style="margin-inline-end: 6px"
+                    >
                       <path d="M14 6l-6 6-6-6h12z"></path>
                     </svg>
                   </span>
                 </button>
-                <div class="dropdown-menu dropdown-menu-right">
-                  <a class="dropdown-item d-flex" type="button">Account <i class="bi bi-box-arrow-up-right ml-auto"></i></a>
+                <div class="dropdown-menu dropdown-menu-right mt-1">
+                  <a class="dropdown-item d-flex" type="button"
+                    >Account <i class="bi bi-box-arrow-up-right ml-auto"></i
+                  ></a>
                   <a class="dropdown-item mt-1" type="button">Profile</a>
-                  <a class="dropdown-item mt-1 pb-1" type="button" style="border-bottom: solid 0.5px rgb(59, 55, 55);">
+                  <a
+                    class="dropdown-item mt-1 pb-1"
+                    type="button"
+                    style="border-bottom: solid 0.5px rgb(59, 55, 55)"
+                  >
                     Settings
                   </a>
-                  <a class="dropdown-item my-1" type="button">
-                    Log out
-                  </a>
+                  <a class="dropdown-item my-1" type="button"> Log out </a>
                 </div>
               </div>
             </div>
@@ -93,106 +137,178 @@
             <!-- BACKGROUND COLOR SHOULD SYNC WITH THE IMAGE COLOR -->
             <div class="row pt-5 pb-4">
               <div class="col-md-4 col-lg-3 align-self-end">
-                <img id="albumCover"
+                <img
+                  id="albumCover"
                   src=""
                   class="w-100"
                   alt="img placeholder"
                 />
               </div>
               <div class="col align-self-end">
-                <h2 style="font-size: 1vw; margin: 0; font-weight: 700" class="d-none d-lg-block"></h2>
-                <h1 id="albumTitle" style="font-size: 4.5vw; font-weight: 700" class="mt-3">Album Title</h1>
+                <h2
+                  style="font-size: 0.9vw; margin: 0; font-weight: 400"
+                  class="d-none d-lg-block"
+                ></h2>
+                <h1
+                  id="albumTitle"
+                  style="font-size: 4.5vw; font-weight: 900"
+                  class="mt-3"
+                >
+                  Album Title
+                </h1>
                 <div class="d-flex flex-wrap align-items-center">
                   <img
                     id="artistPicture"
                     src=""
                     alt="artist placeholder"
-                    style="width: 24px; height: 24px; border-radius: 50%;"
+                    style="width: 24px; height: 24px; border-radius: 50%"
                   />
                   <a href="" id="artistName">Artist Name</a>
                   <span>•</span>
-                  <span id="year" >Year</span>
+                  <span id="year">Year</span>
                   <span class="d-none d-lg-block">•</span>
-                  <span id="numOfSongs" class="d-none d-lg-block">X Songs,</span>
-                  <span id="durationOfTrackList" class="d-none d-lg-block">a mins b secs</span>
+                  <span id="numOfSongs" class="d-none d-lg-block"
+                    >X Songs,</span
+                  >
+                  <span id="durationOfTrackList" class="d-none d-lg-block"
+                    >a mins b secs</span
+                  >
                 </div>
               </div>
             </div>
           </div>
         </section>
-        <section id="songsWrapper" class="navbar-fix">
-          <div id="mediaButtonsWrapper" class="container-fluid">
-            <button class="btn">
-              <!-- MUSIC STOPPED -->
+        <section id="songsWrapper">
+          <div
+            id="mediaButtonsWrapper"
+            class="container-fluid d-flex align-items-center"
+          >
+            <button class="btn-transparent">
+              <span
+                class="play-button d-flex align-items-center justify-content-center"
+              >
+                <svg
+                  role="img"
+                  height="28"
+                  width="28"
+                  aria-hidden="true"
+                  viewBox="0 0 24 24"
+                  data-encore-id="icon"
+                  class="Svg-sc-ytk21e-0 uPxdw"
+                >
+                  <path
+                    d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z"
+                  ></path>
+                </svg>
+              </span>
+            </button>
+            <button class="btn-transparent" style="margin-right: 32px">
               <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                fill="#1fdf64"
-                class="bi bi-play-circle-fill"
-                viewBox="0 0 16 16"
+                role="img"
+                height="32"
+                width="32"
+                aria-hidden="true"
+                viewBox="0 0 24 24"
+                data-encore-id="icon"
+                class="Svg-sc-ytk21e-0 uPxdw"
               >
                 <path
-                  d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814l-3.5-2.5z"
-                />
-              </svg>
-              <!-- MUSIC PLAYING -->
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                fill="#1fdf64"
-                class="bi bi-pause-circle-fill"
-                viewBox="0 0 16 16"
-              >
-                <path
-                  d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM6.25 5C5.56 5 5 5.56 5 6.25v3.5a1.25 1.25 0 1 0 2.5 0v-3.5C7.5 5.56 6.94 5 6.25 5zm3.5 0c-.69 0-1.25.56-1.25 1.25v3.5a1.25 1.25 0 1 0 2.5 0v-3.5C11 5.56 10.44 5 9.75 5z"
-                />
+                  d="M5.21 1.57a6.757 6.757 0 016.708 1.545.124.124 0 00.165 0 6.741 6.741 0 015.715-1.78l.004.001a6.802 6.802 0 015.571 5.376v.003a6.689 6.689 0 01-1.49 5.655l-7.954 9.48a2.518 2.518 0 01-3.857 0L2.12 12.37A6.683 6.683 0 01.627 6.714 6.757 6.757 0 015.21 1.57zm3.12 1.803a4.757 4.757 0 00-5.74 3.725l-.001.002a4.684 4.684 0 001.049 3.969l.009.01 7.958 9.485a.518.518 0 00.79 0l7.968-9.495a4.688 4.688 0 001.049-3.965 4.803 4.803 0 00-3.931-3.794 4.74 4.74 0 00-4.023 1.256l-.008.008a2.123 2.123 0 01-2.9 0l-.007-.007a4.757 4.757 0 00-2.214-1.194z"
+                ></path>
               </svg>
             </button>
-            <button class="btn">
+            <button class="btn-transparent">
               <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                fill="rgb(183, 183, 183)"
-                class="bi bi-heart"
-                viewBox="0 0 16 16"
+                role="img"
+                height="32"
+                width="32"
+                aria-hidden="true"
+                viewBox="0 0 24 24"
+                data-encore-id="icon"
+                class="Svg-sc-ytk21e-0 uPxdw"
               >
                 <path
-                  d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"
-                />
-              </svg>
-            </button>
-            <button class="btn">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                fill="rgb(183, 183, 183)"
-                class="bi bi-three-dots"
-                viewBox="0 0 16 16"
-              >
-                <path
-                  d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
-                />
+                  d="M4.5 13.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3zm15 0a1.5 1.5 0 100-3 1.5 1.5 0 000 3zm-7.5 0a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"
+                ></path>
               </svg>
             </button>
           </div>
           <div id="musicTableWrapper" class="container-fluid">
             <table class="table table-hover table-dark table-borderless">
-            <thead class="sticky-top">
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">Title</th>
-                <th scope="col" class="text-right"><i class="bi bi-clock"></i></th>
-              </tr>
-            </thead>
-            <tbody></tbody>
+              <thead class="sticky-top">
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Title</th>
+                  <th scope="col" class="text-right">
+                    <i class="bi bi-clock"></i>
+                  </th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </section>
+        <section
+          id="footer"
+          class="py-3 px-4"
+          style="background-color: #181818"
+        >
+          <div>
+            <div class="row m-3 flex-column flex-md-row">
+              <div class="col-9 p-0 row flex-column flex-md-row">
+                <div class="d-flex p-0 mr-1 flex-column col">
+                  <span>Company</span>
+                  <a href="#">About</a>
+                  <a href="#">Jobs</a>
+                  <a href="#">For the Record</a>
+                </div>
+                <div class="d-flex p-0 mr-1 mt-3 mt-md-0 flex-column col">
+                  <span>Communities</span>
+                  <a href="#">For Artists</a>
+                  <a href="#">Developers</a>
+                  <a href="#">Advertising</a>
+                  <a href="#">Investors</a>
+                  <a href="#">Vendors</a>
+                </div>
+                <div class="d-flex p-0 mr-1 mt-3 mt-md-0 flex-column col">
+                  <span>Useful Links</span>
+                  <a href="#">Support</a>
+                  <a href="#">Free Mobile App</a>
+                </div>
+              </div>
+              <div
+                class="d-flex col-3 p-0 ml-md-auto"
+                style="margin-inline-start: -15px"
+              >
+                <div
+                  class="socialLinks ml-auto mt-3 mt-md-0"
+                  style="min-width: 120px"
+                >
+                  <a href="#" type="button" class="btn"
+                    ><img src="./assets/instagram.svg"
+                  /></a>
+                  <a href="#" type="button" class="btn ml-md-2">
+                    <img src="./assets/twitter.svg" />
+                  </a>
+                  <a href="#" type="button" class="btn ml-md-2">
+                    <img src="./assets/facebook.svg" />
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="d-flex footerLegal">
+            <a href="#" class="d-none d-md-inline mr-3">Legal</a>
+            <a href="#" class="d-none d-md-inline mr-3">Privacy Center</a>
+            <a href="#" class="d-none d-md-inline mr-3">Privacy Policy</a>
+            <a href="#" class="d-none d-md-inline mr-3">Cookies</a>
+            <a href="#" class="d-none d-md-inline mr-3">About Ads</a>
+            <span class="mx-auto mx-md-0 ml-md-auto">© 2023 Spotify AB</span>
           </div>
         </section>
       </div>
     </div>
+
     <!-- Own Script -->
     <script src="./js/album.js"></script>
     <!-- Bootstrap 4.6 JS -->

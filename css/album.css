@@ -147,6 +147,8 @@ body {
   opacity: 0;
 }
 
+/* ------------------------------ FOOTER RELATED PART --------------------------------- */
+
 .socialLinks a {
   display: inline-flex;
   align-items: center;
@@ -184,6 +186,7 @@ body {
   border-top: solid 0.3px rgba(245, 245, 245, 0.226);
   padding-top: 3rem;
   margin-top: 3rem;
+  margin-bottom: 1.5rem;
 }
 
 .footerLegal a {

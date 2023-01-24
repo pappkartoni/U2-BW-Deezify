@@ -70,7 +70,7 @@ const secToSec = (duration) => {
       return "0" + sec;
     } else return sec;
   } else {
-    return;
+    return "00";
   }
 };
 

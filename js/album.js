@@ -51,7 +51,9 @@ window.onload = async () => {
       secToMin(duration) + " min " + secToSec(duration) + " sec";
 
     displayTrackList(tracksArray);
-  } catch (error) {}
+  } catch (error) {
+    console.error(error.message);
+  }
 };
 
 const secToMin = (duration) => {
@@ -102,11 +104,28 @@ const topButtonWrapper = document.querySelector("#topButtonWrapper"),
   showOnScroll = document.querySelector("#topButtonWrapper .showOnScroll"),
   titleShowsUpOnScroll = document.querySelector("#topButtonWrapper h5"),
   prevButton = document.querySelector("#prevButton"),
-  nextButton = document.querySelector("#nextButton");
+  nextButton = document.querySelector("#nextButton"),
+  dropdownButton = document.querySelector(".dropdownButton");
 
 // we'll see whether it works or not
 prevButton.addEventListener("click", window.history.back);
 nextButton.addEventListener("click", window.history.forward);
+
+// add it to the button onclick
+const changeDropDownIconWhenShowing = () => {
+  let isDropdownShowing = dropdownButton.getAttribute("aria-expanded");
+  if (isDropdownShowing === "false") {
+    document.querySelector(
+      ".dropdownButton svg"
+    ).innerHTML = `<path d="M14 10L8 4l-6 6h12z"></path>`;
+  } else {
+    document.querySelector(
+      ".dropdownButton svg"
+    ).innerHTML = `<path d="M14 6l-6 6-6-6h12z"></path>`;
+  }
+};
+// d="M14 10L8 4l-6 6h12z"
+// d="M14 10L8 4l-6 6h12z"
 
 const changeBGColorOnScroll = () => {
   var scroll = window.scrollY;

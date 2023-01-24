@@ -94,3 +94,28 @@ h5 {
     width: 24px;
     border-radius: 500px;
 }
+#artpick .col-3 {
+    min-width: 80px;
+}
+
+footer {
+    background-color: #181818;
+    border-top: 1px solid #282828;
+    margin: 0;
+    padding: 0 16px;
+    height: 91px;
+    min-width: 620px;
+}
+
+footer h6 {
+    font-size: 14px;
+    margin-bottom: 0;
+}
+
+footer span {
+    font-size: 11px;
+}
+
+footer path {
+    fill: #a7a7a7;
+}

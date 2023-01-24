@@ -230,6 +230,9 @@ footer .btn-transparent:hover > svg > path {
 .w-40 {
     width: 40%;
 }
+.w-30 {
+    width: 30%;
+}
 
 .volume {
     flex: 0 1 125px;

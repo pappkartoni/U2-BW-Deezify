@@ -12,31 +12,40 @@ header > div > div {
   padding: 0px 0px 12px;
 }
 
+#loginWrapper {
+  max-width: 450px;
+  width: 100%;
+  margin-inline: 15px;
+}
+
 #loginWrapper button {
   cursor: default;
   color: white;
   border-radius: 500px;
   font-weight: 500;
   padding: 13px 31px;
-  position: relative;
   border: 1px solid #878787;
 }
 
-#loginWrapper button:hover {
-  outline: 0.5px solid #ffffff;
+#loginWrapper > div > button:hover {
+  box-shadow: inset 0 0 0 1px #fff;
 }
 
-#loginWrapper button:nth-of-type(1) {
+#loginWrapper > div > button:nth-of-type(1) {
   background-color: #1877f2;
 }
 
-#loginWrapper button:nth-of-type(2) {
+#loginWrapper > div > button:nth-of-type(2) {
   background-color: #191919;
 }
 
-#loginWrapper button:nth-of-type(3) {
+#loginWrapper > div > button:nth-of-type(3) {
   background-color: #ffffff;
   color: #878787;
+}
+
+#loginWrapper > div > button:nth-of-type(3):hover {
+  box-shadow: inset 0 0 0 1px #000;
 }
 
 #loginWrapper > div > div hr {
@@ -55,14 +64,38 @@ header > div > div {
   font-size: 12px;
 }
 
-#loginWrapper #login {
+#inputWrapper #login {
   background-color: #169b45;
+  max-width: 150px;
   color: #191919;
   transition: all 100ms;
 }
 
-#loginWrapper #login:hover {
+#inputWrapper #login:hover {
   background-color: #1fdf64;
   transform: scale(1.05);
   outline: none;
+}
+
+#inputWrapper button:nth-last-of-type(1) {
+  background-color: #191919;
+}
+
+#inputWrapper button:nth-last-of-type(1):hover {
+  box-shadow: inset 0 0 0 1px #fff;
+}
+
+#inputWrapper input {
+  border-radius: 0.3rem;
+  background-color: transparent;
+  color: #fff;
+  padding: 14px;
+}
+
+#inputWrapper input:hover {
+  box-shadow: inset 0 0 0 1px #fff;
+}
+
+#inputWrapper input:focus {
+  box-shadow: inset 0 0 0 3px #fff;
 }

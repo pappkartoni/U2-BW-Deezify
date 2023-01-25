@@ -113,12 +113,21 @@ const renderData = async function (container) {
   // });
 };
 
+const renderNavbarList = async () => {
+  const navbarUl = document.querySelector(".scroll-container ul");
+  for (let i = 0; i < 10; i++) {
+    const data = await fetchData(searchURL, "artist/", artistIds[i]);
+    navbarUl.innerHTML += `<li><a href="./artist.html?id=${data.id}">${data.name}</a></li>`;
+  }
+};
+
 window.onload = () => {
   renderGoodMorningSongs();
   const recentlyPlayedRowNode = document.querySelector("main .recently-played");
   const showsToTryRowNode = document.querySelector("main .shows-to-try");
   renderData(recentlyPlayedRowNode);
   renderData(showsToTryRowNode);
+  renderNavbarList();
 };
 
 //render data by changing html by appending child with innerHtml. Call func that rendersData
@@ -139,15 +148,3 @@ setUsername(
 );
 
 // --------------------------------- Navbar's fetched items ---------------------------------
-
-const renderNavbarList = async () => {
-  const navbarUl = document.querySelector(".scroll-container ul");
-  for (let i = 0; i < 10; i++) {
-    const data = await fetchData(searchURL, "artist/", artistIds[i]);
-    navbarUl.innerHTML += `<li><a href="./artist.html?id=${data.id}">${data.name}</a></li>`;
-  }
-};
-
-window.onload = () => {
-  renderNavbarList();
-};

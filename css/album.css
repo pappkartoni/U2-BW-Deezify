@@ -3,9 +3,10 @@ body {
   user-select: none;
 }
 
-#albumWrapper {
+main #albumWrapper {
   color: #fff;
   padding-inline: 0;
+  margin-bottom: 0;
 }
 
 #albumInfoWrapper img {
@@ -88,6 +89,16 @@ body {
 #musicTableWrapper thead {
   top: 77px;
   background-color: #121212;
+}
+
+#musicWrapper thead tr {
+  background: linear-gradient(
+    to top,
+    red,
+    red 1px,
+    #ffffff00 1px,
+    #ffffff00 100%
+  );
 }
 
 #musicTableWrapper table {

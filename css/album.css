@@ -3,9 +3,10 @@ body {
   user-select: none;
 }
 
-#albumWrapper {
+main #albumWrapper {
   color: #fff;
   padding-inline: 0;
+  margin-bottom: 0;
 }
 
 #albumInfoWrapper img {
@@ -90,6 +91,16 @@ body {
   background-color: #121212;
 }
 
+#musicTableWrapper table thead tr {
+  background: linear-gradient(
+    to top,
+    #b7b7b750,
+    #b7b7b750 1px,
+    #ffffff00 1px,
+    #ffffff00 100%
+  );
+}
+
 #musicTableWrapper table {
   background-color: transparent;
 }
@@ -141,7 +152,7 @@ body {
 
 /*  FOOTER RELATED PART  */
 
-.socialLinks a {
+#footer .socialLinks a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -151,9 +162,9 @@ body {
   border-radius: 50%;
 }
 
-.socialLinks a:hover {
+#footer .socialLinks a:hover {
   background-color: #727272;
-  cursor: default !important;
+  cursor: default;
 }
 
 #footer {
@@ -170,8 +181,9 @@ body {
   color: #a6a6a6;
 }
 
-#footer a {
+#footer a:not(.socialLinks a) {
   color: #a6a6a6;
+  width: max-content;
 }
 
 #footer a:hover {
@@ -187,4 +199,8 @@ body {
 
 .footerLegal a {
   text-decoration: none;
+}
+
+#footer .footerLegal a:hover {
+  color: #fff;
 }

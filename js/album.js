@@ -27,7 +27,6 @@ const setUsername = (username = "username") => {
   usernameOnPage.innerText = username;
 };
 
-
 window.onload = async () => {
   setUsername(
     localStorage
@@ -159,7 +158,6 @@ const header = document.querySelector("header"),
 prevButton.addEventListener("click", window.history.back);
 nextButton.addEventListener("click", window.history.forward);
 
-// add it to the button onclick
 const changeDropDownIconWhenShowing = () => {
   let isDropdownShowing = dropdownButton.getAttribute("aria-expanded");
   if (isDropdownShowing === "false") {

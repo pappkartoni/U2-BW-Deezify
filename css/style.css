@@ -60,6 +60,12 @@ header .btn-group:nth-of-type(1) button {
   height: 32px;
   width: 32px;
   cursor: pointer;
+  opacity: 50%;
+  transition: all 150ms;
+}
+
+header .btn-group:nth-of-type(1) button:hover {
+  opacity: 100%;
 }
 
 header .btn-group:nth-of-type(1) button i {

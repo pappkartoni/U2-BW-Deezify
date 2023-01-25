@@ -128,11 +128,11 @@ const displayTrackList = (tracksArray) => {
                   <i class="bi bi-play-fill position-absolute"></i>
                 </td>
                 <td>${song.title_short}
-                    <span>${
+                    ${
                       song.explicit_lyrics
                         ? `<span class="badge badge-light ml-1 d-none d-lg-inline">E</span>`
                         : ""
-                    }</span>
+                    }
                 </br>
                 <span class="text-muted">${song.artist.name}</span>
                 </td>

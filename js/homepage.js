@@ -6,59 +6,62 @@ const options = {
   },
 };
 
-const url = "https://deezerdevs-deezer.p.rapidapi.com/search?q=";
-const parametres = new URLSearchParams(location.search);
-let id = parametres.get("id");
-id = "pink%20floyd";
+const searchURL = "https://striveschool-api.herokuapp.com/api/deezer/";
+// const parametres = new URLSearchParams(location.search);
+// let id = parametres.get("id");
+// id = "pink%20floyd";
 
-const fetchData = () => {
-  fetch(`${url}${id}`, options) //we could use + instead of `${}`, bc they're both strings
-    .then((response) => response.json())
-    .then((rawData) => renderData(rawData))
-    .catch((err) => console.error(err));
+const artistIds = [1, 2, 3, 4, 5, 6];
+
+const fetchData = async (url, apiCall, query) => {
+  //we could use + instead of `${}`, bc they're both strings
+  const res = await fetch(`${url}${apiCall}${query}`, options);
+  const data = await res.json();
+  return data;
+  // .then((response) => response.json())
+  // .then((rawData) => renderGoodMorningSongs(rawData))
+  // .catch((err) => console.error(err));
 };
-fetchData();
 
-const renderData = async function (rawData) {
-  console.log(rawData);
-  const songs = rawData.data;
-  console.log(songs);
+const renderGoodMorningSongs = async function () {
   const goodMorningRowNode = document.querySelector(
     ".good-morning-container .row"
   );
   for (let i = 0; i < 6; i++) {
+    const data = await fetchData(searchURL, "artist/", artistIds[i]);
     goodMorningRowNode.innerHTML += `<div class="col-lg-4 col-md-6 col-sm-6">
       <div class="card mb-3"  >
         <div class="row no-gutters">
           <div class="col-md-3">
-            <img src="${songs[i].album.cover_medium}" alt="...">
+            <img src="${data.picture_medium}" alt="...">
           </div>
           <div class="col-md-8 ">
             <div class="card-body d-flex">
-              <h5 class="card-title">${songs[i].album.title}</h5>
+              <h5 class="card-title">${data.name}</h5>
             </div>
           </div>
         </div>
       </div>
     </div>`;
+    console.log(data);
   }
-  const recentlyPlayedRowNode = document.querySelector(
-    ".main-container .recently-played"
-  );
+};
+
+const recentlyPlayedRowNode = document.querySelector(
+  ".main-container .recently-played"
+);
+
+const showsToTryRowNode = document.querySelector(
+  ".main-container .shows-to-try"
+);
+
+const renderData = function (rawData, container) {
+  console.log(rawData);
+  const songs = rawData.data;
+  console.log(songs);
+
   for (let i = 0; i < 8; i++) {
-    recentlyPlayedRowNode.innerHTML += `<div class="col">
-    <div class="card">
-    <img src="${songs[i].album.cover_medium}" class="card-img-top" alt="...">
-    <div class="card-body">
-      <p class="card-text">${songs[i].album.title}</p>
-    </div>
-  </div>`;
-  }
-  const showsToTryRowNode = document.querySelector(
-    ".main-container .shows-to-try"
-  );
-  for (let i = 0; i < 8; i++) {
-    showsToTryRowNode.innerHTML += `<div class="col">
+    container.innerHTML += `<div class="col">
     <div class="card">
     <img src="${songs[i].album.cover_medium}" class="card-img-top" alt="...">
     <div class="card-body">
@@ -85,6 +88,9 @@ const renderData = async function (rawData) {
   // });
   console.log(rawData.data);
 };
-renderData();
+
+window.onload = () => {
+  renderGoodMorningSongs();
+};
 
 //render data by changing html by appending child with innerHtml. Call func that rendersData

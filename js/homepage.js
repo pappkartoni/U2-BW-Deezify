@@ -11,7 +11,7 @@ const searchURL = "https://striveschool-api.herokuapp.com/api/deezer/";
 // let id = parametres.get("id");
 // id = "pink%20floyd";
 
-const artistIds = [1, 2, 3, 4, 5, 6];
+const artistIds = [1, 2, 3, 4, 5, 6]; // [{id: 123, type: "album"}, {}]
 const albumIds = [
   382588837, 152555282, 282033892, 382588837, 152555282, 282033892, 382588837,
   152555282,
@@ -35,12 +35,12 @@ const renderGoodMorningSongs = async function () {
     const data = await fetchData(searchURL, "artist/", artistIds[i]);
     goodMorningRowNode.innerHTML += `<div class="col-lg-4 col-md-6 col-sm-6">
       <div class="card mb-3"  >
-        <div class="row no-gutters">
-          <div class="col-md-3">
+        <div class="row no-gutters h-100">
+          <div class="col-md-2 h-100">
             <img src="${data.picture_medium}" alt="...">
           </div>
-          <div class="col-md-8 ">
-            <div class="card-body d-flex">
+          <div class="col-md-10 h-100">
+            <div class="card-body d-flex h-100 align-items-center">
               <h5 class="card-title">${data.name}</h5>
             </div>
           </div>

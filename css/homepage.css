@@ -7,8 +7,6 @@ body {
     color:#1b1b1b;
 }
 
-
-
 h2 {
     font-weight:700;
     margin-bottom: 2%;
@@ -79,12 +77,12 @@ h3 {
 .recently-played .card {
     background-color: #2d2d2d;
     color: #fff;
-    padding: 15px;
+        padding: 15px;
 }
 .recently-played .card .card-body {
     padding: 0;
     min-height: 62px;
-}
+} 
 
 .recently-played img {
     margin-bottom: 16px;
@@ -106,7 +104,7 @@ h3 {
 .shows-to-try .card {
     background-color: #2d2d2d;
     color: #fff;
-    max-width: fit-content;
+    
 }
 
 .shows-to-try img {

@@ -24,7 +24,7 @@ h2 {
   margin-bottom: 16px;
 }
 
-section {
+section:not(#alertContainer) {
   margin-bottom: 16px;
 }
 
@@ -244,10 +244,10 @@ header.changedBG {
 .btn-clear:hover {
   cursor: default;
 }
-main {
+main:not(#loginMain) {
   margin-bottom: 6rem;
 }
-main > .container-fluid {
+main > .container-fluid:not(#loginHeader) {
   padding: 24px 32px;
 }
 

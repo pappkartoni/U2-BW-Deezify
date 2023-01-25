@@ -19,3 +19,18 @@ const renderData = async function (data) {
 };
 
 //render data by changing html by appending child with innerHtml. Call func that rendersData
+
+// username function -> between line 23 and 36
+
+const usernameOnPage = document.querySelector(".dropdownButton > span > span");
+const setUsername = (username = "username") => {
+  usernameOnPage.innerText = username;
+};
+
+setUsername(
+  localStorage
+    .getItem("username")
+    .split(" ")
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ")
+);

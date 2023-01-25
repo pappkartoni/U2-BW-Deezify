@@ -27,6 +27,7 @@ const setUsername = (username = "username") => {
   usernameOnPage.innerText = username;
 };
 
+
 window.onload = async () => {
   setUsername(
     localStorage

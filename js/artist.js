@@ -128,7 +128,21 @@ const capitalize = (str) => {
     return str.charAt(0).toUpperCase() + str.slice(1)
 }
 
+// username function -> between line 131 and 145
+
+const usernameOnPage = document.querySelector(".dropdownButton > span > span");
+const setUsername = (username = "username") => {
+  usernameOnPage.innerText = username;
+};
+
 window.onload = () => {
+    setUsername(
+        localStorage
+        .getItem("username")
+        .split(" ")
+        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(" ")
+    );
     setVolume()
     const slider = document.querySelector(".slider")
     slider.addEventListener("input", setVolume)

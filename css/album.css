@@ -152,7 +152,7 @@ main #albumWrapper {
 
 /*  FOOTER RELATED PART  */
 
-.socialLinks a {
+#footer .socialLinks a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -162,9 +162,9 @@ main #albumWrapper {
   border-radius: 50%;
 }
 
-.socialLinks a:hover {
+#footer .socialLinks a:hover {
   background-color: #727272;
-  cursor: default !important;
+  cursor: default;
 }
 
 #footer {
@@ -181,8 +181,9 @@ main #albumWrapper {
   color: #a6a6a6;
 }
 
-#footer a {
+#footer a:not(.socialLinks a) {
   color: #a6a6a6;
+  width: max-content;
 }
 
 #footer a:hover {

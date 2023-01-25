@@ -91,11 +91,11 @@ main #albumWrapper {
   background-color: #121212;
 }
 
-#musicWrapper thead tr {
+#musicTableWrapper table thead tr {
   background: linear-gradient(
     to top,
-    red,
-    red 1px,
+    #b7b7b750,
+    #b7b7b750 1px,
     #ffffff00 1px,
     #ffffff00 100%
   );
@@ -199,4 +199,8 @@ main #albumWrapper {
 
 .footerLegal a {
   text-decoration: none;
+}
+
+#footer .footerLegal a:hover {
+  color: #fff;
 }

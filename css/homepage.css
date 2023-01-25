@@ -39,6 +39,8 @@ h3 {
     margin-left: 241px;
 }
 
+
+
 .good-morning-container .card { 
     width: 50vh;
     background-color: #525252;
@@ -97,3 +99,7 @@ h3 {
     background-color: #525252;
     transition: 0.7s;
 }
+
+.card {
+    width: 200px;
+} 

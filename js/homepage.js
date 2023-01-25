@@ -58,7 +58,8 @@ const renderData = async function (container) {
     <div class="card">
     <img src="${data.cover_medium}" class="card-img-top" alt="...">
     <div class="card-body">
-      <p class="card-text">${data.title}</p>
+      <h5 class="card-title text-truncate">${data.title}</h5>
+      <h6 class="card-subtitle">${data.artist.name}</h6>
     </div>
   </div>`;
   }

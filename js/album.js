@@ -11,7 +11,9 @@ const url = "https://striveschool-api.herokuapp.com/api/deezer/album",
   musicTableBody = document.querySelector("#musicTableWrapper tbody"),
   browserTabTitle = document.querySelector("title"),
   albumOrSomethingElse = document.querySelector("#albumInfoWrapper h2"),
-  usernameOnPage = document.querySelector(".dropdownButton > span > span");
+  usernameOnPage = document.querySelector(".dropdownButton > span > span"),
+  releaseDate = document.querySelector("#songsWrapper table ~ span");
+
 options = {
   method: "GET",
   headers: {
@@ -45,6 +47,7 @@ window.onload = async () => {
         link,
         release_date,
         record_type,
+        explicit_lyrics,
       } = albumData,
       { name, picture } = artist,
       tracksArray = tracks.data;
@@ -61,11 +64,35 @@ window.onload = async () => {
     numOfSongsOnPage.innerText = `${tracksArray.length} songs`;
     durationOfTrackList.innerText =
       secToMin(duration) + " min " + secToSec(duration) + " sec";
+    releaseDate.innerText = dateFixer(release_date);
 
     displayTrackList(tracksArray);
   } catch (error) {
     console.error(error.message);
   }
+};
+
+const dateFixer = (date) => {
+  const monthsArray = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+  const year = date.substring(0, 4),
+    monthIndex = parseInt(date.substring(5, 7)) - 1,
+    month = monthsArray[monthIndex],
+    day = date.substring(8, 10);
+
+  return `${month} ${day}, ${year}`;
 };
 
 const secToMin = (duration) => {

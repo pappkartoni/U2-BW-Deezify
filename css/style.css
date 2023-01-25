@@ -104,6 +104,14 @@ header.changedBG {
 
 .dropdownButton {
   padding: 0 0;
+  overflow: hidden;
+}
+
+.dropdownButton > span > span {
+  max-width: 100px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .showOnScroll {

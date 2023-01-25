@@ -10,7 +10,8 @@ const url = "https://striveschool-api.herokuapp.com/api/deezer/album",
   durationOfTrackList = document.querySelector("#durationOfTrackList"),
   musicTableBody = document.querySelector("#musicTableWrapper tbody"),
   browserTabTitle = document.querySelector("title"),
-  albumOrSomethingElse = document.querySelector("#albumInfoWrapper h2");
+  albumOrSomethingElse = document.querySelector("#albumInfoWrapper h2"),
+  usernameOnPage = document.querySelector(".dropdownButton > span > span");
 options = {
   method: "GET",
   headers: {
@@ -19,7 +20,15 @@ options = {
   },
 };
 
+const setUsername = (username = "username") => {
+  usernameOnPage.innerText = username;
+};
+
 window.onload = async () => {
+  setUsername(
+    localStorage.getItem("username").charAt(0).toUpperCase() +
+      localStorage.getItem("username").slice(1)
+  );
   window.addEventListener("scroll", changeBGColorOnScroll);
   try {
     const response = await fetch(`${url}/${albumID}`, options),

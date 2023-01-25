@@ -12,6 +12,10 @@ const searchURL = "https://striveschool-api.herokuapp.com/api/deezer/";
 // id = "pink%20floyd";
 
 const artistIds = [1, 2, 3, 4, 5, 6];
+const albumIds = [
+  382588837, 152555282, 282033892, 382588837, 152555282, 282033892, 382588837,
+  152555282,
+];
 
 const fetchData = async (url, apiCall, query) => {
   //we could use + instead of `${}`, bc they're both strings
@@ -47,25 +51,14 @@ const renderGoodMorningSongs = async function () {
   }
 };
 
-const recentlyPlayedRowNode = document.querySelector(
-  ".main-container .recently-played"
-);
-
-const showsToTryRowNode = document.querySelector(
-  ".main-container .shows-to-try"
-);
-
-const renderData = function (rawData, container) {
-  console.log(rawData);
-  const songs = rawData.data;
-  console.log(songs);
-
+const renderData = async function (container) {
   for (let i = 0; i < 8; i++) {
+    const data = await fetchData(searchURL, "album/", albumIds[i]);
     container.innerHTML += `<div class="col">
     <div class="card">
-    <img src="${songs[i].album.cover_medium}" class="card-img-top" alt="...">
+    <img src="${data.cover_medium}" class="card-img-top" alt="...">
     <div class="card-body">
-      <p class="card-text">${songs[i].album.title}</p>
+      <p class="card-text">${data.title}</p>
     </div>
   </div>`;
   }
@@ -91,6 +84,15 @@ const renderData = function (rawData, container) {
 
 window.onload = () => {
   renderGoodMorningSongs();
+  const recentlyPlayedRowNode = document.querySelector(
+    ".main-container .recently-played"
+  );
+
+  const showsToTryRowNode = document.querySelector(
+    ".main-container .shows-to-try"
+  );
+  renderData(recentlyPlayedRowNode);
+  renderData(showsToTryRowNode);
 };
 
 //render data by changing html by appending child with innerHtml. Call func that rendersData

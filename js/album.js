@@ -48,7 +48,6 @@ window.onload = async () => {
         link,
         release_date,
         record_type,
-        explicit_lyrics,
         label,
       } = albumData,
       { name, picture } = artist,
@@ -128,9 +127,15 @@ const displayTrackList = (tracksArray) => {
                   <span>${i++}</span>
                   <i class="bi bi-play-fill position-absolute"></i>
                 </td>
-                <td>${song.title_short}</br><span class="text-muted">${
-        song.artist.name
-      }</span></td>
+                <td>${song.title_short}
+                    <span>${
+                      song.explicit_lyrics
+                        ? `<span class="badge badge-light ml-1 d-none d-lg-inline">E</span>`
+                        : ""
+                    }</span>
+                </br>
+                <span class="text-muted">${song.artist.name}</span>
+                </td>
                 <td class="text-right"><i class="bi bi-heart mr-5 d-none d-md-inline"></i>${secToMin(
                   song.duration
                 )}:${secToSec(song.duration)}</td>

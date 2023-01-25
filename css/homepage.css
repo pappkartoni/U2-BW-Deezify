@@ -7,15 +7,6 @@ body {
     color:#1b1b1b;
 }
 
-h2 {
-    font-weight:700;
-    margin-bottom: 2%;
-}
-
-h3 {
-    margin-bottom: 2%;
-}
-
 .navbar-fixed-left {
     position: fixed;
     width: 241px;
@@ -26,6 +17,17 @@ h3 {
     flex-direction: column;
     align-items: start;
 }
+.col a, .col-lg-4 a {
+    text-decoration: none;
+}
+
+h1 {
+    font-size: 2rem;
+    font-weight: 700;
+}
+main {
+    margin-top: 80px;
+}
 
 .bg-black {
     background-color: black;
@@ -35,64 +37,29 @@ h3 {
     margin-left: 241px;
 }
 
-
-
-.good-morning-container .card { 
-    width: 100%;
-    height: 80px;
-    background-color: #525252;
-    text-align: left;
-    position: relative;
-    /* border: 3px solid red; */
-    overflow: hidden;
-}
-/* .good-morning-container .card .row {
-    height: 100%;
-} */
-.good-morning-container .card:hover {
-    cursor: pointer;
-    background-color: #767676;
-    transition: 0.7s;
-}
-
-.good-morning-container .card-body {
-    justify-content: flex-start;
-    color: #fff;
-    padding-left: 12px;
-    position: inherit;
-    /* border: 3px solid yellow; */
-}
-.good-morning-container .card-title {
-    font-size: 1rem;
-    font-weight: 700;
-    line-height: 1rem;
-    padding: 0;
-    margin: 0;
-}
-
-.good-morning-container .card img {
+main .good-morning-container .card img {
     width: 80px;
 }
 
-.recently-played .card {
+main .container-fluid .card {
     background-color: #2d2d2d;
     color: #fff;
         padding: 15px;
 }
-.recently-played .card .card-body {
+main .container-fluid .card .card-body {
     padding: 0;
     min-height: 62px;
 } 
 
-.recently-played img {
+main .container-fluid img {
     margin-bottom: 16px;
 }
 
-.recently-played .card-title {
+main .container-fluid .card-title {
     font-size: 1rem;
     font-weight: 700;
 }
-.recently-played .card-subtitle {
+main .container-fluid .card-subtitle {
     font-size: 0.875rem;
     color: #a7a7a7;
     font-weight: 400;
@@ -101,20 +68,68 @@ h3 {
     flex: 0 0 12.5%;
     width: 12.5%;
 }
-.shows-to-try .card {
-    background-color: #2d2d2d;
-    color: #fff;
-    
+
+@media (max-width: 1200px)  {
+    .row-cols-8 .col {
+        flex: 0 0 16.6666%;
+        width: 16.6666%;
+    }
+}
+@media (max-width: 960px)  {
+    .row-cols-8 .col {
+        flex: 0 0 25%;
+        width: 25%;
+    }
+}
+@media (max-width: 720px)  {
+    .row-cols-8 .col {
+        flex: 0 0 33.33333%;
+        width: 33.33333%;
+    }
+}
+@media (max-width: 576px)  {
+    .row-cols-8 .col {
+        flex: 0 0 50%;
+        width: 50%;
+    }
 }
 
-.shows-to-try img {
-    align-self: center;
-    width: 80%;
-}
-
-.recently-played .card:hover,
+main .container-fluid .card:hover,
 .shows-to-try .card:hover {
     cursor: pointer;
     background-color: #525252;
     transition: 0.7s;
+}
+
+main .good-morning-container .card { 
+    width: 100%;
+    height: 80px;
+    background-color: #525252;
+    text-align: left;
+    position: relative;
+    padding: 0;
+    overflow: hidden;
+}
+/* main .good-morning-container .card .row {
+    height: 100%;
+} */
+main .good-morning-container .card:hover {
+    cursor: pointer;
+    background-color: #767676;
+    transition: 0.7s;
+}
+
+main .good-morning-container .card-body {
+    justify-content: flex-start;
+    color: #fff;
+    padding-left: 12px;
+    position: inherit;
+    /* border: 3px solid yellow; */
+}
+main .good-morning-container .card-title {
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1rem;
+    padding: 0;
+    margin: 0;
 }

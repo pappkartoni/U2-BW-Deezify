@@ -18,6 +18,19 @@ h6 {
   color: white;
 }
 
+h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+section {
+    margin-bottom: 16px;
+}
+
+section > .container-fluid {
+    margin-bottom: 24px;
+}
 .navbar-fixed-left {
   position: fixed;
   width: 241px;
@@ -226,7 +239,9 @@ header.changedBG {
 .btn-clear:hover {
     cursor: default;
 }
-
+main {
+    margin-bottom: 6rem;
+}
 main > .container-fluid {
     padding: 24px 32px;
 }

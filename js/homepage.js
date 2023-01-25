@@ -11,7 +11,7 @@ const searchURL = "https://striveschool-api.herokuapp.com/api/deezer/";
 // let id = parametres.get("id");
 // id = "pink%20floyd";
 
-const artistIds = [1, 2, 3, 4, 5, 6]; // [{id: 123, type: "album"}, {}]
+const artistIds = [1, 2, 3, 413, 5, 2857]; // [{id: 123, type: "album"}, {}]
 const albumIds = [
   382588837, 152555282, 282033892, 382588837, 152555282, 282033892, 382588837,
   152555282,
@@ -33,35 +33,59 @@ const renderGoodMorningSongs = async function () {
   );
   for (let i = 0; i < 6; i++) {
     const data = await fetchData(searchURL, "artist/", artistIds[i]);
-    goodMorningRowNode.innerHTML += `<div class="col-lg-4 col-md-6 col-sm-6">
-      <div class="card mb-3"  >
-        <div class="row no-gutters h-100">
-          <div class="col-md-2 h-100">
-            <img src="${data.picture_medium}" alt="...">
-          </div>
-          <div class="col-md-10 h-100">
-            <div class="card-body d-flex h-100 align-items-center">
-              <h5 class="card-title">${data.name}</h5>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>`;
-    console.log(data);
+/*     goodMorningRowNode.innerHTML += `<div class="col-lg-4 col-sm-6">
+                                        <a href="./artist.html?id=${data.id}">
+                                          <div class="card mb-3" href="google.com">
+                                            <div class="row no-gutters h-100">
+                                              <div class="col-md-2 h-100">
+                                                <div>
+                                                    <img src="${data.picture_medium}" alt="...">
+                                                        <button class="btn-transparent d-none"> </button>
+                                                    </div>
+                                              </div>
+                                              <div class="col-md-10 h-100">
+                                                <div class="card-body d-flex h-100 align-items-center">
+                                                  <h5 class="card-title">${data.name}</h5>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </a>
+                                      </div>`; */
+
+    goodMorningRowNode.innerHTML += `
+                                    <div class="col-lg-4 col-sm-6">
+                                      <a href="./artist.html?id=${data.id}">
+                                        <div class="d-flex align-items-center" style="height: 80px">
+                                          <div class="h-100">
+                                          <img class="h-100" src="${data.picture_medium}" alt="...">
+                                              <button class="btn-transparent d-none"> </button>
+                                          </div>
+                                          <h5>${data.name}</h5>
+                                        </div>
+                                      </a>
+                                    </div>
+    `
   }
 };
+
+const doStuff = (btn) => {
+  console.log(btn)
+}
 
 const renderData = async function (container) {
   for (let i = 0; i < 8; i++) {
     const data = await fetchData(searchURL, "album/", albumIds[i]);
     container.innerHTML += `<div class="col">
-    <div class="card">
-    <img src="${data.cover_medium}" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title text-truncate">${data.title}</h5>
-      <h6 class="card-subtitle">${data.artist.name}</h6>
-    </div>
-  </div>`;
+                              <a href="./album.html?id=${data.id}">
+                              <div class="card">
+                              <img src="${data.cover_medium}" class="card-img-top" alt="...">
+                              <div class="card-body">
+                                <h5 class="card-title text-truncate">${data.title}</h5>
+                                <h6 class="card-subtitle">${data.release_date.substring(0, 4)} • ${data.artist.name}</h6>
+                              </div>
+                            </a>
+                          </div>`;
   }
 
   // songs.forEach((song) => {
@@ -80,17 +104,16 @@ const renderData = async function (container) {
   //   </div>
   // </div>`;
   // });
-  console.log(rawData.data);
 };
 
 window.onload = () => {
   renderGoodMorningSongs();
   const recentlyPlayedRowNode = document.querySelector(
-    ".main-container .recently-played"
+    "main .recently-played"
   );
 
   const showsToTryRowNode = document.querySelector(
-    ".main-container .shows-to-try"
+    "main .shows-to-try"
   );
   renderData(recentlyPlayedRowNode);
   renderData(showsToTryRowNode);

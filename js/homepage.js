@@ -33,7 +33,7 @@ const renderGoodMorningSongs = async function () {
   );
   for (let i = 0; i < 6; i++) {
     const data = await fetchData(searchURL, "artist/", artistIds[i]);
-/*     goodMorningRowNode.innerHTML += `<div class="col-lg-4 col-sm-6">
+    /*     goodMorningRowNode.innerHTML += `<div class="col-lg-4 col-sm-6">
                                         <a href="./artist.html?id=${data.id}">
                                           <div class="card mb-3" href="google.com">
                                             <div class="row no-gutters h-100">
@@ -65,13 +65,13 @@ const renderGoodMorningSongs = async function () {
                                         </div>
                                       </a>
                                     </div>
-    `
+    `;
   }
 };
 
 const doStuff = (btn) => {
-  console.log(btn)
-}
+  console.log(btn);
+};
 
 const renderData = async function (container) {
   for (let i = 0; i < 8; i++) {
@@ -79,10 +79,17 @@ const renderData = async function (container) {
     container.innerHTML += `<div class="col">
                               <a href="./album.html?id=${data.id}">
                               <div class="card">
-                              <img src="${data.cover_medium}" class="card-img-top" alt="...">
+                              <img src="${
+                                data.cover_medium
+                              }" class="card-img-top" alt="...">
                               <div class="card-body">
-                                <h5 class="card-title text-truncate">${data.title}</h5>
-                                <h6 class="card-subtitle">${data.release_date.substring(0, 4)} • ${data.artist.name}</h6>
+                                <h5 class="card-title text-truncate">${
+                                  data.title
+                                }</h5>
+                                <h6 class="card-subtitle">${data.release_date.substring(
+                                  0,
+                                  4
+                                )} • ${data.artist.name}</h6>
                               </div>
                             </a>
                           </div>`;
@@ -108,13 +115,8 @@ const renderData = async function (container) {
 
 window.onload = () => {
   renderGoodMorningSongs();
-  const recentlyPlayedRowNode = document.querySelector(
-    "main .recently-played"
-  );
-
-  const showsToTryRowNode = document.querySelector(
-    "main .shows-to-try"
-  );
+  const recentlyPlayedRowNode = document.querySelector("main .recently-played");
+  const showsToTryRowNode = document.querySelector("main .shows-to-try");
   renderData(recentlyPlayedRowNode);
   renderData(showsToTryRowNode);
 };
@@ -135,3 +137,17 @@ setUsername(
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
     .join(" ")
 );
+
+// --------------------------------- Navbar's fetched items ---------------------------------
+
+const renderNavbarList = async () => {
+  const navbarUl = document.querySelector(".scroll-container ul");
+  for (let i = 0; i < 10; i++) {
+    const data = await fetchData(searchURL, "artist/", artistIds[i]);
+    navbarUl.innerHTML += `<li><a href="./artist.html?id=${data.id}">${data.name}</a></li>`;
+  }
+};
+
+window.onload = () => {
+  renderNavbarList();
+};

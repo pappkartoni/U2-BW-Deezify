@@ -133,3 +133,11 @@ main .good-morning-container .card-title {
     padding: 0;
     margin: 0;
 }
+
+.scroll-container ul {
+    list-style-type:none;
+}
+.scroll-container a {
+    color:#a7a7a7;
+    text-decoration: none;
+}

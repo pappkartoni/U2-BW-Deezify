@@ -8,7 +8,8 @@ const options = {
 
 const url = "https://deezerdevs-deezer.p.rapidapi.com/search?q=";
 const parametres = new URLSearchParams(location.search);
-const id = parametres.get("id");
+let id = parametres.get("id");
+id = "pink%20floyd";
 
 const fetchData = () => {
   fetch(`${url}${id}`, options) //we could use + instead of `${}`, bc they're both strings
@@ -20,7 +21,6 @@ fetchData();
 
 const renderData = async function (rawData) {
   console.log(rawData);
-
   const songs = rawData.data;
   console.log(songs);
   const goodMorningRowNode = document.querySelector(
@@ -85,5 +85,6 @@ const renderData = async function (rawData) {
   // });
   console.log(rawData.data);
 };
+renderData();
 
 //render data by changing html by appending child with innerHtml. Call func that rendersData

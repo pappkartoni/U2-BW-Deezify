@@ -56,6 +56,7 @@ const renderGoodMorningSongs = async function () {
     goodMorningRowNode.innerHTML += `
                                     <div class="col-lg-4 col-sm-6">
                                       <a href="./artist.html?id=${data.id}">
+                                      <div class="welcome-card w-100">
                                         <div class="d-flex align-items-center" style="height: 80px">
                                           <div class="h-100">
                                           <img class="h-100" src="${data.picture_medium}" alt="...">
@@ -63,15 +64,12 @@ const renderGoodMorningSongs = async function () {
                                           </div>
                                           <h5>${data.name}</h5>
                                         </div>
+                                      </div>
                                       </a>
                                     </div>
     `
   }
 };
-
-const doStuff = (btn) => {
-  console.log(btn)
-}
 
 const renderData = async function (container) {
   for (let i = 0; i < 8; i++) {
@@ -105,8 +103,22 @@ const renderData = async function (container) {
   // </div>`;
   // });
 };
+const setWelcomeMessage = () => {
+  const hours = new Date().getHours()
+  const h1 = document.querySelector("h1")
+  if (hours < 6) {
+    h1.innerText = "Good night"
+  } else if (hours < 12) {
+    h1.innerText = "Good morning"
+  } else if (hours < 22) {
+    h1.innerText = "Good evening"
+  } else {
+    h1.innerText = "Good night"
+  }
+}
 
 window.onload = () => {
+  setWelcomeMessage()
   renderGoodMorningSongs();
   const recentlyPlayedRowNode = document.querySelector(
     "main .recently-played"

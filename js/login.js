@@ -3,9 +3,10 @@ const dangerAlertBox = document.querySelector("#alertContainer .alert-danger");
 const loginActions = () => {
   const username = document.querySelector("#usernameInput").value,
     password = document.querySelector("#passwordInput").value;
-  if (password.toLowerCase() === "epicode") {
+  if (password === "epicode") {
     if (username !== "") {
       localStorage.setItem("username", username);
+      window.location.href = "../homepage.html";
     }
   } else if (username === "") {
     dangerAlertBox.firstElementChild.innerText = "Please insert a username!";

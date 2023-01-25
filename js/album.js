@@ -12,7 +12,8 @@ const url = "https://striveschool-api.herokuapp.com/api/deezer/album",
   browserTabTitle = document.querySelector("title"),
   albumOrSomethingElse = document.querySelector("#albumInfoWrapper h2"),
   usernameOnPage = document.querySelector(".dropdownButton > span > span"),
-  releaseDate = document.querySelector("#songsWrapper table ~ span");
+  releaseDate = document.querySelector("#songsWrapper table ~ span"),
+  labelOnPage = document.querySelector("#songsWrapper table ~ span ~ span");
 
 options = {
   method: "GET",
@@ -48,6 +49,7 @@ window.onload = async () => {
         release_date,
         record_type,
         explicit_lyrics,
+        label,
       } = albumData,
       { name, picture } = artist,
       tracksArray = tracks.data;
@@ -65,6 +67,7 @@ window.onload = async () => {
     durationOfTrackList.innerText =
       secToMin(duration) + " min " + secToSec(duration) + " sec";
     releaseDate.innerText = dateFixer(release_date);
+    labelOnPage.innerText = `© ${label}`;
 
     displayTrackList(tracksArray);
   } catch (error) {

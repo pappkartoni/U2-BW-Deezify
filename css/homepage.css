@@ -74,7 +74,7 @@ h3 {
 .recently-played .card {
     background-color: #2d2d2d;
     color: #fff;
-    max-width: fit-content;
+    
 }
 
 .recently-played img {
@@ -85,7 +85,7 @@ h3 {
 .shows-to-try .card {
     background-color: #2d2d2d;
     color: #fff;
-    max-width: fit-content;
+    
 }
 
 .shows-to-try img {
@@ -100,6 +100,11 @@ h3 {
     transition: 0.7s;
 }
 
-.card {
-    width: 200px;
+.card .card-img-top {
+    width: 100%;
+    max-width: 200px;
 } 
+
+.text-truncate {
+    max-width: 120px;
+}

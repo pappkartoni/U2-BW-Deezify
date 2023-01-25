@@ -26,8 +26,11 @@ const setUsername = (username = "username") => {
 
 window.onload = async () => {
   setUsername(
-    localStorage.getItem("username").charAt(0).toUpperCase() +
-      localStorage.getItem("username").slice(1)
+    localStorage
+      .getItem("username")
+      .split(" ")
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(" ")
   );
   window.addEventListener("scroll", changeBGColorOnScroll);
   try {

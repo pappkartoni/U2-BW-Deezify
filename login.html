@@ -21,6 +21,23 @@
   </head>
   <body>
     <main>
+      <section id="alertContainer">
+        <div
+          class="alert alert-danger alert-dismissible fade show d-none"
+          role="alert"
+        >
+          <span> Alert </span>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="alert"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      </section>
+
       <header class="container-fluid">
         <div class="text-center" style="margin-inline: -15px">
           <div>
@@ -32,6 +49,7 @@
           </div>
         </div>
       </header>
+
       <section class="w-100 d-flex justify-content-center mb-5">
         <div id="loginWrapper">
           <div class="d-flex flex-column">
@@ -109,7 +127,6 @@
                     <label class="ml-2" for="rememberMe">Remember me</label>
                   </div>
                   <a
-                    href="./homepage.html"
                     id="login"
                     type="button"
                     class="btn ml-auto"

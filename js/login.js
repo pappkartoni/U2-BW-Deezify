@@ -1,16 +1,24 @@
+const dangerAlertBox = document.querySelector("#alertContainer .alert-danger");
+
 const loginActions = () => {
   const username = document.querySelector("#usernameInput").value,
     password = document.querySelector("#passwordInput").value;
   if (password.toLowerCase() === "epicode") {
     if (username !== "") {
-      console.log(username);
       localStorage.setItem("username", username);
-      console.log(password);
     }
   } else if (username === "") {
-    alert("username missing");
+    dangerAlertBox.firstElementChild.innerText = "Please insert a username!";
+    dangerAlertBox.classList.replace("d-none", "d-block");
+    setTimeout(() => {
+      dangerAlertBox.classList.replace("d-block", "d-none");
+    }, 3000);
   } else {
-    alert("incorrect password");
+    dangerAlertBox.firstElementChild.innerText = "Wrong password!";
+    dangerAlertBox.classList.replace("d-none", "d-block");
+    setTimeout(() => {
+      dangerAlertBox.classList.replace("d-block", "d-none");
+    }, 3000);
   }
 };
 
@@ -22,7 +30,6 @@ const windowOnloadActions = () => {
 };
 
 window.onload = () => {
-  loginActions;
   hideOrShow();
   windowOnloadActions();
 };

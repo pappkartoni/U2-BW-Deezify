@@ -11,7 +11,7 @@
       integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="/css/homepage.css" />
+    <link rel="stylesheet" href="./css/homepage.css" />
   </head>
   <body>
 
@@ -22,53 +22,44 @@
     </nav>
     <main class="navbar-fix">
 
-    <nav class="navbar navbar-light bg-light d-flex">
+    <section class="d-flex">
     <a class="navbar-brand" href="#">
       <div class="arrows-container d-flex">
         <ion-icon name="chevron-back-circle-outline"></ion-icon>
         <ion-icon name="chevron-forward-circle-outline"></ion-icon>
       </div>
       <div class="account-container d-flex">
-        <p>First Name Last Name</p> 
+        <p style="color: #1b1b1b;">Account</p> 
       </div>
     </a>
-    </nav>
+  </section>
 
-    <div class="good-morning-container container-flex">
+    <div class="good-morning-container container-fluid">
+      <h2>Good morning</h2>
       <div class="row">
-        <div class="col">
-          <div class="card">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <!-- <div class="col-4">
+          <div class="card mb-5"  >
+            <div class="row no-gutters">
+              <div class="col-md-4">
+                <img src="..." alt="...">
+              </div>
+              <div class="col-md-8">
+                <div id="try" class="card-body d-flex">
+                  <h5 class="card-title">${songs[i].album.title}</h5>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
-
-    <div class="main-container container-flex">
+    <div class="main-container container-fluid">
+    <div class="main-container container-fluid">
       <h3>Recently played</h3>
-      <div class="row">
-        <div class="col">
-          <div class="card">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            </div>
-          </div>
-        </div>
+      <div class="row recently-played row-cols-8">
       </div>
       <h3>Shows to try</h3>
-      <div class="row">
-        <div class="col">
-          <div class="card">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            </div>
-          </div>
-        </div>
+      <div class="row shows-to-try row-cols-8">
       </div>
     </div>
     </main>
@@ -164,6 +155,6 @@
       integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
       crossorigin="anonymous"
     ></script>
-    <script src="/js/homepage.js"></script>
+    <script src="./js/homepage.js"></script>
   </body>
 </html>

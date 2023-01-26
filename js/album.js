@@ -139,6 +139,9 @@ const displayTrackList = (tracksArray) => {
                 <td class="text-right"><i class="bi bi-heart mr-5 d-none d-md-inline"></i>${secToMin(
                   song.duration
                 )}:${secToSec(song.duration)}</td>
+                <span class="d-none" data-preview="${song.preview}" data-img="${
+        song.album.cover
+      }" data-artist="${song.artist.name}" data-title="${song.title}"></span>
             </tr>
     `;
     })

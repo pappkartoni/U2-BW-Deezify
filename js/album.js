@@ -181,6 +181,17 @@ const playSong = (musicToPlay) => {
   document.querySelector("audio").play();
 };
 
+const togglePlay = () => {
+  const audio = document.querySelector("audio");
+  if (audio.classList.contains("playing")) {
+    audio.classList.remove("playing");
+    audio.pause();
+  } else {
+    audio.classList.add("playing");
+    audio.play();
+  }
+};
+
 // header related (check window.addEventListener at line 22)
 const header = document.querySelector("header"),
   showOnScroll = document.querySelector("header .showOnScroll"),
@@ -189,7 +200,7 @@ const header = document.querySelector("header"),
   nextButton = document.querySelector("#nextButton"),
   dropdownButton = document.querySelector(".dropdownButton");
 
-// // we'll see whether it works or not
+// we'll see whether it works or not
 // prevButton.addEventListener("click", window.history.back);
 // nextButton.addEventListener("click", window.history.forward);
 

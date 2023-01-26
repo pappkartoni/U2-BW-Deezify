@@ -132,6 +132,10 @@ header.changedBG {
   overflow: hidden;
 }
 
+.dropdownButton:focus {
+  box-shadow: none;
+}
+
 .dropdownButton > span > span {
   max-width: 100px;
   overflow: hidden;

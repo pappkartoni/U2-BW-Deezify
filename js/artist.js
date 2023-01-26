@@ -91,23 +91,29 @@ const renderArtistPick = (pick, artist) => {
 }
 
 const togglePlay = () => {
+    console.log("toggle play")
     const audio = document.querySelector("audio")
     audio.classList.toggle("playing") 
     toggleButtons()
     if (audio.paused) {
+        console.log("play about to be unpaused")
         audio.play()
     } else {
+        console.log("play about to be paused")
         audio.pause()
     }
 }
 
 const toggleButtons = () => {
+    console.log("toggle buttons")
     const audio = document.querySelector("audio")
     if (!audio.classList.contains("playing")) {
+        console.log("toggle buttons !contains")
         document.querySelector(".play-button-footer").innerHTML = `<svg role="img" height="16" width="16" aria-hidden="true" viewBox="0 0 16 16" data-encore-id="icon" class="Svg-sc-ytk21e-0 uPxdw"><path d="M3 1.713a.7.7 0 011.05-.607l10.89 6.288a.7.7 0 010 1.212L4.05 14.894A.7.7 0 013 14.288V1.713z"></path></svg>`
         document.querySelector(".container-fluid .play-button").innerHTML = `<svg role="img" height="28" width="28" aria-hidden="true" viewBox="0 0 24 24" data-encore-id="icon" class="Svg-sc-ytk21e-0 uPxdw"><path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z"></path></svg>`
         document.querySelector("header #playButton").innerHTML = `<svg role="img" height="24" width="24" viewBox="0 0 24 24"><path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z"></path></svg>`
     }   else {
+        console.log("toggle buttons contains")
         document.querySelector(".play-button-footer").innerHTML = `<svg role="img" height="16" width="16" aria-hidden="true" viewBox="0 0 16 16" data-encore-id="icon" class="Svg-sc-ytk21e-0 uPxdw"><path d="M2.7 1a.7.7 0 00-.7.7v12.6a.7.7 0 00.7.7h2.6a.7.7 0 00.7-.7V1.7a.7.7 0 00-.7-.7H2.7zm8 0a.7.7 0 00-.7.7v12.6a.7.7 0 00.7.7h2.6a.7.7 0 00.7-.7V1.7a.7.7 0 00-.7-.7h-2.6z"></path></svg>`
         document.querySelector(".container-fluid .play-button").innerHTML = `<svg role="img" height="28" width="28" aria-hidden="true" viewBox="0 0 24 24" data-encore-id="icon" class="Svg-sc-ytk21e-0 uPxdw"><path d="M5.7 3a.7.7 0 00-.7.7v16.6a.7.7 0 00.7.7h2.6a.7.7 0 00.7-.7V3.7a.7.7 0 00-.7-.7H5.7zm10 0a.7.7 0 00-.7.7v16.6a.7.7 0 00.7.7h2.6a.7.7 0 00.7-.7V3.7a.7.7 0 00-.7-.7h-2.6z"></path></svg>`
         document.querySelector("header #playButton").innerHTML = `<svg role="img" height="24" width="24" aria-hidden="true" viewBox="0 0 24 24" data-encore-id="icon" class="Svg-sc-ytk21e-0 uPxdw"><path d="M5.7 3a.7.7 0 00-.7.7v16.6a.7.7 0 00.7.7h2.6a.7.7 0 00.7-.7V3.7a.7.7 0 00-.7-.7H5.7zm10 0a.7.7 0 00-.7.7v16.6a.7.7 0 00.7.7h2.6a.7.7 0 00.7-.7V3.7a.7.7 0 00-.7-.7h-2.6z"></path></svg>`
@@ -123,6 +129,7 @@ const highlightSong = (div) => {
 }
 
 const playSong = (div) => {
+    console.log("play song")
     const data = div.firstElementChild.dataset
     const audio = document.querySelector("audio")
     document.querySelectorAll(".text-green").forEach((elem) => elem.classList.remove("text-green"))
@@ -140,22 +147,29 @@ const playSong = (div) => {
 }
 
 const prevSong = () => {
+    console.log("prev song")
     const previous = document.querySelector(".text-green").parentNode.previousElementSibling
     if (previous) {
         playSong(previous)
     }
 }
 const nextSong = () => {
+    console.log("next song")
     const next = document.querySelector(".text-green").parentNode.nextElementSibling
     if (next) {
         playSong(next)
+    } else {
+        document.querySelector("audio").classList.toggle("playing") 
+        toggleButtons()
     }
 }
 
 const endSong = () => {
+    console.log("end song")
     if (document.querySelector(".text-green")) {
         nextSong()
     } else {
+        document.querySelector("audio").classList.toggle("playing") 
         toggleButtons()
     }
 }

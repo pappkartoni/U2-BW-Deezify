@@ -146,10 +146,12 @@ main .good-morning-container .card-title {
     /* border: 3px solid red; */
     position: absolute;
     margin: -8px 0px;
-    width: 240px;
+    width: 210px;
     height: 479px;
     margin-top: 380px;
     padding-top: 15px;
+    margin-right: 10px;
+    z-index: 5;
     border-top: 1px solid rgba(128, 128, 128, 0.395);
 }
 
@@ -163,7 +165,6 @@ main .good-morning-container .card-title {
     border: 0;
     margin: 0;
     padding: 0;
-    
 }
 
 .navigation ul li .active svg {
@@ -175,8 +176,23 @@ main .good-morning-container .card-title {
 }
 
 .navigation ul li span {
-    /* border: 3px solid red; */
     margin-left: 20px;
     padding: 0 ;
     vertical-align: baseline;
+}
+
+::-webkit-scrollbar {
+    width: 11px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #97979777;
+    height: 2px;
+    /* visibility: hidden; */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #ffffff77;
+    transition: 0.5s;
+    visibility: visible;
 }

@@ -150,6 +150,18 @@ main #albumWrapper {
   opacity: 0;
 }
 
+#musicTableWrapper tbody tr.selected {
+  background-color: hsla(0, 0%, 100%, 0.3);
+}
+
+#musicTableWrapper tbody tr.selected i {
+  opacity: 100%;
+}
+
+#musicTableWrapper tbody tr.selected .numberToPlayIcon > span {
+  opacity: 0%;
+}
+
 /*  FOOTER RELATED PART  */
 
 #footer .socialLinks a {

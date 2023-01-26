@@ -122,7 +122,7 @@ const displayTrackList = (tracksArray) => {
   const tracksHTML = tracksArray
     .map((song) => {
       return `
-            <tr>
+            <tr onclick="selectSong(this)">
                 <td scope="col" style="width: 30px" class="numberToPlayIcon position-relative">
                   <span>${i++}</span>
                   <i class="bi bi-play-fill position-absolute"></i>
@@ -144,6 +144,14 @@ const displayTrackList = (tracksArray) => {
     })
     .join("");
   musicTableBody.innerHTML = tracksHTML;
+};
+
+const selectSong = (music) => {
+  const selectedBefore = document.querySelector(".selected");
+  music.className = "selected";
+  if (selectedBefore != null) {
+    selectedBefore.classList.remove("selected");
+  }
 };
 
 // header related (check window.addEventListener at line 22)

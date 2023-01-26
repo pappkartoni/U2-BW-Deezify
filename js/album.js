@@ -36,6 +36,9 @@ window.onload = async () => {
       .join(" ")
   );
   window.addEventListener("scroll", changeBGColorOnScroll);
+  setVolume();
+  const slider = document.querySelector(".slider");
+  slider.addEventListener("input", setVolume);
   try {
     const response = await fetch(`${url}/${albumID}`, options),
       albumData = await response.json(),
@@ -183,6 +186,12 @@ const playSong = (musicToPlay) => {
 
   // const musicsPlayButton = musicToPlay.childNodes[3].childNodes[3].outerHTML;
   // localStorage.setItem("btn", musicsPlayButton);
+};
+
+const setVolume = () => {
+  const slider = document.querySelector(".slider");
+  const audio = document.querySelector("audio");
+  audio.volume = slider.value;
 };
 
 const togglePlay = () => {

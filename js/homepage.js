@@ -115,7 +115,7 @@ const renderData = async function (container) {
 
 const renderNavbarList = async () => {
   const navbarUl = document.querySelector(".scroll-container ul");
-  for (let i = 0; i < 10; i++) {
+  for (let i = 0; i < 50; i++) {
     const data = await fetchData(searchURL, "artist/", artistIds[i]);
     navbarUl.innerHTML += `<li><a href="./artist.html?id=${data.id}">${data.name}</a></li>`;
   }
@@ -146,5 +146,3 @@ setUsername(
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
     .join(" ")
 );
-
-// --------------------------------- Navbar's fetched items ---------------------------------

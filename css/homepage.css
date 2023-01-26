@@ -141,3 +141,42 @@ main .good-morning-container .card-title {
     color:#a7a7a7;
     text-decoration: none;
 }
+
+.scroll-container {
+    /* border: 3px solid red; */
+    position: absolute;
+    margin: -8px 0px;
+    width: 240px;
+    height: 479px;
+    margin-top: 380px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(128, 128, 128, 0.395);
+}
+
+.scroll-container .overflow-auto {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+    transform: translateZ(0);
+    vertical-align: baseline;
+    border: 0;
+    margin: 0;
+    padding: 0;
+    
+}
+
+.navigation ul li .active svg {
+    fill: currentcolor;
+}
+
+.navigation ul li svg {
+    fill: currentcolor;
+}
+
+.navigation ul li span {
+    /* border: 3px solid red; */
+    margin-left: 20px;
+    padding: 0 ;
+    vertical-align: baseline;
+}

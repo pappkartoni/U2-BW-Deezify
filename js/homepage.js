@@ -56,6 +56,7 @@ const renderGoodMorningSongs = async function () {
     goodMorningRowNode.innerHTML += `
                                     <div class="col-lg-4 col-sm-6">
                                       <a href="./artist.html?id=${data.id}">
+                                      <div class="welcome-card w-100">
                                         <div class="d-flex align-items-center" style="height: 80px">
                                           <div class="h-100">
                                           <img class="h-100" src="${data.picture_medium}" alt="...">
@@ -63,14 +64,11 @@ const renderGoodMorningSongs = async function () {
                                           </div>
                                           <h5>${data.name}</h5>
                                         </div>
+                                      </div>
                                       </a>
                                     </div>
     `;
   }
-};
-
-const doStuff = (btn) => {
-  console.log(btn);
 };
 
 const renderData = async function (container) {
@@ -112,6 +110,19 @@ const renderData = async function (container) {
   // </div>`;
   // });
 };
+const setWelcomeMessage = () => {
+  const hours = new Date().getHours();
+  const h1 = document.querySelector("h1");
+  if (hours < 6) {
+    h1.innerText = "Good night";
+  } else if (hours < 12) {
+    h1.innerText = "Good morning";
+  } else if (hours < 22) {
+    h1.innerText = "Good evening";
+  } else {
+    h1.innerText = "Good night";
+  }
+};
 
 const renderNavbarList = async () => {
   const navbarUl = document.querySelector(".scroll-container ul");
@@ -122,6 +133,8 @@ const renderNavbarList = async () => {
 };
 
 window.onload = () => {
+  window.addEventListener("scroll", changeBGColorOnScroll);
+  setWelcomeMessage();
   renderGoodMorningSongs();
   const recentlyPlayedRowNode = document.querySelector("main .recently-played");
   const showsToTryRowNode = document.querySelector("main .shows-to-try");
@@ -146,3 +159,37 @@ setUsername(
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
     .join(" ")
 );
+
+// header related -> between line 152 and 187
+const header = document.querySelector("header"),
+  titleShowsUpOnScroll = document.querySelector("header h5"),
+  prevButton = document.querySelector("#prevButton"),
+  nextButton = document.querySelector("#nextButton"),
+  dropdownButton = document.querySelector(".dropdownButton");
+
+// we'll see whether it works or not
+// prevButton.addEventListener("click", window.history.back);
+// nextButton.addEventListener("click", window.history.forward);
+
+const changeDropDownIconWhenShowing = () => {
+  let isDropdownShowing = dropdownButton.getAttribute("aria-expanded");
+  if (isDropdownShowing === "false") {
+    document.querySelector(
+      ".dropdownButton svg"
+    ).innerHTML = `<path d="M14 10L8 4l-6 6h12z"></path>`;
+  } else {
+    document.querySelector(
+      ".dropdownButton svg"
+    ).innerHTML = `<path d="M14 6l-6 6-6-6h12z"></path>`;
+  }
+};
+
+const changeBGColorOnScroll = () => {
+  var scroll = window.scrollY;
+  console.log(scroll);
+  if (scroll >= 120) {
+    header.classList.add("changedBG");
+  } else {
+    header.classList.remove("changedBG");
+  }
+};

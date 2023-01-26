@@ -124,18 +124,18 @@ const highlightSong = (div) => {
 
 const playSong = (div) => {
     const data = div.firstElementChild.dataset
-    const player = document.querySelector("audio")
+    const audio = document.querySelector("audio")
     document.querySelectorAll(".text-green").forEach((elem) => elem.classList.remove("text-green"))
     div.querySelector(".top-song-nr").classList.add("text-green")
     div.querySelector(".top-song-title").classList.add("text-green")
     document.querySelector(".footer-info img").src = data.img
     document.querySelector(".footer-info h6").innerText = data.title
     document.querySelector(".footer-info span").innerText = data.artist
-    player.src = data.preview
-    if(player.paused) {
+    audio.src = data.preview
+    if(!audio.classList.contains("playing")) {
         togglePlay()
     } else {
-        player.play()
+        audio.play()
     }
 }
 

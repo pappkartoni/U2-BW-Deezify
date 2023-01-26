@@ -143,6 +143,10 @@ main #albumWrapper {
   opacity: 0%;
 }
 
+/* #musicTableWrapper tbody tr:hover .numberToPlayIcon span.hideNum {
+  display: none;
+} */
+
 .numberToPlayIcon > i {
   top: 17%;
   left: 4px;

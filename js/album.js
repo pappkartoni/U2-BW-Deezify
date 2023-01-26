@@ -170,9 +170,12 @@ const selectSong = (musicToSelect) => {
 };
 
 const playSong = (musicToPlay) => {
+  // localStorage.setItem("songNum", musicToPlay.childNodes[3].childNodes[1]);
+  // localStorage.setItem(
+  //   "playIconOnSong",
+  //   musicToPlay.childNodes[3].childNodes[3]
+  // );
   const songData = musicToPlay.firstElementChild;
-  console.log(songData);
-  console.log(songData.dataset.artist);
   document.querySelector("audio").src = songData.dataset.preview;
   document.querySelector(".footer-info img").src = songData.dataset.img;
   document.querySelector(".footer-info h6").innerText = songData.dataset.title;
@@ -182,15 +185,20 @@ const playSong = (musicToPlay) => {
 };
 
 const togglePlay = () => {
+  // const songNum = localStorage.getItem("songNum");
+  // const playIconOnSong = localStorage.getItem("playIconOnSong");
+
   const audio = document.querySelector("audio");
   if (audio.classList.contains("playing")) {
     audio.classList.remove("playing");
     audio.pause();
     showPauseIcon();
+    // songNum.classList.remove("hideNum");
   } else {
     audio.classList.add("playing");
     audio.play();
     showPlayIcon();
+    // songNum.classList.add("hideNum");
   }
 };
 

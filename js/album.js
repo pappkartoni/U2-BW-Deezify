@@ -53,7 +53,7 @@ window.onload = async () => {
       { name, picture } = artist,
       tracksArray = tracks.data;
 
-    browserTabTitle.innerText = `Spotify - ${title}`;
+    browserTabTitle.innerText = `Deezify - ${title}`;
     titleShowsUpOnScroll.innerText = title;
     albumTitle.innerText = title;
     albumCover.src = cover_xl;

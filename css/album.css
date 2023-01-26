@@ -99,9 +99,9 @@ main #albumWrapper {
   background: linear-gradient(
     to top,
     #b7b7b750,
-    #b7b7b750 1px,
-    #ffffff00 1px,
-    #ffffff00 100%
+    #b7b7b750 0.5px,
+    #28282828 0.5px,
+    #28282828 100%
   );
 }
 

@@ -180,16 +180,7 @@ const playSong = (musicToPlay) => {
     songData.dataset.artist;
   document.querySelector("audio").play();
   showPlayIcon();
-};
-
-const changeIconToPause = (btn) => {
-  console.log(btn);
-  btn.outerHTML = `<i class="bi bi-pause-fill position-absolute" onclick="togglePlay(), changeIconToPlay(this)"></i>`;
-};
-
-const changeIconToPlay = (btn) => {
-  console.log(btn);
-  btn.outerHTML = `<i class="bi bi-play-fill position-absolute" onclick="togglePlay(), changeIconToPause(this)"></i>`;
+  // console.log(musicToPlay.childNodes[3].childNodes[3]);
 };
 
 const togglePlay = () => {
@@ -223,6 +214,15 @@ const showPauseIcon = () => {
                       d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z"
                     ></path>`;
   playButtonOnFooter.innerHTML = `<svg role="img" height="16" width="16" viewBox="0 0 16 16"><path d="M3 1.713a.7.7 0 011.05-.607l10.89 6.288a.7.7 0 010 1.212L4.05 14.894A.7.7 0 013 14.288V1.713z"></path></svg>`;
+};
+
+const changeIconToPause = (btn) => {
+  playSong(btn.closest("tr"));
+  btn.outerHTML = `<i class="bi bi-pause-fill position-absolute" onclick="togglePlay(), changeIconToPlay(this)"></i>`;
+};
+
+const changeIconToPlay = (btn) => {
+  btn.outerHTML = `<i class="bi bi-play-fill position-absolute" onclick="togglePlay(), changeIconToPause(this)"></i>`;
 };
 
 const likeAlbum = (btn) => {

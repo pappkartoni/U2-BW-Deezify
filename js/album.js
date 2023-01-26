@@ -13,7 +13,8 @@ const url = "https://striveschool-api.herokuapp.com/api/deezer/album",
   albumOrSomethingElse = document.querySelector("#albumInfoWrapper h2"),
   usernameOnPage = document.querySelector(".dropdownButton > span > span"),
   releaseDate = document.querySelector("#songsWrapper table ~ span"),
-  labelOnPage = document.querySelector("#songsWrapper table ~ span ~ span");
+  labelOnPage = document.querySelector("#songsWrapper table ~ span ~ span"),
+  alert = document.querySelector("#alertContainer .alert");
 
 options = {
   method: "GET",
@@ -250,9 +251,19 @@ const likeSong = (btn) => {
   if (btn.closest("tr").classList.contains("unlikedSong")) {
     btn.closest("tr").classList.replace("unlikedSong", "likedSong");
     btn.outerHTML = `<i class="bi bi-heart-fill mr-5 d-none d-md-inline" style="color: #1ed760"  onclick="likeSong(this)"></i>`;
+    alert.innerHTML = `Added to your <strong>Liked Songs</strong>`;
+    alert.classList.replace("d-none", "d-block");
+    setTimeout(() => {
+      alert.classList.replace("d-block", "d-none");
+    }, 1000);
   } else {
     btn.closest("tr").classList.replace("likedSong", "unlikedSong");
     btn.outerHTML = `<i class="bi bi-heart mr-5 d-none d-md-inline" onclick="likeSong(this)"></i>`;
+    alert.innerHTML = `Removed from your <strong>Liked Songs</strong>`;
+    alert.classList.replace("d-none", "d-block");
+    setTimeout(() => {
+      alert.classList.replace("d-block", "d-none");
+    }, 1000);
   }
 };
 

@@ -391,6 +391,7 @@ footer .btn-transparent:hover > svg > path {
 .maxDur {
   font-size: 0.6875rem;
   font-weight: 400;
+  width: 28px;
 }
 .w-40 {
   width: 40%;

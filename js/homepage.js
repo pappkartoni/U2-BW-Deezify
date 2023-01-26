@@ -124,6 +124,136 @@ const setWelcomeMessage = () => {
   }
 };
 
+const togglePlay = () => {
+  const audio = document.querySelector("audio")
+  toggleButtons()
+  if (audio.paused) {
+      audio.play()
+  } else {
+      audio.pause()
+  }
+}
+
+const toggleButtons = () => {
+  const audio = document.querySelector("audio")
+  audio.classList.toggle("playing") 
+  if (!audio.classList.contains("playing")) {
+      document.querySelector(".play-button-footer").innerHTML = `<svg role="img" height="16" width="16" aria-hidden="true" viewBox="0 0 16 16" data-encore-id="icon" class="Svg-sc-ytk21e-0 uPxdw"><path d="M3 1.713a.7.7 0 011.05-.607l10.89 6.288a.7.7 0 010 1.212L4.05 14.894A.7.7 0 013 14.288V1.713z"></path></svg>`
+      //document.querySelector(".container-fluid .play-button").innerHTML = `<svg role="img" height="28" width="28" aria-hidden="true" viewBox="0 0 24 24" data-encore-id="icon" class="Svg-sc-ytk21e-0 uPxdw"><path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z"></path></svg>`
+      //document.querySelector("header #playButton").innerHTML = `<svg role="img" height="24" width="24" viewBox="0 0 24 24"><path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z"></path></svg>`
+  }   else {
+      document.querySelector(".play-button-footer").innerHTML = `<svg role="img" height="16" width="16" aria-hidden="true" viewBox="0 0 16 16" data-encore-id="icon" class="Svg-sc-ytk21e-0 uPxdw"><path d="M2.7 1a.7.7 0 00-.7.7v12.6a.7.7 0 00.7.7h2.6a.7.7 0 00.7-.7V1.7a.7.7 0 00-.7-.7H2.7zm8 0a.7.7 0 00-.7.7v12.6a.7.7 0 00.7.7h2.6a.7.7 0 00.7-.7V1.7a.7.7 0 00-.7-.7h-2.6z"></path></svg>`
+      //document.querySelector(".container-fluid .play-button").innerHTML = `<svg role="img" height="28" width="28" aria-hidden="true" viewBox="0 0 24 24" data-encore-id="icon" class="Svg-sc-ytk21e-0 uPxdw"><path d="M5.7 3a.7.7 0 00-.7.7v16.6a.7.7 0 00.7.7h2.6a.7.7 0 00.7-.7V3.7a.7.7 0 00-.7-.7H5.7zm10 0a.7.7 0 00-.7.7v16.6a.7.7 0 00.7.7h2.6a.7.7 0 00.7-.7V3.7a.7.7 0 00-.7-.7h-2.6z"></path></svg>`
+      //document.querySelector("header #playButton").innerHTML = `<svg role="img" height="24" width="24" aria-hidden="true" viewBox="0 0 24 24" data-encore-id="icon" class="Svg-sc-ytk21e-0 uPxdw"><path d="M5.7 3a.7.7 0 00-.7.7v16.6a.7.7 0 00.7.7h2.6a.7.7 0 00.7-.7V3.7a.7.7 0 00-.7-.7H5.7zm10 0a.7.7 0 00-.7.7v16.6a.7.7 0 00.7.7h2.6a.7.7 0 00.7-.7V3.7a.7.7 0 00-.7-.7h-2.6z"></path></svg>`
+  }
+}
+
+const highlightSong = (div) => {
+  const prevHighlighted = document.querySelector(".highlighted")
+  if (prevHighlighted && prevHighlighted !== div) {
+      prevHighlighted.classList.remove("highlighted")
+  }
+  div.classList.toggle("highlighted")
+}
+
+const playSong = (div) => {
+  const data = div.firstElementChild.dataset
+  const player = document.querySelector("audio")
+  document.querySelectorAll(".text-green").forEach((elem) => elem.classList.remove("text-green"))
+  div.querySelector(".top-song-nr").classList.add("text-green")
+  div.querySelector(".top-song-title").classList.add("text-green")
+  document.querySelector(".footer-info img").src = data.img
+  document.querySelector(".footer-info h6").innerText = data.title
+  document.querySelector(".footer-info span").innerText = data.artist
+  player.src = data.preview
+  if(player.paused) {
+      togglePlay()
+  } else {
+      player.play()
+  }
+}
+
+const prevSong = () => {
+  const previous = document.querySelector(".text-green").parentNode.previousElementSibling
+  if (previous) {
+      playSong(previous)
+  }
+}
+const nextSong = () => {
+  const next = document.querySelector(".text-green").parentNode.nextElementSibling
+  if (next) {
+      playSong(next)
+      toggleButtons()
+  } else {
+      toggleButtons()
+  }
+}
+
+const endSong = () => {
+  if (document.querySelector(".text-green")) {
+      nextSong()
+  } else {
+      toggleButtons()
+  }
+}
+
+const setVolume = () => {
+  const slider = document.querySelector(".slider")
+  slider.style.background = `linear-gradient(to right, white 0%, white ${slider.value * 200}%, hsla(0, 0%, 100%, 0.3) ${slider.value * 200}%,  hsla(0, 0%, 100%, 0.3) 100%)`
+  const audio = document.querySelector("audio")
+  audio.volume = slider.value
+  changeVolumeImage()
+}
+
+const changeVolumeImage = () => {
+  const volume = document.querySelector(".slider").value
+  const btn = document.querySelector(".volume .btn-transparent")
+  if (volume == 0) {
+      btn.innerHTML = `<svg role="presentation" height="16" width="16" aria-hidden="true" aria-label="Volume off" id="volume-icon" viewBox="0 0 16 16" data-encore-id="icon" class="Svg-sc-ytk21e-0 uPxdw"><path d="M13.86 5.47a.75.75 0 00-1.061 0l-1.47 1.47-1.47-1.47A.75.75 0 008.8 6.53L10.269 8l-1.47 1.47a.75.75 0 101.06 1.06l1.47-1.47 1.47 1.47a.75.75 0 001.06-1.06L12.39 8l1.47-1.47a.75.75 0 000-1.06z"></path><path d="M10.116 1.5A.75.75 0 008.991.85l-6.925 4a3.642 3.642 0 00-1.33 4.967 3.639 3.639 0 001.33 1.332l6.925 4a.75.75 0 001.125-.649v-1.906a4.73 4.73 0 01-1.5-.694v1.3L2.817 9.852a2.141 2.141 0 01-.781-2.92c.187-.324.456-.594.78-.782l5.8-3.35v1.3c.45-.313.956-.55 1.5-.694V1.5z"></path></svg>`
+  } else {
+      if (volume < 0.166) {
+          btn.innerHTML = `<svg role="presentation" height="16" width="16" aria-hidden="true" aria-label="Volume low" id="volume-icon" viewBox="0 0 16 16" data-encore-id="icon" class="Svg-sc-ytk21e-0 uPxdw"><path d="M9.741.85a.75.75 0 01.375.65v13a.75.75 0 01-1.125.65l-6.925-4a3.642 3.642 0 01-1.33-4.967 3.639 3.639 0 011.33-1.332l6.925-4a.75.75 0 01.75 0zm-6.924 5.3a2.139 2.139 0 000 3.7l5.8 3.35V2.8l-5.8 3.35zm8.683 4.29V5.56a2.75 2.75 0 010 4.88z"></path></svg>`
+      } else if (volume < 0.333) {
+          btn.innerHTML = `<svg role="presentation" height="16" width="16" aria-hidden="true" aria-label="Volume medium" id="volume-icon" viewBox="0 0 16 16" data-encore-id="icon" class="Svg-sc-ytk21e-0 uPxdw"><path d="M9.741.85a.75.75 0 01.375.65v13a.75.75 0 01-1.125.65l-6.925-4a3.642 3.642 0 01-1.33-4.967 3.639 3.639 0 011.33-1.332l6.925-4a.75.75 0 01.75 0zm-6.924 5.3a2.139 2.139 0 000 3.7l5.8 3.35V2.8l-5.8 3.35zm8.683 6.087a4.502 4.502 0 000-8.474v1.65a2.999 2.999 0 010 5.175v1.649z"></path></svg>`
+      } else {
+          btn.innerHTML = `<svg role="presentation" height="16" width="16" aria-hidden="true" aria-label="Volume high" id="volume-icon" viewBox="0 0 16 16" data-encore-id="icon" class="Svg-sc-ytk21e-0 uPxdw"><path d="M9.741.85a.75.75 0 01.375.65v13a.75.75 0 01-1.125.65l-6.925-4a3.642 3.642 0 01-1.33-4.967 3.639 3.639 0 011.33-1.332l6.925-4a.75.75 0 01.75 0zm-6.924 5.3a2.139 2.139 0 000 3.7l5.8 3.35V2.8l-5.8 3.35zm8.683 4.29V5.56a2.75 2.75 0 010 4.88z"></path><path d="M11.5 13.614a5.752 5.752 0 000-11.228v1.55a4.252 4.252 0 010 8.127v1.55z"></path></svg>`
+      }
+  }
+
+}
+
+const songProgress = () => {
+  const audio = document.querySelector("audio")
+  const length = audio.duration
+  const cur = audio.currentTime
+  const progress = document.querySelector(".progress")
+  document.querySelector(".curDur").innerText = durationFormatter(Math.round(cur))
+  document.querySelector(".maxDur").innerText = durationFormatter(Math.round(length))
+  const percentage = 100 * cur / length
+  progress.style.background = `linear-gradient(to right, white 0%, white ${percentage}%, hsla(0, 0%, 100%, 0.3) ${percentage}%,  hsla(0, 0%, 100%, 0.3) 100%)`
+  progress.addEventListener("click", seek)
+}   
+
+const seek = (event) => {
+  const audio = document.querySelector("audio")
+  const percentage = event.offsetX / event.target.offsetWidth
+
+  audio.currentTime = percentage * audio.duration
+ /*  event.target.style.background = `linear-gradient(to right, white 0%, white ${percentage}%, hsla(0, 0%, 100%, 0.3) ${percentage}%,  hsla(0, 0%, 100%, 0.3) 100%)` */
+}
+
+const followMock = (btn) => {
+  btn.innerText === "FOLLOW" ? btn.innerText = "FOLLOWING" : btn.innerText = "FOLLOW"
+}
+
+const durationFormatter = (dur) => {
+  return (Math.floor(dur / 60)) + ":" + ((dur % 60) < 10 ? "0" + (dur % 60) : dur % 60)
+}
+
+const capitalize = (str) => {
+  return str.charAt(0).toUpperCase() + str.slice(1)
+}
+
 const renderNavbarList = async () => {
   const navbarUl = document.querySelector(".scroll-container ul");
   for (let i = 0; i < 50; i++) {
@@ -140,6 +270,11 @@ window.onload = () => {
   const showsToTryRowNode = document.querySelector("main .shows-to-try");
   renderData(recentlyPlayedRowNode);
   renderData(showsToTryRowNode);
+
+  setVolume()
+  const slider = document.querySelector(".slider")
+  slider.addEventListener("input", setVolume)
+  
   renderNavbarList();
 };
 

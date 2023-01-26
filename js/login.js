@@ -6,7 +6,7 @@ const loginActions = () => {
   if (password === "epicode") {
     if (username !== "") {
       localStorage.setItem("username", username);
-      window.location.href = "../homepage.html";
+      window.location.href = "./homepage.html";
     }
   } else if (username === "") {
     dangerAlertBox.firstElementChild.innerText = "Please insert a username!";

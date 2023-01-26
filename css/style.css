@@ -123,6 +123,7 @@ header.halfOp {
 }
 
 header.changedBG {
+  background-color: #1e1e1e;
   opacity: 100%;
 }
 

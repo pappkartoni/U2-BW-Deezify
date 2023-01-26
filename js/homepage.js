@@ -33,7 +33,7 @@ const renderGoodMorningSongs = async function () {
   );
   for (let i = 0; i < 6; i++) {
     const data = await fetchData(searchURL, "artist/", artistIds[i]);
-/*     goodMorningRowNode.innerHTML += `<div class="col-lg-4 col-sm-6">
+    /*     goodMorningRowNode.innerHTML += `<div class="col-lg-4 col-sm-6">
                                         <a href="./artist.html?id=${data.id}">
                                           <div class="card mb-3" href="google.com">
                                             <div class="row no-gutters h-100">
@@ -67,7 +67,7 @@ const renderGoodMorningSongs = async function () {
                                       </div>
                                       </a>
                                     </div>
-    `
+    `;
   }
 };
 
@@ -77,10 +77,17 @@ const renderData = async function (container) {
     container.innerHTML += `<div class="col">
                               <a href="./album.html?id=${data.id}">
                               <div class="card">
-                              <img src="${data.cover_medium}" class="card-img-top" alt="...">
+                              <img src="${
+                                data.cover_medium
+                              }" class="card-img-top" alt="...">
                               <div class="card-body">
-                                <h5 class="card-title text-truncate">${data.title}</h5>
-                                <h6 class="card-subtitle">${data.release_date.substring(0, 4)} • ${data.artist.name}</h6>
+                                <h5 class="card-title text-truncate">${
+                                  data.title
+                                }</h5>
+                                <h6 class="card-subtitle">${data.release_date.substring(
+                                  0,
+                                  4
+                                )} • ${data.artist.name}</h6>
                               </div>
                             </a>
                           </div>`;
@@ -104,29 +111,26 @@ const renderData = async function (container) {
   // });
 };
 const setWelcomeMessage = () => {
-  const hours = new Date().getHours()
-  const h1 = document.querySelector("h1")
+  const hours = new Date().getHours();
+  const h1 = document.querySelector("h1");
   if (hours < 6) {
-    h1.innerText = "Good night"
+    h1.innerText = "Good night";
   } else if (hours < 12) {
-    h1.innerText = "Good morning"
+    h1.innerText = "Good morning";
   } else if (hours < 22) {
-    h1.innerText = "Good evening"
+    h1.innerText = "Good evening";
   } else {
-    h1.innerText = "Good night"
+    h1.innerText = "Good night";
   }
-}
+};
 
 window.onload = () => {
-  setWelcomeMessage()
+  window.addEventListener("scroll", changeBGColorOnScroll);
+  setWelcomeMessage();
   renderGoodMorningSongs();
-  const recentlyPlayedRowNode = document.querySelector(
-    "main .recently-played"
-  );
+  const recentlyPlayedRowNode = document.querySelector("main .recently-played");
 
-  const showsToTryRowNode = document.querySelector(
-    "main .shows-to-try"
-  );
+  const showsToTryRowNode = document.querySelector("main .shows-to-try");
   renderData(recentlyPlayedRowNode);
   renderData(showsToTryRowNode);
 };
@@ -147,3 +151,37 @@ setUsername(
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
     .join(" ")
 );
+
+// header related -> between line 152 and 187
+const header = document.querySelector("header"),
+  titleShowsUpOnScroll = document.querySelector("header h5"),
+  prevButton = document.querySelector("#prevButton"),
+  nextButton = document.querySelector("#nextButton"),
+  dropdownButton = document.querySelector(".dropdownButton");
+
+// we'll see whether it works or not
+// prevButton.addEventListener("click", window.history.back);
+// nextButton.addEventListener("click", window.history.forward);
+
+const changeDropDownIconWhenShowing = () => {
+  let isDropdownShowing = dropdownButton.getAttribute("aria-expanded");
+  if (isDropdownShowing === "false") {
+    document.querySelector(
+      ".dropdownButton svg"
+    ).innerHTML = `<path d="M14 10L8 4l-6 6h12z"></path>`;
+  } else {
+    document.querySelector(
+      ".dropdownButton svg"
+    ).innerHTML = `<path d="M14 6l-6 6-6-6h12z"></path>`;
+  }
+};
+
+const changeBGColorOnScroll = () => {
+  var scroll = window.scrollY;
+  console.log(scroll);
+  if (scroll >= 120) {
+    header.classList.add("changedBG");
+  } else {
+    header.classList.remove("changedBG");
+  }
+};

@@ -64,6 +64,7 @@ const renderTopSongs = (songs) => {
 
 const renderArtistPick = (pick, artist) => {
     console.log(pick)
+    document.querySelector("header h5").innerText = artist.name; // artist name added to the header
     const artPick = document.getElementById("artpick")
     artPick.innerHTML = `
                         <a href="./album.html?id=${pick.id}">
@@ -136,6 +137,7 @@ const setUsername = (username = "username") => {
 };
 
 window.onload = () => {
+    window.addEventListener("scroll", changeBGColorOnScroll);
     setUsername(
         localStorage
         .getItem("username")
@@ -148,3 +150,46 @@ window.onload = () => {
     slider.addEventListener("input", setVolume)
     getArtist()
 }
+
+// header related -> between line 152 and 194
+
+const header = document.querySelector("header"),
+  showOnScroll = document.querySelector("header .showOnScroll"),
+  prevButton = document.querySelector("#prevButton"),
+  nextButton = document.querySelector("#nextButton"),
+  dropdownButton = document.querySelector(".dropdownButton");
+
+// we'll see whether it works or not
+prevButton.addEventListener("click", window.history.back);
+nextButton.addEventListener("click", window.history.forward);
+
+const changeDropDownIconWhenShowing = () => {
+  let isDropdownShowing = dropdownButton.getAttribute("aria-expanded");
+  if (isDropdownShowing === "false") {
+    document.querySelector(
+      ".dropdownButton svg"
+    ).innerHTML = `<path d="M14 10L8 4l-6 6h12z"></path>`;
+  } else {
+    document.querySelector(
+      ".dropdownButton svg"
+    ).innerHTML = `<path d="M14 6l-6 6-6-6h12z"></path>`;
+  }
+};
+
+const changeBGColorOnScroll = () => {
+  var scroll = window.scrollY;
+  if (scroll >= 175) {
+    header.classList.add("halfOp");
+    showOnScroll.classList.add("opacity-75");
+  }
+
+  if (scroll >= 300) {
+    header.classList.add("changedBG");
+    showOnScroll.classList.add("opacity-100");
+  }
+
+  if (scroll <= 175) {
+    header.classList.remove("changedBG", "halfOp");
+    showOnScroll.classList.remove("opacity-75", "opacity-100");
+  }
+};

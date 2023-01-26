@@ -182,6 +182,7 @@ const playSong = (musicToPlay) => {
   document.querySelector(".footer-info span").innerText =
     songData.dataset.artist;
   document.querySelector("audio").play();
+  showPlayIcon();
 };
 
 const togglePlay = () => {

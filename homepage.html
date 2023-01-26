@@ -138,6 +138,7 @@
             <div class="ml-2 btn-group" role="group">
               <button type="button" id="prevButton" aria-label="Go back">
                 <svg
+                  onclick="history.back()"
                   role="img"
                   height="16"
                   width="16"
@@ -151,6 +152,7 @@
                 </svg>
               </button>
               <button
+                onclick="history.forward()"
                 type="button"
                 id="nextButton"
                 class="ml-3 d-none d-md-inline-flex"

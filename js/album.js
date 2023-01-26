@@ -122,39 +122,41 @@ const displayTrackList = (tracksArray) => {
   const tracksHTML = tracksArray
     .map((song) => {
       return `
-            <tr onclick="selectSong(this)" ondblclick="playSong(this)">
-      <td
-        class="d-none"
-        data-preview="${song.preview}"
-        data-img="${song.album.cover}"
-        data-artist="${song.artist.name}"
-        data-title="${song.title}"
-      ></td>
-      <td
-        scope="col"
-        style="width: 30px"
-        class="numberToPlayIcon position-relative"
-      >
-        <span>${i++}</span>
-        <i class="bi bi-play-fill position-absolute" onclick="togglePlay(), changeIconToPause(this)"></i>
-      </td>
-      <td>
-        ${song.title_short}${
+            <tr class="unlikedSong" onclick="selectSong(this)" ondblclick="playSong(this)">
+              <td
+                class="d-none"
+                data-preview="${song.preview}"
+                data-img="${song.album.cover}"
+                data-artist="${song.artist.name}"
+                data-title="${song.title}"
+              ></td>
+              <td
+                scope="col"
+                style="width: 30px"
+                class="numberToPlayIcon position-relative"
+              >
+                <span>${i++}</span>
+                <i class="bi bi-play-fill position-absolute" onclick="togglePlay(), changeIconToPause(this)"></i>
+              </td>
+              <td>
+                ${song.title_short}${
         song.explicit_lyrics
           ? `<span
-          class="badge badge-light ml-1 d-none d-lg-inline"
-          >E</span
-        >`
+                  class="badge badge-light ml-1 d-none d-lg-inline"
+                  >E</span
+                >`
           : ""
       }
-        <br />
-        <span class="text-muted">${song.artist.name}</span>
-      </td>
-      <td class="text-right">
-        <i class="bi bi-heart mr-5 d-none d-md-inline"></i
-        >${secToMin(song.duration)}:${secToSec(song.duration)}
-      </td>
-    </tr>
+                <br />
+                <span class="text-muted">${song.artist.name}</span>
+              </td>
+              <td class="text-right">
+                <i class="bi bi-heart mr-5 d-none d-md-inline" onclick="likeSong(this)"></i
+                ><span style="display: inline-block ;width: 50px">${secToMin(
+                  song.duration
+                )}:${secToSec(song.duration)}</span>
+              </td>
+            </tr>
             `;
     })
     .join("");
@@ -163,7 +165,7 @@ const displayTrackList = (tracksArray) => {
 
 const selectSong = (musicToSelect) => {
   const selectedBefore = document.querySelector(".selected");
-  musicToSelect.className = "selected";
+  musicToSelect.classList.add("selected");
   if (selectedBefore != null) {
     selectedBefore.classList.remove("selected");
   }
@@ -230,6 +232,16 @@ const likeAlbum = (btn) => {
   } else {
     btn.classList.replace("likedAlbum", "unlikedAlbum");
     btn.innerHTML = `<svg role="img" height="32" width="32" viewBox="0 0 24 24"><path d="M5.21 1.57a6.757 6.757 0 016.708 1.545.124.124 0 00.165 0 6.741 6.741 0 015.715-1.78l.004.001a6.802 6.802 0 015.571 5.376v.003a6.689 6.689 0 01-1.49 5.655l-7.954 9.48a2.518 2.518 0 01-3.857 0L2.12 12.37A6.683 6.683 0 01.627 6.714 6.757 6.757 0 015.21 1.57zm3.12 1.803a4.757 4.757 0 00-5.74 3.725l-.001.002a4.684 4.684 0 001.049 3.969l.009.01 7.958 9.485a.518.518 0 00.79 0l7.968-9.495a4.688 4.688 0 001.049-3.965 4.803 4.803 0 00-3.931-3.794 4.74 4.74 0 00-4.023 1.256l-.008.008a2.123 2.123 0 01-2.9 0l-.007-.007a4.757 4.757 0 00-2.214-1.194z"></path></svg>`;
+  }
+};
+
+const likeSong = (btn) => {
+  if (btn.closest("tr").classList.contains("unlikedSong")) {
+    btn.closest("tr").classList.replace("unlikedSong", "likedSong");
+    btn.outerHTML = `<i class="bi bi-heart-fill mr-5 d-none d-md-inline" style="color: #1ed760"  onclick="likeSong(this)"></i>`;
+  } else {
+    btn.closest("tr").classList.replace("likedSong", "unlikedSong");
+    btn.outerHTML = `<i class="bi bi-heart mr-5 d-none d-md-inline" onclick="likeSong(this)"></i>`;
   }
 };
 

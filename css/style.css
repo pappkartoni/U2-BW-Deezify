@@ -96,7 +96,7 @@ header button:focus,
 }
 
 header {
-  padding-inline: 15px;
+  padding-inline: 22px;
   transition: background-color 300ms, opacity 300ms;
 }
 

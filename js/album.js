@@ -180,7 +180,9 @@ const playSong = (musicToPlay) => {
     songData.dataset.artist;
   document.querySelector("audio").play();
   showPlayIcon();
-  // console.log(musicToPlay.childNodes[3].childNodes[3]);
+
+  // const musicsPlayButton = musicToPlay.childNodes[3].childNodes[3].outerHTML;
+  // localStorage.setItem("btn", musicsPlayButton);
 };
 
 const togglePlay = () => {

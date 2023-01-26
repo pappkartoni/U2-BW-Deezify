@@ -213,12 +213,45 @@ main .good-morning-container .card-title {
     visibility: visible;
 }
 
+.welcome-card {
+    display: flex;
+    position: relative;
+        
+}
 
-.good-morning-container .play .btn-transparent .play-button-cards {
+.welcome-card .btn-transparent .play-button-cards{
+    /* margin-left: 460px;
+    margin-top: -25px; */
+    /* padding-bottom: 500px; */
+}
+
+.btn-transparent {
+    /* justify-content: flex-end; */
+}
+
+.good-morning-container .btn-transparent .play-button-cards {
     background-color: #1bd760;
     border-radius: 500px;
     height: 48px;
     width: 48px;
-    position: absolute;
+    
+    /* position: absolute; */
+    
+
+}
+
+.welcome-card {
+    border: 3px solid green ;
+    /* position: relati    ve; */
+
+    /* justify-content: flex-end */
+}
+
+
+.welcome-card .btn-wrapper {
+    border: 3px solid red;
+    align-self: center;
+    
+    /* position: absolute; */
 
 }

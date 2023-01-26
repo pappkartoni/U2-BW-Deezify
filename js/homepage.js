@@ -152,7 +152,7 @@ setUsername(
     .join(" ")
 );
 
-// header related -> between line 152 and
+// header related -> between line 152 and 187
 const header = document.querySelector("header"),
   titleShowsUpOnScroll = document.querySelector("header h5"),
   prevButton = document.querySelector("#prevButton"),

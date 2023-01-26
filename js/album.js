@@ -122,39 +122,63 @@ const displayTrackList = (tracksArray) => {
   const tracksHTML = tracksArray
     .map((song) => {
       return `
-            <tr onclick="selectSong(this)">
-                <td scope="col" style="width: 30px" class="numberToPlayIcon position-relative">
-                  <span>${i++}</span>
-                  <i class="bi bi-play-fill position-absolute"></i>
-                </td>
-                <td>${song.title_short}
-                    ${
-                      song.explicit_lyrics
-                        ? `<span class="badge badge-light ml-1 d-none d-lg-inline">E</span>`
-                        : ""
-                    }
-                </br>
-                <span class="text-muted">${song.artist.name}</span>
-                </td>
-                <td class="text-right"><i class="bi bi-heart mr-5 d-none d-md-inline"></i>${secToMin(
-                  song.duration
-                )}:${secToSec(song.duration)}</td>
-                <span class="d-none" data-preview="${song.preview}" data-img="${
-        song.album.cover
-      }" data-artist="${song.artist.name}" data-title="${song.title}"></span>
-            </tr>
-    `;
+            <tr onclick="selectSong(this)" ondblclick="playSong(this)">
+      <td
+        class="d-none"
+        data-preview="${song.preview}"
+        data-img="${song.album.cover}"
+        data-artist="${song.artist.name}"
+        data-title="${song.title}"
+      ></td>
+      <td
+        scope="col"
+        style="width: 30px"
+        class="numberToPlayIcon position-relative"
+      >
+        <span>${i++}</span>
+        <i class="bi bi-play-fill position-absolute"></i>
+      </td>
+      <td>
+        ${song.title_short}${
+        song.explicit_lyrics
+          ? `<span
+          class="badge badge-light ml-1 d-none d-lg-inline"
+          >E</span
+        >`
+          : ""
+      }
+        <br />
+        <span class="text-muted">${song.artist.name}</span>
+      </td>
+      <td class="text-right">
+        <i class="bi bi-heart mr-5 d-none d-md-inline"></i
+        >${secToMin(song.duration)}:${secToSec(song.duration)}
+      </td>
+    </tr>
+            `;
     })
     .join("");
   musicTableBody.innerHTML = tracksHTML;
 };
 
-const selectSong = (music) => {
+const selectSong = (musicToSelect) => {
   const selectedBefore = document.querySelector(".selected");
-  music.className = "selected";
+  musicToSelect.className = "selected";
   if (selectedBefore != null) {
     selectedBefore.classList.remove("selected");
   }
+};
+
+const playSong = (musicToPlay) => {
+  const songData = musicToPlay.firstElementChild;
+  console.log(songData);
+  console.log(songData.dataset.artist);
+  document.querySelector("audio").src = songData.dataset.preview;
+  document.querySelector(".footer-info img").src = songData.dataset.img;
+  document.querySelector(".footer-info h6").innerText = songData.dataset.title;
+  document.querySelector(".footer-info span").innerText =
+    songData.dataset.artist;
+  document.querySelector("audio").play();
 };
 
 // header related (check window.addEventListener at line 22)

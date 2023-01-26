@@ -26,6 +26,7 @@ const loginActions = () => {
 const windowOnloadActions = () => {
   document.querySelector("#usernameInput").value =
     localStorage.getItem("rememberUsername");
+  console.log(localStorage.getItem("rememberUsername"));
   document.querySelector("#passwordInput").value = "";
   rememberMeBtn.addEventListener("click", rememberOrNot);
   rememberMeLabel.addEventListener("click", rememberOrNot);
@@ -68,11 +69,11 @@ const rememberMeBtn = document.querySelector("#rememberMe"),
 const rememberOrNot = () => {
   if (rememberMeBtn.classList.contains("selected")) {
     rememberMeBtn.classList.remove("selected");
-    const username = document.querySelector("#usernameInput").value;
-    localStorage.setItem("rememberUsername", username);
+    localStorage.removeItem("rememberUsername");
   } else {
     rememberMeBtn.classList.add("selected");
-    localStorage.removeItem("rememberUsername");
+    const username = document.querySelector("#usernameInput").value;
+    localStorage.setItem("rememberUsername", username);
     rememberMeBtn.innerHTML = "";
     rememberMeBtn.innerHTML = `
                     <svg xmlns="http://www.w3.org/2000/svg" fill="#fff" width="16" height="16" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">

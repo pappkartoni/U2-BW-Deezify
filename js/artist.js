@@ -261,10 +261,6 @@ const header = document.querySelector("header"),
   nextButton = document.querySelector("#nextButton"),
   dropdownButton = document.querySelector(".dropdownButton");
 
-// we'll see whether it works or not
-prevButton.addEventListener("click", window.history.back);
-nextButton.addEventListener("click", window.history.forward);
-
 const changeDropDownIconWhenShowing = () => {
   let isDropdownShowing = dropdownButton.getAttribute("aria-expanded");
   if (isDropdownShowing === "false") {

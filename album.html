@@ -95,7 +95,12 @@
           <header class="navbar-fix fixed-top py-0">
             <div class="d-flex align-items-center" style="height: 80px">
               <div class="ml-2 btn-group" role="group">
-                <button type="button" id="prevButton" aria-label="Go back">
+                <button
+                  onclick="history.back()"
+                  type="button"
+                  id="prevButton"
+                  aria-label="Go back"
+                >
                   <svg
                     role="img"
                     height="16"
@@ -118,7 +123,7 @@
                   class="ml-3 d-none d-md-inline-flex"
                   aria-label="Go forward"
                   action="action"
-                  onclick="window.history.go(1); return false;"
+                  onclick="history.forward()"
                   value="Cancel"
                 >
                   <svg

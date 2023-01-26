@@ -24,7 +24,7 @@ h2 {
   margin-bottom: 16px;
 }
 
-section {
+section:not(#alertContainer) {
   margin-bottom: 16px;
 }
 
@@ -96,7 +96,7 @@ header button:focus,
 }
 
 header {
-  padding-inline: 15px;
+  padding-inline: 22px;
   transition: background-color 300ms, opacity 300ms;
 }
 
@@ -131,6 +131,10 @@ header.changedBG {
   padding: 0 0;
   overflow: hidden;
   align-items: center;
+}
+
+.dropdownButton:focus {
+  box-shadow: none;
 }
 
 .dropdownButton > span > span {
@@ -250,10 +254,10 @@ header.changedBG {
 .btn-clear:hover {
   cursor: default;
 }
-main {
+main:not(#loginMain) {
   margin-bottom: 6rem;
 }
-main > .container-fluid {
+main > .container-fluid:not(#loginHeader) {
   padding: 24px 32px;
 }
 

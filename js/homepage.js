@@ -124,6 +124,16 @@ const setWelcomeMessage = () => {
   }
 };
 
+const changeBGColorOnScroll = () => {
+  var scroll = window.scrollY;
+  console.log(scroll);
+  if (scroll >= 120) {
+    header.classList.add("changedBG");
+  } else {
+    header.classList.remove("changedBG");
+  }
+};
+
 window.onload = () => {
   window.addEventListener("scroll", changeBGColorOnScroll);
   setWelcomeMessage();
@@ -173,15 +183,5 @@ const changeDropDownIconWhenShowing = () => {
     document.querySelector(
       ".dropdownButton svg"
     ).innerHTML = `<path d="M14 6l-6 6-6-6h12z"></path>`;
-  }
-};
-
-const changeBGColorOnScroll = () => {
-  var scroll = window.scrollY;
-  console.log(scroll);
-  if (scroll >= 120) {
-    header.classList.add("changedBG");
-  } else {
-    header.classList.remove("changedBG");
   }
 };

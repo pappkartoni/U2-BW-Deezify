@@ -34,14 +34,30 @@ h2 {
 #top > div:hover {
     background-color: hsla(0,0%,100%,.1)
 }
+#top  > div:not(.highlighted) button {
+    opacity: 0;
+}
+#top > div:hover button {
+    opacity: 1;
+}
 
 #top > div.highlighted {
     background-color: hsla(0,0%,100%,.3);
+}
+
+#top > div.lighlighted button {
+    opacity: 1;
 }
 #artist {
     padding: 0 16px;
 }
 
+#artpick {
+    max-width: 100%;
+}
+#artpick .artpick-info {
+    max-width: 100%;
+}
 #artpick a {
     color: #a7a7a7;
 }

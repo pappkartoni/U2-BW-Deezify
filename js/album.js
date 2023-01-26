@@ -186,10 +186,32 @@ const togglePlay = () => {
   if (audio.classList.contains("playing")) {
     audio.classList.remove("playing");
     audio.pause();
+    showPauseIcon();
   } else {
     audio.classList.add("playing");
     audio.play();
+    showPlayIcon();
   }
+};
+
+const playButtonOnHeader = document.querySelector("header #playButton svg"),
+  playButtonOnFooter = document.querySelector("footer .play-button-footer"),
+  playButtonOnMiddle = document.querySelector(".play-button svg");
+
+const showPlayIcon = () => {
+  playButtonOnHeader.innerHTML = `<path d="M5.7 3a.7.7 0 00-.7.7v16.6a.7.7 0 00.7.7h2.6a.7.7 0 00.7-.7V3.7a.7.7 0 00-.7-.7H5.7zm10 0a.7.7 0 00-.7.7v16.6a.7.7 0 00.7.7h2.6a.7.7 0 00.7-.7V3.7a.7.7 0 00-.7-.7h-2.6z"></path>`;
+  playButtonOnMiddle.innerHTML = `<path d="M5.7 3a.7.7 0 00-.7.7v16.6a.7.7 0 00.7.7h2.6a.7.7 0 00.7-.7V3.7a.7.7 0 00-.7-.7H5.7zm10 0a.7.7 0 00-.7.7v16.6a.7.7 0 00.7.7h2.6a.7.7 0 00.7-.7V3.7a.7.7 0 00-.7-.7h-2.6z"></path>`;
+  playButtonOnFooter.innerHTML = `<svg role="img" height="16" width="16" viewBox="0 0 16 16"><path d="M2.7 1a.7.7 0 00-.7.7v12.6a.7.7 0 00.7.7h2.6a.7.7 0 00.7-.7V1.7a.7.7 0 00-.7-.7H2.7zm8 0a.7.7 0 00-.7.7v12.6a.7.7 0 00.7.7h2.6a.7.7 0 00.7-.7V1.7a.7.7 0 00-.7-.7h-2.6z"></path></svg>`;
+};
+
+const showPauseIcon = () => {
+  playButtonOnHeader.innerHTML = `<path
+                      d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z"
+                    ></path>`;
+  playButtonOnMiddle.innerHTML = `<path
+                      d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z"
+                    ></path>`;
+  playButtonOnFooter.innerHTML = `<svg role="img" height="16" width="16" viewBox="0 0 16 16"><path d="M3 1.713a.7.7 0 011.05-.607l10.89 6.288a.7.7 0 010 1.212L4.05 14.894A.7.7 0 013 14.288V1.713z"></path></svg>`;
 };
 
 // header related (check window.addEventListener at line 22)

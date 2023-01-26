@@ -191,6 +191,7 @@ const playSong = (musicToPlay) => {
     togglePlay();
   } else {
     audio.play();
+    musicToPlay.childNodes[3].childNodes[3].outerHTML = `<i class="bi bi-pause-fill position-absolute" onclick="togglePlay(), changeIconToPlay(this)"></i>`;
     showPlayIcon();
   }
 };
@@ -199,6 +200,9 @@ const prevSong = () => {
   console.log("prev song");
   const previous =
     document.querySelector(".text-green").parentNode.previousElementSibling;
+    document.querySelector(
+      ".text-green"
+    ).childNodes[3].outerHTML = `<i class="bi bi-play-fill position-absolute" onclick="togglePlay(), changeIconToPlay(this)"></i>`;
   if (previous) {
     playSong(previous);
   }
@@ -207,6 +211,10 @@ const nextSong = () => {
   console.log("next song");
   const next =
     document.querySelector(".text-green").parentNode.nextElementSibling;
+    document.querySelector(
+      ".text-green"
+    ).childNodes[3].outerHTML = `<i class="bi bi-play-fill position-absolute" onclick="togglePlay(), changeIconToPlay(this)"></i>`
+    ;
   if (next) {
     playSong(next);
   } else {

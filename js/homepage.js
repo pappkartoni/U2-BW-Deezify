@@ -254,18 +254,28 @@ const capitalize = (str) => {
   return str.charAt(0).toUpperCase() + str.slice(1)
 }
 
+const renderNavbarList = async () => {
+  const navbarUl = document.querySelector(".scroll-container ul");
+  for (let i = 0; i < 50; i++) {
+    const data = await fetchData(searchURL, "artist/", artistIds[i]);
+    navbarUl.innerHTML += `<li><a href="./artist.html?id=${data.id}">${data.name}</a></li>`;
+  }
+};
+
 window.onload = () => {
   window.addEventListener("scroll", changeBGColorOnScroll);
   setWelcomeMessage();
   renderGoodMorningSongs();
   const recentlyPlayedRowNode = document.querySelector("main .recently-played");
-
   const showsToTryRowNode = document.querySelector("main .shows-to-try");
   renderData(recentlyPlayedRowNode);
   renderData(showsToTryRowNode);
+
   setVolume()
   const slider = document.querySelector(".slider")
   slider.addEventListener("input", setVolume)
+  
+  renderNavbarList();
 };
 
 //render data by changing html by appending child with innerHtml. Call func that rendersData

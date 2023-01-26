@@ -136,7 +136,7 @@ const displayTrackList = (tracksArray) => {
         class="numberToPlayIcon position-relative"
       >
         <span>${i++}</span>
-        <i class="bi bi-play-fill position-absolute"></i>
+        <i class="bi bi-play-fill position-absolute" onclick="togglePlay(), changeIconToPause(this)"></i>
       </td>
       <td>
         ${song.title_short}${
@@ -170,11 +170,6 @@ const selectSong = (musicToSelect) => {
 };
 
 const playSong = (musicToPlay) => {
-  // localStorage.setItem("songNum", musicToPlay.childNodes[3].childNodes[1]);
-  // localStorage.setItem(
-  //   "playIconOnSong",
-  //   musicToPlay.childNodes[3].childNodes[3]
-  // );
   const songData = musicToPlay.firstElementChild;
   document.querySelector("audio").src = songData.dataset.preview;
   document.querySelector(".footer-info img").src = songData.dataset.img;
@@ -185,21 +180,26 @@ const playSong = (musicToPlay) => {
   showPlayIcon();
 };
 
-const togglePlay = () => {
-  // const songNum = localStorage.getItem("songNum");
-  // const playIconOnSong = localStorage.getItem("playIconOnSong");
+const changeIconToPause = (btn) => {
+  console.log(btn);
+  btn.outerHTML = `<i class="bi bi-pause-fill position-absolute" onclick="togglePlay(), changeIconToPlay(this)"></i>`;
+};
 
+const changeIconToPlay = (btn) => {
+  console.log(btn);
+  btn.outerHTML = `<i class="bi bi-play-fill position-absolute" onclick="togglePlay(), changeIconToPause(this)"></i>`;
+};
+
+const togglePlay = () => {
   const audio = document.querySelector("audio");
   if (audio.classList.contains("playing")) {
     audio.classList.remove("playing");
     audio.pause();
     showPauseIcon();
-    // songNum.classList.remove("hideNum");
   } else {
     audio.classList.add("playing");
     audio.play();
     showPlayIcon();
-    // songNum.classList.add("hideNum");
   }
 };
 

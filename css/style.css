@@ -292,7 +292,7 @@ main > .container-fluid:not(#loginHeader) {
 }
 
 .text-green {
-    color: #1ed760!important;
+  color: #1ed760 !important;
 }
 .navbar .navigation ul li {
   list-style: none;
@@ -414,7 +414,13 @@ input[type="range"] {
   width: 100%; /* Specific width is required for Firefox. */
   height: 4px;
   cursor: pointer;
-  background: linear-gradient(to right, white 0%, white 50%, hsla(0, 0%, 100%, 0.3) 50%,  hsla(0, 0%, 100%, 0.3) 100%);
+  background: linear-gradient(
+    to right,
+    white 0%,
+    white 50%,
+    hsla(0, 0%, 100%, 0.3) 50%,
+    hsla(0, 0%, 100%, 0.3) 100%
+  );
   border-radius: 2px; /* Otherwise white in Chrome */
 }
 
@@ -435,7 +441,6 @@ input[type="range"]::-ms-track {
   border-color: transparent;
   color: transparent;
 }
-
 
 /* input[type="range"]:focus::-webkit-slider-runnable-track {
   background: hsla(0, 0%, 100%, 0.3);
@@ -484,8 +489,9 @@ input[type="range"]::-webkit-slider-thumb {
   opacity: 0;
 }
 
-input[type="range"]:hover::-webkit-slider-thumb, input[type="range"]:focus::-webkit-slider-thumb {
-    opacity: 1;
+input[type="range"]:hover::-webkit-slider-thumb,
+input[type="range"]:focus::-webkit-slider-thumb {
+  opacity: 1;
 }
 
 /* Firefox */
@@ -502,4 +508,60 @@ input[type="range"]::-ms-thumb {
   width: 12px;
   border-radius: 500px;
   background: white;
+}
+
+/*  FOOTER RELATED PART  */
+
+#footer .socialLinks a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background-color: #292929;
+  border-radius: 50%;
+}
+
+#footer .socialLinks a:hover {
+  background-color: #727272;
+  cursor: default;
+}
+
+#footer {
+  margin-bottom: 6rem;
+  padding-inline: 30px;
+}
+
+#footer span {
+  font-weight: 700;
+  color: #fff;
+}
+
+#footer span:nth-last-child(1) {
+  font-weight: 400;
+  color: #a6a6a6;
+}
+
+#footer a:not(.socialLinks a) {
+  color: #a6a6a6;
+  width: max-content;
+}
+
+#footer a:hover {
+  color: #fff;
+}
+
+.footerLegal {
+  border-top: solid 0.3px rgba(245, 245, 245, 0.226);
+  padding-top: 3rem;
+  margin-top: 3rem;
+  margin-bottom: 1.5rem;
+}
+
+.footerLegal a {
+  text-decoration: none;
+}
+
+#footer .footerLegal a:hover {
+  color: #fff;
 }

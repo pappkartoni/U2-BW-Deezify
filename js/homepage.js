@@ -6,6 +6,8 @@ const options = {
   },
 };
 
+const songsToPlay = []
+let playIndex = 0
 const searchURL = "https://striveschool-api.herokuapp.com/api/deezer/";
 // const parametres = new URLSearchParams(location.search);
 // let id = parametres.get("id");
@@ -33,26 +35,6 @@ const renderGoodMorningSongs = async function () {
   );
   for (let i = 0; i < 6; i++) {
     const data = await fetchData(searchURL, "artist/", artistIds[i]);
-    /*     goodMorningRowNode.innerHTML += `<div class="col-lg-4 col-sm-6">
-                                        <a href="./artist.html?id=${data.id}">
-                                          <div class="card mb-3" href="google.com">
-                                            <div class="row no-gutters h-100">
-                                              <div class="col-md-2 h-100">
-                                                <div>
-                                                    <img src="${data.picture_medium}" alt="...">
-                                                        <button class="btn-transparent d-none"> </button>
-                                                    </div>
-                                              </div>
-                                              <div class="col-md-10 h-100">
-                                                <div class="card-body d-flex h-100 align-items-center">
-                                                  <h5 class="card-title">${data.name}</h5>
-                                                </div>
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </a>
-                                      </div>`; */
-
     goodMorningRowNode.innerHTML += `
                                     <div class="col-lg-4 col-sm-6">
                                       <a href="./artist.html?id=${data.id}">
@@ -62,7 +44,7 @@ const renderGoodMorningSongs = async function () {
                                           <img class="h-100" src="${data.picture_medium}" alt="...">
                                               <button class="btn-transparent d-none"> </button>
                                           </div>
-                                          <h5>${data.name}</h5>
+                                          <h5 onclick="getArtistTopSongs(${data.tracklist})">${data.name}</h5>
                                         </div>
                                       </div>
                                       </a>
@@ -139,7 +121,7 @@ const toggleButtons = () => {
   audio.classList.toggle("playing") 
   if (!audio.classList.contains("playing")) {
       document.querySelector(".play-button-footer").innerHTML = `<svg role="img" height="16" width="16" aria-hidden="true" viewBox="0 0 16 16" data-encore-id="icon" class="Svg-sc-ytk21e-0 uPxdw"><path d="M3 1.713a.7.7 0 011.05-.607l10.89 6.288a.7.7 0 010 1.212L4.05 14.894A.7.7 0 013 14.288V1.713z"></path></svg>`
-      //document.querySelector(".container-fluid .play-button").innerHTML = `<svg role="img" height="28" width="28" aria-hidden="true" viewBox="0 0 24 24" data-encore-id="icon" class="Svg-sc-ytk21e-0 uPxdw"><path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z"></path></svg>`
+      //TODO document.querySelector(".container-fluid .play-button").innerHTML = `<svg role="img" height="28" width="28" aria-hidden="true" viewBox="0 0 24 24" data-encore-id="icon" class="Svg-sc-ytk21e-0 uPxdw"><path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z"></path></svg>`
       //document.querySelector("header #playButton").innerHTML = `<svg role="img" height="24" width="24" viewBox="0 0 24 24"><path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z"></path></svg>`
   }   else {
       document.querySelector(".play-button-footer").innerHTML = `<svg role="img" height="16" width="16" aria-hidden="true" viewBox="0 0 16 16" data-encore-id="icon" class="Svg-sc-ytk21e-0 uPxdw"><path d="M2.7 1a.7.7 0 00-.7.7v12.6a.7.7 0 00.7.7h2.6a.7.7 0 00.7-.7V1.7a.7.7 0 00-.7-.7H2.7zm8 0a.7.7 0 00-.7.7v12.6a.7.7 0 00.7.7h2.6a.7.7 0 00.7-.7V1.7a.7.7 0 00-.7-.7h-2.6z"></path></svg>`
@@ -156,16 +138,16 @@ const highlightSong = (div) => {
   div.classList.toggle("highlighted")
 }
 
-const playSong = (div) => {
-  const data = div.firstElementChild.dataset
+const playSong = (index) => {
+  const song = songsToPlay[index]
   const player = document.querySelector("audio")
-  document.querySelectorAll(".text-green").forEach((elem) => elem.classList.remove("text-green"))
-  div.querySelector(".top-song-nr").classList.add("text-green")
-  div.querySelector(".top-song-title").classList.add("text-green")
-  document.querySelector(".footer-info img").src = data.img
-  document.querySelector(".footer-info h6").innerText = data.title
-  document.querySelector(".footer-info span").innerText = data.artist
-  player.src = data.preview
+  //TODO document.querySelectorAll(".text-green").forEach((elem) => elem.classList.remove("text-green"))
+  //div.querySelector(".top-song-nr").classList.add("text-green")
+  //div.querySelector(".top-song-title").classList.add("text-green")
+  document.querySelector(".footer-info img").src = song.album.cover_medium
+  document.querySelector(".footer-info h6").innerText = song.title
+  document.querySelector(".footer-info span").innerText = song.artist.name
+  player.src = song.preview
   if(player.paused) {
       togglePlay()
   } else {
@@ -173,16 +155,17 @@ const playSong = (div) => {
   }
 }
 
-const prevSong = () => {
-  const previous = document.querySelector(".text-green").parentNode.previousElementSibling
-  if (previous) {
-      playSong(previous)
+const prevSong = (index) => {
+  
+  if (playIndex > 0) {
+      playIndex--
+      playSong(playIndex)
   }
 }
-const nextSong = () => {
-  const next = document.querySelector(".text-green").parentNode.nextElementSibling
-  if (next) {
-      playSong(next)
+const nextSong = (ndex) => {
+  if (playIndex < songsToPlay.length - 1) {
+      playIndex++
+      playSong(playIndex)
       toggleButtons()
   } else {
       toggleButtons()
@@ -256,11 +239,29 @@ const capitalize = (str) => {
 
 const renderNavbarList = async () => {
   const navbarUl = document.querySelector(".scroll-container ul");
-  for (let i = 0; i < 50; i++) {
+  for (let i = 0; i < 6; i++) {
     const data = await fetchData(searchURL, "artist/", artistIds[i]);
     navbarUl.innerHTML += `<li><a href="./artist.html?id=${data.id}">${data.name}</a></li>`;
   }
 };
+
+const getArtistTopSongs = async (url) => {
+  try {
+      const res = await fetch(url, options)
+      if (res.ok) {
+          const songs = await res.json()
+          while (songsToPlay.length) {
+            songsToPlay.pop()
+          }
+          songs.data.forEach((song) => songsToPlay.push(song))
+          playSong(playIndex)
+      } else {
+          throw res.status + res.statusText
+      }
+  } catch (error) {
+      console.log(error)
+  }
+}
 
 window.onload = () => {
   window.addEventListener("scroll", changeBGColorOnScroll);

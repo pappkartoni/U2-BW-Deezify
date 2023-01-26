@@ -92,6 +92,7 @@ const renderArtistPick = (pick, artist) => {
 
 const togglePlay = () => {
     const audio = document.querySelector("audio")
+    audio.classList.toggle("playing") 
     toggleButtons()
     if (audio.paused) {
         audio.play()
@@ -102,7 +103,6 @@ const togglePlay = () => {
 
 const toggleButtons = () => {
     const audio = document.querySelector("audio")
-    audio.classList.toggle("playing") 
     if (!audio.classList.contains("playing")) {
         document.querySelector(".play-button-footer").innerHTML = `<svg role="img" height="16" width="16" aria-hidden="true" viewBox="0 0 16 16" data-encore-id="icon" class="Svg-sc-ytk21e-0 uPxdw"><path d="M3 1.713a.7.7 0 011.05-.607l10.89 6.288a.7.7 0 010 1.212L4.05 14.894A.7.7 0 013 14.288V1.713z"></path></svg>`
         document.querySelector(".container-fluid .play-button").innerHTML = `<svg role="img" height="28" width="28" aria-hidden="true" viewBox="0 0 24 24" data-encore-id="icon" class="Svg-sc-ytk21e-0 uPxdw"><path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z"></path></svg>`
@@ -149,9 +149,6 @@ const nextSong = () => {
     const next = document.querySelector(".text-green").parentNode.nextElementSibling
     if (next) {
         playSong(next)
-        toggleButtons()
-    } else {
-        toggleButtons()
     }
 }
 

@@ -248,6 +248,13 @@ const setVolume = () => {
 
 const togglePlay = () => {
   const audio = document.querySelector("audio");
+  console.log(document.querySelector(".bi.bi-pause-fill"));
+  if (document.querySelector(".bi.bi-pause-fill")) {
+    document.querySelector(
+      ".bi.bi-pause-fill"
+    ).outerHTML = `<i class="bi bi-play-fill position-absolute" onclick="togglePlay(), changeIconToPlay(this)"></i>`;
+  }
+
   if (audio.classList.contains("playing")) {
     audio.classList.remove("playing");
     audio.pause();

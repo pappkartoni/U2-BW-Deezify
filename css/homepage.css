@@ -75,12 +75,12 @@ main .container-fluid .card-subtitle {
         flex: 0 0 16.6666%;
         width: 16.6666%;
     }
-    main .container-fluid .card-title {
+/*     main .container-fluid .card-title {
         font-size: 15px;
     }
     main .container-fluid .card-subtitle {
         font-size: 13px;
-    }
+    } */
 }
 @media (max-width: 1450px)  {
     .row-cols-8 .col {
@@ -93,12 +93,12 @@ main .container-fluid .card-subtitle {
         flex: 0 0 25%;
         width: 25%;
     }
-    main .container-fluid .card-title {
+/*     main .container-fluid .card-title {
         font-size: 14px;
     }
     main .container-fluid .card-subtitle {
         font-size: 12px;
-    }
+    } */
 }
 @media (max-width: 1050px)  {
     .row-cols-8 .col {
@@ -111,12 +111,12 @@ main .container-fluid .card-subtitle {
         flex: 0 0 50%;
         width: 50%;
     }
-    main .container-fluid .card-title {
+/*     main .container-fluid .card-title {
         font-size: 13px;
     }
     main .container-fluid .card-subtitle {
         font-size: 11px;
-    }
+    } */
 }
 .good-morning-container h5 {
     font-size: 1rem;

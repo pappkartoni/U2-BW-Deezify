@@ -235,8 +235,8 @@ main .good-morning-container .card-title {
     position: absolute;
     margin-top: 0;
     margin-bottom: 0;
-    bottom: 12px;
-    right: 23px;
+    bottom: 15px;
+    right: 18px;
     opacity: 0;
     transition: all 0.3s ease;
     z-index: 0;

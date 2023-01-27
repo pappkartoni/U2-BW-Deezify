@@ -35,19 +35,45 @@ const renderGoodMorningSongs = async function () {
   for (let i = 0; i < 6; i++) {
     const data = await fetchData(searchURL, "artist/", artistIds[i]);
     goodMorningRowNode.innerHTML += `
-                                    <div class="col-lg-4 col-sm-6">
-                                      <a href="./artist.html?id=${data.id}">
-                                      <div class="welcome-card w-100">
-                                        <div class="d-flex align-items-center" style="height: 80px">
-                                          <div class="h-100">
-                                          <img class="h-100" src="${data.picture_medium}" alt="...">
-                                              <button class="btn-transparent d-none"> </button>
-                                          </div>
-                                          <h5 onclick="getArtistTopSongs(${data.tracklist})">${data.name}</h5>
-                                        </div>
-                                      </div>
-                                      </a>
-                                    </div>
+
+    <div class="col-lg-4 col-sm-6">
+    <a href="./artist.html?id=${data.id}">
+      <div class="welcome-card w-100">
+        <div class="d-flex align-items-center" style="height: 80px">
+          <div class="h-100">
+            <img
+              class="h-100"
+              src="${data.picture_medium}"
+              alt="..."
+            />
+          </div>
+          <h5>${data.name}</h5>
+        </div>
+        <div class="btn-wrapper justify-content-end">
+          <button class="btn-transparent d-none"></button>
+          <button class="btn-transparent" onclick="togglePlay()">
+            <div
+              class="play-button-cards d-flex align-items-center justify-content-center"
+            >
+              <svg
+                role="img"
+                height="16"
+                width="16"
+                aria-hidden="true"
+                viewBox="0 0 16 16"
+                data-encore-id="icon"
+                class="Svg-sc-ytk21e-0 uPxdw"
+              >
+                <path
+                  d="M3 1.713a.7.7 0 011.05-.607l10.89 6.288a.7.7 0 010 1.212L4.05 14.894A.7.7 0 013 14.288V1.713z"
+                ></path>
+              </svg>
+            </div>
+          </button>
+        </div>
+      </div>
+    </a>
+  </div>
     `;
   }
 };
@@ -88,6 +114,18 @@ const setWelcomeMessage = () => {
     h1.innerText = "Good night";
   }
 };
+
+
+const changeBGColorOnScroll = () => {
+  var scroll = window.scrollY;
+  console.log(scroll);
+  if (scroll >= 120) {
+    header.classList.add("changedBG");
+  } else {
+    header.classList.remove("changedBG");
+  }
+};
+
 
 const togglePlay = () => {
   const audio = document.querySelector("audio")
@@ -247,6 +285,7 @@ const getArtistTopSongs = async (url) => {
   }
 }
 
+
 window.onload = () => {
   window.addEventListener("scroll", changeBGColorOnScroll);
   setWelcomeMessage();
@@ -297,15 +336,5 @@ const changeDropDownIconWhenShowing = () => {
     document.querySelector(
       ".dropdownButton svg"
     ).innerHTML = `<path d="M14 6l-6 6-6-6h12z"></path>`;
-  }
-};
-
-const changeBGColorOnScroll = () => {
-  var scroll = window.scrollY;
-  console.log(scroll);
-  if (scroll >= 120) {
-    header.classList.add("changedBG");
-  } else {
-    header.classList.remove("changedBG");
   }
 };

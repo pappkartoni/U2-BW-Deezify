@@ -46,9 +46,9 @@ main .container-fluid .card .card-body {
     min-height: 65px;
 } 
 
-main .container-fluid img {
+/* main .container-fluid img {
     margin-bottom: 16px;
-}
+} */
 
 main .container-fluid .card-title {
     font-size: 1rem;
@@ -203,38 +203,43 @@ main .good-morning-container .card-title {
     margin-bottom: 0;
     bottom: 25px;
     right: 23px;
-    /* opacity: 0; */
+    opacity: 0;
     transition: all 0.3s ease;
     z-index: 0;
     box-shadow: 1px 3px 10px #000;
+    background-color: #1cdf63;
 }
 
-/* .welcome-card .btn-wrapper .btn-transparent .d-none {
-    margin: 0 auto;
-    top: 33%;
-    left: 4%;
-    position: relative;
-    width: 0;
-    height: 0;
-    border-style: solid;
-    border-width: 0.5em 0 0.5em 0.9em;
-    border-color: transparent transparent transparent rgb(27, 27, 27);
-    opacity: 0.75;
-} */
-
-.welcome-card .btn-wrapper:hover {
-    background-color: #1cdf63;
-    scale: 1.04;
+.welcome-card:hover .btn-wrapper {
     opacity: 1;
+}
+.btn-wrapper:hover {
+    scale: 1.04;
 }
 
 /* end Play buttons in the "Good morning" container */
 
 /* start Play buttons in the other two containers */
 
-.btn-wrapper {
-    display: flex;
-    position: relative; 
+.img-wrapper {
+    margin-bottom: 16px;
+    position: relative;
+}
+
+.img-wrapper .btn-transparent {
+    position: absolute;
+    right: 8px;
+    bottom: 8px;
+    opacity: 0;
+    transition: all 0.3s ease;
+    z-index: 4;
+}
+.card:hover .img-wrapper .btn-transparent {
+    opacity: 1;
+}
+
+.card .img-wrapper .btn-transparent:hover {
+    scale: 1.04;
 }
 
 .main-container .btn-transparent .play-button-cards {
@@ -243,22 +248,6 @@ main .good-morning-container .card-title {
     height: 48px;
     width: 48px;
 }
-
-.recently-played .btn-transparent {
-    margin: 25% auto;
-    cursor: pointer;
-    border-radius: 50%;
-    position: absolute;
-    margin-top: 0;
-    margin-bottom: 0;
-    bottom: 10px;
-    top: 0px;
-    right: 22px;
-    /* opacity: 0; */
-    transition: all 0.3s ease;
-    z-index: 0;
-}
-
 
 .recently-played .btn-transparent:hover {
     background-color: none;

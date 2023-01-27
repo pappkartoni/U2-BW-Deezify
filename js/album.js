@@ -253,6 +253,10 @@ const togglePlay = () => {
     document.querySelector(
       ".bi.bi-pause-fill"
     ).outerHTML = `<i class="bi bi-play-fill position-absolute" onclick="togglePlay(), changeIconToPlay(this)"></i>`;
+  } else if (document.querySelector(".text-green .bi.bi-play-fill")) {
+    document.querySelector(
+      ".text-green .bi.bi-play-fill"
+    ).outerHTML = `<i class="bi bi-pause-fill position-absolute" onclick="togglePlay(), changeIconToPlay(this)"></i>`;
   }
 
   if (audio.classList.contains("playing")) {

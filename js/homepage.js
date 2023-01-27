@@ -201,17 +201,22 @@ const highlightSong = (div) => {
 };
 
 const playSong = (index) => {
-  const song = songsToPlay[index];
-  const player = document.querySelector("audio");
+  console.log("play song")
+  const song = songsToPlay[index]
+  const player = document.querySelector("audio")
   //TODO document.querySelectorAll(".text-green").forEach((elem) => elem.classList.remove("text-green"))
   //div.querySelector(".top-song-nr").classList.add("text-green")
   //div.querySelector(".top-song-title").classList.add("text-green")
-  document.querySelector(".footer-info img").src = song.album.cover_medium;
-  document.querySelector(".footer-info h6").innerText = song.title;
-  document.querySelector(".footer-info span").innerText = song.artist.name;
-  player.src = song.preview;
-  if (player.paused) {
-    togglePlay();
+  document.querySelector(".footer-info img").src = song.album.cover_medium
+  document.querySelector(".footer-info h6").innerText = song.title
+  document.querySelector(".footer-info span").innerText = song.artist.name
+  console.log("player paused before new song", player.paused)
+  player.src = song.preview
+  console.log("player paused after new song", player.paused)
+  if(!player.classList.contains("playing")) {
+    console.log("playsong paused behavior")
+      togglePlay()
+
   } else {
     player.play();
   }

@@ -200,9 +200,9 @@ const prevSong = () => {
   console.log("prev song");
   const previous =
     document.querySelector(".text-green").parentNode.previousElementSibling;
-    document.querySelector(
-      ".text-green"
-    ).childNodes[3].outerHTML = `<i class="bi bi-play-fill position-absolute" onclick="togglePlay(), changeIconToPlay(this)"></i>`;
+  document.querySelector(
+    ".text-green"
+  ).childNodes[3].outerHTML = `<i class="bi bi-play-fill position-absolute" onclick="togglePlay(), changeIconToPlay(this)"></i>`;
   if (previous) {
     playSong(previous);
   }
@@ -211,10 +211,9 @@ const nextSong = () => {
   console.log("next song");
   const next =
     document.querySelector(".text-green").parentNode.nextElementSibling;
-    document.querySelector(
-      ".text-green"
-    ).childNodes[3].outerHTML = `<i class="bi bi-play-fill position-absolute" onclick="togglePlay(), changeIconToPlay(this)"></i>`
-    ;
+  document.querySelector(
+    ".text-green"
+  ).childNodes[3].outerHTML = `<i class="bi bi-play-fill position-absolute" onclick="togglePlay(), changeIconToPlay(this)"></i>`;
   if (next) {
     playSong(next);
   } else {
@@ -235,6 +234,11 @@ const endSong = () => {
 
 const setVolume = () => {
   const slider = document.querySelector(".slider");
+  slider.style.background = `linear-gradient(to right, white 0%, white ${
+    slider.value * 200
+  }%, hsla(0, 0%, 100%, 0.3) ${
+    slider.value * 200
+  }%,  hsla(0, 0%, 100%, 0.3) 100%)`;
   const audio = document.querySelector("audio");
   audio.volume = slider.value;
   changeVolumeImage();

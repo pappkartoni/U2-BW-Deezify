@@ -8,6 +8,7 @@ const headers = {
 }
 
 const alert = document.querySelector("#alertContainer .alert");
+const artistIds = [1, 2, 3, 413, 5, 2857]; 
 
 const getArtist = async () => {
     try {
@@ -279,6 +280,28 @@ const setUsername = (username = "username") => {
   usernameOnPage.innerText = username;
 };
 
+const fetchData = async (url, apiCall, query) => {
+    try {
+        const res = await fetch(`${url}${apiCall}${query}`, {headers: headers});
+        if (res.ok) {
+            const data = await res.json();
+            return data;
+        } else {
+            throw res.status + res.statusText
+        }
+    } catch (error) {
+        console.log(error)
+    }
+  }
+
+const renderNavbarList = async () => {
+    const navbarUl = document.querySelector(".scroll-container ul");
+    for (let i = 0; i < 6; i++) {
+      const data = await fetchData(url, "artist/", artistIds[i]);
+      navbarUl.innerHTML += `<li><a href="./artist.html?id=${data.id}">${data.name}</a></li>`;
+    }
+  };
+
 window.onload = () => {
     window.addEventListener("scroll", changeBGColorOnScroll);
     setUsername(
@@ -292,6 +315,7 @@ window.onload = () => {
     const slider = document.querySelector(".slider")
     slider.addEventListener("input", setVolume)
     getArtist()
+    renderNavbarList()
 }
 
 // header related -> between line 152 and 194

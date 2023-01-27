@@ -24,8 +24,32 @@ options = {
   },
 };
 
+const artistIds = [1, 2, 3, 413, 5, 2857]; 
+
 const setUsername = (username = "username") => {
   usernameOnPage.innerText = username;
+};
+
+const fetchData = async (url, apiCall, query) => {
+  try {
+    const res = await fetch(`${url}${apiCall}${query}`, options);
+    if (res.ok) {
+      const data = await res.json();
+      return data;
+    } else {
+      throw res.status + res.statusText
+    }
+  } catch (error) {
+    console.log(error)
+  }
+};
+
+const renderNavbarList = async () => {
+  const navbarUl = document.querySelector(".scroll-container ul");
+  for (let i = 0; i < 6; i++) {
+    const data = await fetchData("https://striveschool-api.herokuapp.com/api/deezer/", "artist/", artistIds[i]);
+    navbarUl.innerHTML += `<li><a href="./artist.html?id=${data.id}">${data.name}</a></li>`;
+  }
 };
 
 window.onload = async () => {
@@ -76,6 +100,7 @@ window.onload = async () => {
   } catch (error) {
     console.error(error.message);
   }
+  renderNavbarList()
 };
 
 const dateFixer = (date) => {

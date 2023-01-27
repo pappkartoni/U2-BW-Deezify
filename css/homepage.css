@@ -232,7 +232,7 @@ main .good-morning-container .card-title {
 
 /* start Play buttons in the other two containers */
 
-.recently-played {
+.btn-wrapper {
     display: flex;
     position: relative; 
 }
@@ -244,38 +244,24 @@ main .good-morning-container .card-title {
     width: 48px;
 }
 
-.recently-played .card img .btn-wrapper {
-    align-self: center;
+.recently-played .btn-transparent {
     margin: 25% auto;
     cursor: pointer;
     border-radius: 50%;
     position: absolute;
     margin-top: 0;
     margin-bottom: 0;
-    bottom: 15px;
-    top: 150px;
+    bottom: 10px;
+    top: 0px;
     right: 22px;
     /* opacity: 0; */
     transition: all 0.3s ease;
     z-index: 0;
-    box-shadow: 1px 3px 10px #000;
 }
 
-/* .recently-played .btn-wrapper .btn-transparent .d-none {
-    margin: 0 auto;
-    top: 33%;
-    left: 4%;
-    position: relative;
-    width: 0;
-    height: 0;
-    border-style: solid;
-    border-width: 0.5em 0 0.5em 0.9em;
-    border-color: transparent transparent transparent rgb(27, 27, 27);
-    opacity: 0.75;
-} */
 
-.recently-played .card img .btn-wrapper:hover {
-    background-color: #1cdf63;
-    scale: 1.1;
+.recently-played .btn-transparent:hover {
+    background-color: none;
+    border-radius: 500px;
     opacity: 1;
 }

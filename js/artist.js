@@ -7,6 +7,8 @@ const headers = {
     'X-RapidAPI-Host': 'deezerdevs-deezer.p.rapidapi.com'
 }
 
+const alert = document.querySelector("#alertContainer .alert");
+
 const getArtist = async () => {
     try {
         const res = await fetch(url + "artist/" + id, {headers: headers})
@@ -49,16 +51,14 @@ const renderTopSongs = (songs) => {
     for (let i = 0; i < songs.length; i++) {
         const {title, explicit_lyrics, rank, album, artist, duration, preview} = songs[i]
         top.innerHTML += `
-                        <div class="d-flex align-items-center py-1" onclick="highlightSong(this)" ondblclick="playSong(this)">
+                        <div class="d-flex align-items-center py-2 unlikedSong" onclick="highlightSong(this)" ondblclick="playSong(this)">
                             <span class="d-none" data-preview="${preview}" data-img="${album.cover}" data-artist="${artist.name}" data-title="${title}"></span>
-                            <div class="top-song-nr mr-4">${i+1}</div>
+                            <div class="top-song-nr mr-4"><span>${i+1}</span><i class="bi bi-play-fill position-absolute" onclick="togglePlay(), changeIconToPause(this)"></i></div>
                             <div class="mr-4"><img src="${album.cover}" style="width: 40px"></div>
                             <div class="top-song-title text-white mr-auto">${title} ${explicit_lyrics ? "<span class='badge badge-light'>E</span>" : ""}</div>
                             <div class="mr-5 d-none d-md-block">${rank.toLocaleString("en-US")}</div>
                             <div class="d-flex">
-                                <button class="btn-transparent">
-                                    <svg role="img" height="16" width="16" aria-hidden="true" viewBox="0 0 16 16" data-encore-id="icon" class="Svg-sc-ytk21e-0 uPxdw"><path d="M1.69 2A4.582 4.582 0 018 2.023 4.583 4.583 0 0111.88.817h.002a4.618 4.618 0 013.782 3.65v.003a4.543 4.543 0 01-1.011 3.84L9.35 14.629a1.765 1.765 0 01-2.093.464 1.762 1.762 0 01-.605-.463L1.348 8.309A4.582 4.582 0 011.689 2zm3.158.252A3.082 3.082 0 002.49 7.337l.005.005L7.8 13.664a.264.264 0 00.311.069.262.262 0 00.09-.069l5.312-6.33a3.043 3.043 0 00.68-2.573 3.118 3.118 0 00-2.551-2.463 3.079 3.079 0 00-2.612.816l-.007.007a1.501 1.501 0 01-2.045 0l-.009-.008a3.082 3.082 0 00-2.121-.861z"></path></svg>
-                                </button>
+                                <i class="bi bi-heart pl-4 d-none d-md-inline" onclick="likeSong(this)"></i>
                                 <span class="pr-3 pl-4">${durationFormatter(duration)}</span>
                                 <button class="btn-transparent">
                                     <svg role="img" height="16" width="16" aria-hidden="true" viewBox="0 0 16 16" data-encore-id="icon" class="Svg-sc-ytk21e-0 uPxdw"><path d="M3 8a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zm6.5 0a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM16 8a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z"></path></svg>
@@ -129,7 +129,7 @@ const highlightSong = (div) => {
 }
 
 const playSong = (div) => {
-    console.log("play song")
+    document.querySelectorAll(".bi-pause-fill").forEach((btn) => changeIconToPlay(btn))
     const data = div.firstElementChild.dataset
     const audio = document.querySelector("audio")
     document.querySelectorAll(".text-green").forEach((elem) => elem.classList.remove("text-green"))
@@ -230,6 +230,35 @@ const durationFormatter = (dur) => {
 const capitalize = (str) => {
     return str.charAt(0).toUpperCase() + str.slice(1)
 }
+
+const likeSong = (btn) => {
+    if (btn.closest(".d-flex.py-2").classList.contains("unlikedSong")) {
+      btn.closest(".d-flex.py-2").classList.replace("unlikedSong", "likedSong");
+      btn.outerHTML = `<i class="bi bi-heart-fill pl-4 d-none d-md-inline" style="color: #1ed760"  onclick="likeSong(this)"></i>`;
+      alert.innerHTML = `Added to your <strong>Liked Songs</strong>`;
+      alert.classList.replace("d-none", "d-block");
+      setTimeout(() => {
+        alert.classList.replace("d-block", "d-none");
+      }, 2000);
+    } else {
+      btn.closest(".d-flex.py-2").classList.replace("likedSong", "unlikedSong");
+      btn.outerHTML = `<i class="bi bi-heart pl-4 d-none d-md-inline" onclick="likeSong(this)"></i>`;
+      alert.innerHTML = `Removed from your <strong>Liked Songs</strong>`;
+      alert.classList.replace("d-none", "d-block");
+      setTimeout(() => {
+        alert.classList.replace("d-block", "d-none");
+      }, 2000);
+    }
+  };
+
+const changeIconToPause = (btn) => {
+    playSong(btn.closest(".d-flex.py-2"));
+    btn.outerHTML = `<i class="bi bi-pause-fill position-absolute" onclick="togglePlay(), changeIconToPlay(this)"></i>`;
+};
+  
+const changeIconToPlay = (btn) => {
+    btn.outerHTML = `<i class="bi bi-play-fill position-absolute" onclick="togglePlay(), changeIconToPause(this)"></i>`;
+};
 
 // username function -> between line 131 and 145
 

@@ -178,9 +178,14 @@ const selectSong = (musicToSelect) => {
 const playSong = (musicToPlay) => {
   const data = musicToPlay.firstElementChild.dataset;
   const audio = document.querySelector("audio");
-  document
-    .querySelectorAll(".text-green")
-    .forEach((elem) => elem.classList.remove("text-green"));
+  document.querySelectorAll(".text-green").forEach((elem) => {
+    elem.classList.remove("text-green");
+    if (elem.classList.contains("numberToPlayIcon")) {
+      console.log(
+        (elem.childNodes[3].outerHTML = `<i class="bi bi-play-fill position-absolute" onclick="togglePlay(), changeIconToPlay(this)"></i>`)
+      );
+    }
+  });
   musicToPlay.querySelector(".numberToPlayIcon").classList.add("text-green");
   musicToPlay.querySelector(".artistName").classList.add("text-green");
   document.querySelector(".footer-info img").src = data.img;

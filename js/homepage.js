@@ -19,13 +19,17 @@ const albumIds = [
 ];
 
 const fetchData = async (url, apiCall, query) => {
-  //we could use + instead of `${}`, bc they're both strings
-  const res = await fetch(`${url}${apiCall}${query}`, options);
-  const data = await res.json();
-  return data;
-  // .then((response) => response.json())
-  // .then((rawData) => renderGoodMorningSongs(rawData))
-  // .catch((err) => console.error(err));
+  try {
+    const res = await fetch(`${url}${apiCall}${query}`, options);
+    if (res.ok) {
+      const data = await res.json();
+      return data;
+    } else {
+      throw res.status + res.statusText
+    }
+  } catch (error) {
+    console.log(error)
+  }
 };
 
 const renderGoodMorningSongs = async function () {

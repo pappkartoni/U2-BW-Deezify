@@ -181,9 +181,7 @@ const playSong = (musicToPlay) => {
   document.querySelectorAll(".text-green").forEach((elem) => {
     elem.classList.remove("text-green");
     if (elem.classList.contains("numberToPlayIcon")) {
-      console.log(
-        (elem.childNodes[3].outerHTML = `<i class="bi bi-play-fill position-absolute" onclick="togglePlay(), changeIconToPlay(this)"></i>`)
-      );
+      elem.childNodes[3].outerHTML = `<i class="bi bi-play-fill position-absolute" onclick="togglePlay(), changeIconToPlay(this)"></i>`;
     }
   });
   musicToPlay.querySelector(".numberToPlayIcon").classList.add("text-green");
@@ -194,9 +192,10 @@ const playSong = (musicToPlay) => {
   audio.src = data.preview;
   if (!audio.classList.contains("playing")) {
     togglePlay();
-  } else {
-    audio.play();
     musicToPlay.childNodes[3].childNodes[3].outerHTML = `<i class="bi bi-pause-fill position-absolute" onclick="togglePlay(), changeIconToPlay(this)"></i>`;
+  } else {
+    musicToPlay.childNodes[3].childNodes[3].outerHTML = `<i class="bi bi-pause-fill position-absolute" onclick="togglePlay(), changeIconToPlay(this)"></i>`;
+    audio.play();
     showPlayIcon();
   }
 };

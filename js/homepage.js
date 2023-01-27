@@ -114,7 +114,7 @@ const renderData = async function (container) {
     const data = await fetchData(searchURL, "album/", albumIds[i]);
     container.innerHTML += `<div class="col">
                               <a href="./album.html?id=${data.id}">
-                              <div class="card">
+                              <div class="card mb-3">
                               <img src="${
                                 data.cover_medium
                               }" class="card-img-top" alt="...">

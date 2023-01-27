@@ -8,10 +8,9 @@ const options = {
 
 const songsToPlay = []
 let playIndex = 0
+
 const searchURL = "https://striveschool-api.herokuapp.com/api/deezer/";
-// const parametres = new URLSearchParams(location.search);
-// let id = parametres.get("id");
-// id = "pink%20floyd";
+
 
 const artistIds = [1, 2, 3, 413, 5, 2857]; // [{id: 123, type: "album"}, {}]
 const albumIds = [
@@ -75,22 +74,6 @@ const renderData = async function (container) {
                           </div>`;
   }
 
-  // songs.forEach((song) => {
-  //   rowNode.innerHTML += `<div class="col-4">
-  //   <div class="card mb-5"  >
-  //     <div class="row no-gutters">
-  //       <div class="col-md-4">
-  //         <img src="${song.album.cover_medium}" alt="...">
-  //       </div>
-  //       <div class="col-md-8">
-  //         <div id="try" class="card-body d-flex">
-  //           <h5 class="card-title">${song.album.title}</h5>
-  //         </div>
-  //       </div>
-  //     </div>
-  //   </div>
-  // </div>`;
-  // });
 };
 const setWelcomeMessage = () => {
   const hours = new Date().getHours();
@@ -108,6 +91,7 @@ const setWelcomeMessage = () => {
 
 const togglePlay = () => {
   const audio = document.querySelector("audio")
+  audio.classList.toggle("playing") 
   toggleButtons()
   if (audio.paused) {
       audio.play()
@@ -118,7 +102,6 @@ const togglePlay = () => {
 
 const toggleButtons = () => {
   const audio = document.querySelector("audio")
-  audio.classList.toggle("playing") 
   if (!audio.classList.contains("playing")) {
       document.querySelector(".play-button-footer").innerHTML = `<svg role="img" height="16" width="16" aria-hidden="true" viewBox="0 0 16 16" data-encore-id="icon" class="Svg-sc-ytk21e-0 uPxdw"><path d="M3 1.713a.7.7 0 011.05-.607l10.89 6.288a.7.7 0 010 1.212L4.05 14.894A.7.7 0 013 14.288V1.713z"></path></svg>`
       //TODO document.querySelector(".container-fluid .play-button").innerHTML = `<svg role="img" height="28" width="28" aria-hidden="true" viewBox="0 0 24 24" data-encore-id="icon" class="Svg-sc-ytk21e-0 uPxdw"><path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z"></path></svg>`
@@ -155,27 +138,28 @@ const playSong = (index) => {
   }
 }
 
-const prevSong = (index) => {
+const prevSong = () => {
   
   if (playIndex > 0) {
       playIndex--
       playSong(playIndex)
   }
 }
-const nextSong = (ndex) => {
+const nextSong = () => {
   if (playIndex < songsToPlay.length - 1) {
       playIndex++
       playSong(playIndex)
+  } else if (songsToPlay.length) {
+      document.querySelector("audio").classList.toggle("playing") 
       toggleButtons()
-  } else {
-      toggleButtons()
+    }
   }
-}
-
-const endSong = () => {
-  if (document.querySelector(".text-green")) {
+  
+  const endSong = () => {
+    if (document.querySelector(".text-green")) { //todo
       nextSong()
-  } else {
+    } else {
+      document.querySelector("audio").classList.toggle("playing") 
       toggleButtons()
   }
 }

@@ -178,9 +178,12 @@ const selectSong = (musicToSelect) => {
 const playSong = (musicToPlay) => {
   const data = musicToPlay.firstElementChild.dataset;
   const audio = document.querySelector("audio");
-  document
-    .querySelectorAll(".text-green")
-    .forEach((elem) => elem.classList.remove("text-green"));
+  document.querySelectorAll(".text-green").forEach((elem) => {
+    elem.classList.remove("text-green");
+    if (elem.classList.contains("numberToPlayIcon")) {
+      elem.childNodes[3].outerHTML = `<i class="bi bi-play-fill position-absolute" onclick="togglePlay(), changeIconToPlay(this)"></i>`;
+    }
+  });
   musicToPlay.querySelector(".numberToPlayIcon").classList.add("text-green");
   musicToPlay.querySelector(".artistName").classList.add("text-green");
   document.querySelector(".footer-info img").src = data.img;
@@ -189,9 +192,10 @@ const playSong = (musicToPlay) => {
   audio.src = data.preview;
   if (!audio.classList.contains("playing")) {
     togglePlay();
+    musicToPlay.childNodes[3].childNodes[3].outerHTML = `<i class="bi bi-pause-fill showAnyway position-absolute" onclick="togglePlay(), changeIconToPlay(this)"></i>`;
   } else {
+    musicToPlay.childNodes[3].childNodes[3].outerHTML = `<i class="bi bi-pause-fill showAnyway position-absolute" onclick="togglePlay(), changeIconToPlay(this)"></i>`;
     audio.play();
-    musicToPlay.childNodes[3].childNodes[3].outerHTML = `<i class="bi bi-pause-fill position-absolute" onclick="togglePlay(), changeIconToPlay(this)"></i>`;
     showPlayIcon();
   }
 };
@@ -200,9 +204,9 @@ const prevSong = () => {
   console.log("prev song");
   const previous =
     document.querySelector(".text-green").parentNode.previousElementSibling;
-    document.querySelector(
-      ".text-green"
-    ).childNodes[3].outerHTML = `<i class="bi bi-play-fill position-absolute" onclick="togglePlay(), changeIconToPlay(this)"></i>`;
+  document.querySelector(
+    ".text-green"
+  ).childNodes[3].outerHTML = `<i class="bi bi-play-fill position-absolute" onclick="togglePlay(), changeIconToPlay(this)"></i>`;
   if (previous) {
     playSong(previous);
   }
@@ -211,15 +215,13 @@ const nextSong = () => {
   console.log("next song");
   const next =
     document.querySelector(".text-green").parentNode.nextElementSibling;
-    document.querySelector(
-      ".text-green"
-    ).childNodes[3].outerHTML = `<i class="bi bi-play-fill position-absolute" onclick="togglePlay(), changeIconToPlay(this)"></i>`
-    ;
+  document.querySelector(
+    ".text-green"
+  ).childNodes[3].outerHTML = `<i class="bi bi-play-fill position-absolute" onclick="togglePlay(), changeIconToPlay(this)"></i>`;
   if (next) {
     playSong(next);
   } else {
     document.querySelector("audio").classList.toggle("playing");
-    toggleButtons();
   }
 };
 
@@ -229,12 +231,16 @@ const endSong = () => {
     nextSong();
   } else {
     document.querySelector("audio").classList.toggle("playing");
-    toggleButtons();
   }
 };
 
 const setVolume = () => {
   const slider = document.querySelector(".slider");
+  slider.style.background = `linear-gradient(to right, white 0%, white ${
+    slider.value * 200
+  }%, hsla(0, 0%, 100%, 0.3) ${
+    slider.value * 200
+  }%,  hsla(0, 0%, 100%, 0.3) 100%)`;
   const audio = document.querySelector("audio");
   audio.volume = slider.value;
   changeVolumeImage();
@@ -242,6 +248,13 @@ const setVolume = () => {
 
 const togglePlay = () => {
   const audio = document.querySelector("audio");
+  console.log(document.querySelector(".bi.bi-pause-fill"));
+  if (document.querySelector(".bi.bi-pause-fill")) {
+    document.querySelector(
+      ".bi.bi-pause-fill"
+    ).outerHTML = `<i class="bi bi-play-fill position-absolute" onclick="togglePlay(), changeIconToPlay(this)"></i>`;
+  }
+
   if (audio.classList.contains("playing")) {
     audio.classList.remove("playing");
     audio.pause();
@@ -320,7 +333,7 @@ const showPauseIcon = () => {
 
 const changeIconToPause = (btn) => {
   playSong(btn.closest("tr"));
-  btn.outerHTML = `<i class="bi bi-pause-fill position-absolute" onclick="togglePlay(), changeIconToPlay(this)"></i>`;
+  btn.outerHTML = `<i class="bi bi-pause-fill showAnyway position-absolute" onclick="togglePlay(), changeIconToPlay(this)"></i>`;
 };
 
 const changeIconToPlay = (btn) => {

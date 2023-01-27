@@ -121,6 +121,14 @@ main #albumWrapper {
   vertical-align: middle;
 }
 
+.text-green span:not(.artistName) {
+  opacity: 0%;
+}
+
+.bi.bi-pause-fill.showAnyway {
+  opacity: 100%;
+}
+
 @media (max-width: 685px) {
   #musicTableWrapper td:nth-of-type(2) {
     white-space: nowrap;

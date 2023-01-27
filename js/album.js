@@ -192,9 +192,9 @@ const playSong = (musicToPlay) => {
   audio.src = data.preview;
   if (!audio.classList.contains("playing")) {
     togglePlay();
-    musicToPlay.childNodes[3].childNodes[3].outerHTML = `<i class="bi bi-pause-fill position-absolute" onclick="togglePlay(), changeIconToPlay(this)"></i>`;
+    musicToPlay.childNodes[3].childNodes[3].outerHTML = `<i class="bi bi-pause-fill showAnyway position-absolute" onclick="togglePlay(), changeIconToPlay(this)"></i>`;
   } else {
-    musicToPlay.childNodes[3].childNodes[3].outerHTML = `<i class="bi bi-pause-fill position-absolute" onclick="togglePlay(), changeIconToPlay(this)"></i>`;
+    musicToPlay.childNodes[3].childNodes[3].outerHTML = `<i class="bi bi-pause-fill showAnyway position-absolute" onclick="togglePlay(), changeIconToPlay(this)"></i>`;
     audio.play();
     showPlayIcon();
   }
@@ -326,7 +326,7 @@ const showPauseIcon = () => {
 
 const changeIconToPause = (btn) => {
   playSong(btn.closest("tr"));
-  btn.outerHTML = `<i class="bi bi-pause-fill position-absolute" onclick="togglePlay(), changeIconToPlay(this)"></i>`;
+  btn.outerHTML = `<i class="bi bi-pause-fill showAnyway position-absolute" onclick="togglePlay(), changeIconToPlay(this)"></i>`;
 };
 
 const changeIconToPlay = (btn) => {

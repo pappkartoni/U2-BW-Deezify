@@ -28,44 +28,106 @@
         <ul>
           <li>
             <a class="active" href="#">
-              <ion-icon name="home-outline"></ion-icon>
+              <svg
+                role="img"
+                height="24"
+                width="24"
+                aria-hidden="true"
+                class="Svg-sc-ytk21e-0 uPxdw home-active-icon"
+                viewBox="0 0 24 24"
+                data-encore-id="icon"
+              >
+                <path
+                  d="M13.5 1.515a3 3 0 00-3 0L3 5.845a2 2 0 00-1 1.732V21a1 1 0 001 1h6a1 1 0 001-1v-6h4v6a1 1 0 001 1h6a1 1 0 001-1V7.577a2 2 0 00-1-1.732l-7.5-4.33z"
+                ></path>
+              </svg>
               <span>Home</span>
             </a>
           </li>
           <li>
             <a href="#">
-              <ion-icon name="search-outline"></ion-icon>
+              <svg
+                role="img"
+                height="24"
+                width="24"
+                aria-hidden="true"
+                class="Svg-sc-ytk21e-0 uPxdw search-icon"
+                viewBox="0 0 24 24"
+                data-encore-id="icon"
+              >
+                <path
+                  d="M10.533 1.279c-5.18 0-9.407 4.14-9.407 9.279s4.226 9.279 9.407 9.279c2.234 0 4.29-.77 5.907-2.058l4.353 4.353a1 1 0 101.414-1.414l-4.344-4.344a9.157 9.157 0 002.077-5.816c0-5.14-4.226-9.28-9.407-9.28zm-7.407 9.279c0-4.006 3.302-7.28 7.407-7.28s7.407 3.274 7.407 7.28-3.302 7.279-7.407 7.279-7.407-3.273-7.407-7.28z"
+                ></path>
+              </svg>
               <span>Search</span>
             </a>
           </li>
           <li>
             <a href="#">
-              <ion-icon name="library-outline"></ion-icon>
+              <svg
+                role="img"
+                height="24"
+                width="24"
+                aria-hidden="true"
+                class="Svg-sc-ytk21e-0 uPxdw collection-icon"
+                viewBox="0 0 24 24"
+                data-encore-id="icon"
+              >
+                <path
+                  d="M14.5 2.134a1 1 0 011 0l6 3.464a1 1 0 01.5.866V21a1 1 0 01-1 1h-6a1 1 0 01-1-1V3a1 1 0 01.5-.866zM16 4.732V20h4V7.041l-4-2.309zM3 22a1 1 0 01-1-1V3a1 1 0 012 0v18a1 1 0 01-1 1zm6 0a1 1 0 01-1-1V3a1 1 0 012 0v18a1 1 0 01-1 1z"
+                ></path>
+              </svg>
               <span>Your Library</span>
             </a>
           </li>
         </ul>
       </div>
-      <div class="navigation">
+      <div class="navigation d-flex">
         <ul>
           <li>
             <a class="active" href="#">
-              <ion-icon name="add-outline"></ion-icon>
+              <svg
+                role="img"
+                height="12"
+                width="12"
+                aria-hidden="true"
+                viewBox="0 0 16 16"
+                data-encore-id="icon"
+                class="Svg-sc-ytk21e-0 uPxdw"
+              >
+                <path
+                  d="M15.25 8a.75.75 0 01-.75.75H8.75v5.75a.75.75 0 01-1.5 0V8.75H1.5a.75.75 0 010-1.5h5.75V1.5a.75.75 0 011.5 0v5.75h5.75a.75.75 0 01.75.75z"
+                ></path>
+              </svg>
               <span>Create Playlist</span>
             </a>
           </li>
           <li>
             <a href="#">
-              <ion-icon name="heart-outline"></ion-icon>
+              <svg
+                role="img"
+                height="12"
+                width="12"
+                aria-hidden="true"
+                viewBox="0 0 16 16"
+                data-encore-id="icon"
+                class="Svg-sc-ytk21e-0 uPxdw"
+              >
+                <path
+                  d="M15.724 4.22A4.313 4.313 0 0012.192.814a4.269 4.269 0 00-3.622 1.13.837.837 0 01-1.14 0 4.272 4.272 0 00-6.21 5.855l5.916 7.05a1.128 1.128 0 001.727 0l5.916-7.05a4.228 4.228 0 00.945-3.577z"
+                ></path>
+              </svg>
               <span>Liked Songs</span>
             </a>
           </li>
         </ul>
       </div>
       <div class="scroll-container">
-        <ul>
-          <li></li>
-        </ul>
+        <div class="overflow-auto">
+          <ul>
+            <!-- <li><a href="#">Lorem ipsum dolor sit amet.</a></li> -->
+          </ul>
+        </div>
       </div>
     </nav>
 
@@ -76,6 +138,7 @@
             <div class="ml-2 btn-group" role="group">
               <button type="button" id="prevButton" aria-label="Go back">
                 <svg
+                  onclick="history.back()"
                   role="img"
                   height="16"
                   width="16"
@@ -89,6 +152,7 @@
                 </svg>
               </button>
               <button
+                onclick="history.forward()"
                 type="button"
                 id="nextButton"
                 class="ml-3 d-none d-md-inline-flex"
@@ -251,18 +315,73 @@
           <div class="row shows-to-try row-cols-8"></div>
         </div>
       </section>
+
+      <section id="footer" class="py-3">
+        <div>
+          <div class="row m-3 flex-column flex-md-row">
+            <div class="col-9 p-0 row flex-column flex-md-row">
+              <div class="d-flex p-0 mr-1 flex-column col">
+                <span>Company</span>
+                <a href="#">About</a>
+                <a href="#">Jobs</a>
+                <a href="#">For the Record</a>
+              </div>
+              <div class="d-flex p-0 mr-1 mt-3 mt-md-0 flex-column col">
+                <span>Communities</span>
+                <a href="#">For Artists</a>
+                <a href="#">Developers</a>
+                <a href="#">Advertising</a>
+                <a href="#">Investors</a>
+                <a href="#">Vendors</a>
+              </div>
+              <div class="d-flex p-0 mr-1 mt-3 mt-md-0 flex-column col">
+                <span>Useful Links</span>
+                <a href="#">Support</a>
+                <a href="#">Free Mobile App</a>
+              </div>
+            </div>
+            <div
+              class="d-flex col-3 p-0 ml-md-auto"
+              style="margin-inline-start: -15px"
+            >
+              <div
+                class="socialLinks ml-auto mt-3 mt-md-0"
+                style="min-width: 120px"
+              >
+                <a href="#" type="button" class="btn"
+                  ><img src="./assets/instagram.svg"
+                /></a>
+                <a href="#" type="button" class="btn ml-md-2">
+                  <img src="./assets/twitter.svg" />
+                </a>
+                <a href="#" type="button" class="btn ml-md-2">
+                  <img src="./assets/facebook.svg" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="d-flex footerLegal">
+          <a href="#" class="d-none d-md-inline mr-3">Legal</a>
+          <a href="#" class="d-none d-md-inline mr-3">Privacy Center</a>
+          <a href="#" class="d-none d-md-inline mr-3">Privacy Policy</a>
+          <a href="#" class="d-none d-md-inline mr-3">Cookies</a>
+          <a href="#" class="d-none d-md-inline mr-3">About Ads</a>
+          <span class="mx-auto mx-md-0 ml-md-auto">© 2023 Spotify AB</span>
+        </div>
+      </section>
     </main>
     <footer
       class="fixed-bottom d-flex align-items-center justify-content-between"
     >
       <div class="d-flex footer-info align-items-center w-30">
         <img
-          src="https://i.scdn.co/image/ab67616d0000485152f194d02c39909d1b284799"
+          src="https://e-cdns-images.dzcdn.net/images/cover/335db41564cb33510b3ae0677892cf38/250x250-000000-80-0-0.jpg"
           width="56"
         />
         <div class="d-flex flex-column px-3 justify-content-center">
-          <h6>Vomitspit</h6>
-          <span>MF DOOM</span>
+          <h6>All Caps</h6>
+          <span>Madvillain</span>
         </div>
         <button class="btn-transparent px-2">
           <svg
@@ -313,7 +432,7 @@
                   ></path>
                 </svg>
               </button>
-              <button class="btn-transparent px-2">
+              <button class="btn-transparent px-2" onclick="prevSong()">
                 <svg
                   role="img"
                   height="16"
@@ -351,7 +470,7 @@
               </button>
             </div>
             <div class="d-flex">
-              <button class="btn-transparent px-2">
+              <button class="btn-transparent px-2" onclick="nextSong()">
                 <svg
                   role="img"
                   height="16"
@@ -389,14 +508,13 @@
         >
           <div class="curDur">0:00</div>
           <div class="progress w-100"></div>
-          <div class="maxDur">4:22</div>
+          <div class="maxDur">0:31</div>
         </div>
-        <audio>
-          <source
-            src="https://cdns-preview-c.dzcdn.net/stream/c-cbc4921a7cd0633e870e2fc2f70d11bd-2.mp3"
-            type="audio/mp3"
-          />
-        </audio>
+        <audio
+          ontimeupdate="songProgress()"
+          src="https://cdns-preview-f.dzcdn.net/stream/c-fed011a6ae583dff1c842e03227ae876-3.mp3"
+          onended="endSong()"
+        ></audio>
       </div>
       <div
         class="d-flex justify-content-end align-items-center footer-controls w-30"
@@ -486,7 +604,6 @@
         </button>
       </div>
     </footer>
-
     <script
       type="module"
       src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"

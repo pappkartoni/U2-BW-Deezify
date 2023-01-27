@@ -95,7 +95,12 @@
           <header class="navbar-fix fixed-top py-0">
             <div class="d-flex align-items-center" style="height: 80px">
               <div class="ml-2 btn-group" role="group">
-                <button type="button" id="prevButton" aria-label="Go back">
+                <button
+                  onclick="history.back()"
+                  type="button"
+                  id="prevButton"
+                  aria-label="Go back"
+                >
                   <svg
                     role="img"
                     height="16"
@@ -103,6 +108,9 @@
                     aria-hidden="true"
                     viewBox="0 0 16 16"
                     fill="#fff"
+                    action="action"
+                    onclick="window.history.go(-1); return false;"
+                    value="Cancel"
                   >
                     <path
                       d="M11.03.47a.75.75 0 010 1.06L4.56 8l6.47 6.47a.75.75 0 11-1.06 1.06L2.44 8 9.97.47a.75.75 0 011.06 0z"
@@ -114,6 +122,9 @@
                   id="nextButton"
                   class="ml-3 d-none d-md-inline-flex"
                   aria-label="Go forward"
+                  action="action"
+                  onclick="history.forward()"
+                  value="Cancel"
                 >
                   <svg
                     role="img"
@@ -130,12 +141,11 @@
                 </button>
               </div>
               <div class="showOnScroll d-flex align-items-center ml-3">
-                <button id="playButton" type="button">
+                <button onclick="togglePlay()" id="playButton" type="button">
                   <svg role="img" height="24" width="24" viewBox="0 0 24 24">
                     <path
                       d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z"
                     ></path>
-                    <!-- !!ON PLAY <path d="M5.7 3a.7.7 0 00-.7.7v16.6a.7.7 0 00.7.7h2.6a.7.7 0 00.7-.7V3.7a.7.7 0 00-.7-.7H5.7zm10 0a.7.7 0 00-.7.7v16.6a.7.7 0 00.7.7h2.6a.7.7 0 00.7-.7V3.7a.7.7 0 00-.7-.7h-2.6z"></path> -->
                   </svg>
                 </button>
                 <h5 class="m-0 ml-3">Album Title</h5>
@@ -191,7 +201,7 @@
           </header>
           <div
             id="albumInfoWrapper"
-            class="container-fluid px-4 pt-5"
+            class="container-fluid pt-5"
             style="background-color: #505050"
           >
             <!-- BACKGROUND COLOR SHOULD SYNC WITH THE IMAGE COLOR -->
@@ -245,6 +255,7 @@
           >
             <button class="btn-transparent">
               <span
+                onclick="togglePlay()"
                 class="play-button d-flex align-items-center justify-content-center"
               >
                 <svg
@@ -262,7 +273,11 @@
                 </svg>
               </span>
             </button>
-            <button class="btn-transparent" style="margin-right: 32px">
+            <button
+              onclick="likeAlbum(this)"
+              class="btn-transparent unlikedAlbum"
+              style="margin-right: 32px"
+            >
               <svg
                 role="img"
                 height="32"
@@ -311,7 +326,7 @@
             <span style="font-size: small">Label</span>
           </div>
         </section>
-        <section id="footer" class="py-3 px-4">
+        <section id="footer" class="py-3">
           <div>
             <div class="row m-3 flex-column flex-md-row">
               <div class="col-9 p-0 row flex-column flex-md-row">
@@ -365,17 +380,27 @@
             <span class="mx-auto mx-md-0 ml-md-auto">© 2023 Spotify AB</span>
           </div>
         </section>
+
+        <section id="alertContainer">
+          <div
+            class="alert alert-dismissible fade show fixed-bottom text-center d-none"
+            role="alert"
+          >
+            Alert
+          </div>
+        </section>
+
         <footer
           class="fixed-bottom d-flex align-items-center justify-content-between"
         >
           <div class="d-flex footer-info align-items-center w-30">
             <img
-              src="https://i.scdn.co/image/ab67616d0000485152f194d02c39909d1b284799"
+              src="https://e-cdns-images.dzcdn.net/images/cover/335db41564cb33510b3ae0677892cf38/250x250-000000-80-0-0.jpg"
               width="56"
             />
             <div class="d-flex flex-column px-3 justify-content-center">
-              <h6>Vomitspit</h6>
-              <span>MF DOOM</span>
+              <h6>All Caps</h6>
+              <span>Madvillain</span>
             </div>
             <button class="btn-transparent px-2">
               <svg
@@ -426,7 +451,7 @@
                       ></path>
                     </svg>
                   </button>
-                  <button class="btn-transparent px-2">
+                  <button class="btn-transparent px-2" onclick="prevSong()">
                     <svg
                       role="img"
                       height="16"
@@ -464,7 +489,7 @@
                   </button>
                 </div>
                 <div class="d-flex">
-                  <button class="btn-transparent px-2">
+                  <button class="btn-transparent px-2" onclick="nextSong()">
                     <svg
                       role="img"
                       height="16"
@@ -502,14 +527,13 @@
             >
               <div class="curDur">0:00</div>
               <div class="progress w-100"></div>
-              <div class="maxDur">4:22</div>
+              <div class="maxDur">0:31</div>
             </div>
-            <audio>
-              <source
-                src="https://cdns-preview-c.dzcdn.net/stream/c-cbc4921a7cd0633e870e2fc2f70d11bd-2.mp3"
-                type="audio/mp3"
-              />
-            </audio>
+            <audio
+              ontimeupdate="songProgress()"
+              src="https://cdns-preview-f.dzcdn.net/stream/c-fed011a6ae583dff1c842e03227ae876-3.mp3"
+              onended="endSong()"
+            ></audio>
           </div>
           <div
             class="d-flex justify-content-end align-items-center footer-controls w-30"

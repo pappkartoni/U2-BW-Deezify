@@ -24,7 +24,7 @@ h2 {
   margin-bottom: 16px;
 }
 
-section {
+section:not(#alertContainer) {
   margin-bottom: 16px;
 }
 
@@ -96,7 +96,7 @@ header button:focus,
 }
 
 header {
-  padding-inline: 15px;
+  padding-inline: 22px;
   transition: background-color 300ms, opacity 300ms;
 }
 
@@ -130,6 +130,11 @@ header.changedBG {
 .dropdownButton {
   padding: 0 0;
   overflow: hidden;
+  align-items: center;
+}
+
+.dropdownButton:focus {
+  box-shadow: none;
 }
 
 .dropdownButton > span > span {
@@ -170,7 +175,7 @@ header.changedBG {
 }
 
 .showOnScroll button:hover {
-  transform: scale(1.05);
+  transform: scale(1.04);
   background-color: #39e678;
 }
 
@@ -210,6 +215,10 @@ header.changedBG {
   border: none;
   background: none;
   padding: 0;
+  font-size: 12px;
+  color: #a7a7a7;
+  font-weight: 700;
+  letter-spacing: 1px;
 }
 
 .btn-transparent:hover {
@@ -245,10 +254,10 @@ header.changedBG {
 .btn-clear:hover {
   cursor: default;
 }
-main {
+main:not(#loginMain) {
   margin-bottom: 6rem;
 }
-main > .container-fluid {
+main > .container-fluid:not(#loginHeader) {
   padding: 24px 32px;
 }
 
@@ -282,10 +291,9 @@ main > .container-fluid {
   flex-wrap: wrap;
 }
 
-/* .navbar-fixed-left .navigation {
-    border: 3px solid rgb(0, 255, 221);
-} */
-
+.text-green {
+  color: #1ed760 !important;
+}
 .navbar .navigation ul li {
   list-style: none;
   margin-top: 20%;
@@ -387,6 +395,7 @@ footer .btn-transparent:hover > svg > path {
 .maxDur {
   font-size: 0.6875rem;
   font-weight: 400;
+  width: 28px;
 }
 .w-40 {
   width: 40%;
@@ -398,11 +407,21 @@ footer .btn-transparent:hover > svg > path {
 .volume {
   flex: 0 1 125px;
   margin-right: 4px;
+  align-items: center;
 }
 input[type="range"] {
   -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
   width: 100%; /* Specific width is required for Firefox. */
-  background: transparent; /* Otherwise white in Chrome */
+  height: 4px;
+  cursor: pointer;
+  background: linear-gradient(
+    to right,
+    white 0%,
+    white 50%,
+    hsla(0, 0%, 100%, 0.3) 50%,
+    hsla(0, 0%, 100%, 0.3) 100%
+  );
+  border-radius: 2px; /* Otherwise white in Chrome */
 }
 
 input[type="range"]::-webkit-slider-thumb {
@@ -422,16 +441,8 @@ input[type="range"]::-ms-track {
   border-color: transparent;
   color: transparent;
 }
-/* bar */
-input[type="range"]::-webkit-slider-runnable-track {
-  width: 100%;
-  height: 4px;
-  cursor: pointer;
-  background: hsla(0, 0%, 100%, 0.3);
-  border-radius: 2px;
-}
 
-input[type="range"]:focus::-webkit-slider-runnable-track {
+/* input[type="range"]:focus::-webkit-slider-runnable-track {
   background: hsla(0, 0%, 100%, 0.3);
 }
 
@@ -465,7 +476,7 @@ input[type="range"]::-ms-fill-upper {
 
 input[type="range"]:focus::-ms-fill-upper {
   background: hsla(0, 0%, 100%, 0.3);
-}
+} */
 
 /* thumb */
 /* Chrome */
@@ -475,7 +486,12 @@ input[type="range"]::-webkit-slider-thumb {
   width: 12px;
   border-radius: 500px;
   background: white;
-  margin-top: -4px;
+  opacity: 0;
+}
+
+input[type="range"]:hover::-webkit-slider-thumb,
+input[type="range"]:focus::-webkit-slider-thumb {
+  opacity: 1;
 }
 
 /* Firefox */
@@ -492,4 +508,60 @@ input[type="range"]::-ms-thumb {
   width: 12px;
   border-radius: 500px;
   background: white;
+}
+
+/*  FOOTER RELATED PART  */
+
+#footer .socialLinks a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background-color: #292929;
+  border-radius: 50%;
+}
+
+#footer .socialLinks a:hover {
+  background-color: #727272;
+  cursor: default;
+}
+
+#footer {
+  margin-bottom: 6rem;
+  padding-inline: 30px;
+}
+
+#footer span {
+  font-weight: 700;
+  color: #fff;
+}
+
+#footer span:nth-last-child(1) {
+  font-weight: 400;
+  color: #a6a6a6;
+}
+
+#footer a:not(.socialLinks a) {
+  color: #a6a6a6;
+  width: max-content;
+}
+
+#footer a:hover {
+  color: #fff;
+}
+
+.footerLegal {
+  border-top: solid 0.3px rgba(245, 245, 245, 0.226);
+  padding-top: 3rem;
+  margin-top: 3rem;
+  margin-bottom: 1.5rem;
+}
+
+.footerLegal a {
+  text-decoration: none;
+}
+
+#footer .footerLegal a:hover {
+  color: #fff;
 }

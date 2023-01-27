@@ -218,7 +218,6 @@ const nextSong = () => {
     playSong(next);
   } else {
     document.querySelector("audio").classList.toggle("playing");
-    toggleButtons();
   }
 };
 
@@ -228,7 +227,6 @@ const endSong = () => {
     nextSong();
   } else {
     document.querySelector("audio").classList.toggle("playing");
-    toggleButtons();
   }
 };
 

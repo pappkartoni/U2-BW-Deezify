@@ -294,6 +294,10 @@ main > .container-fluid:not(#loginHeader) {
 .text-green {
   color: #1ed760 !important;
 }
+
+.navbar ul {
+  padding-left: 10px;
+}
 .navbar .navigation ul li {
   list-style: none;
   margin-top: 20%;

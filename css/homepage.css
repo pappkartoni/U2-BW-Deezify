@@ -64,13 +64,13 @@ main .container-fluid .card-subtitle {
     width: 12.5%;
 }
 
-@media (max-width: 1650px)  {
+@media (max-width: 1740px)  {
     .row-cols-8 .col {
         flex: 0 0 14.285%;
         width: 14.285%;
     }
 }
-@media (max-width: 1400px)  {
+@media (max-width: 1570px)  {
     .row-cols-8 .col {
         flex: 0 0 16.6666%;
         width: 16.6666%;
@@ -82,13 +82,13 @@ main .container-fluid .card-subtitle {
         font-size: 13px;
     }
 }
-@media (max-width: 1200px)  {
+@media (max-width: 1450px)  {
     .row-cols-8 .col {
         flex: 0 0 20%;
         width: 20%;
     }
 }
-@media (max-width: 960px)  {
+@media (max-width: 1250px)  {
     .row-cols-8 .col {
         flex: 0 0 25%;
         width: 25%;
@@ -100,13 +100,13 @@ main .container-fluid .card-subtitle {
         font-size: 12px;
     }
 }
-@media (max-width: 720px)  {
+@media (max-width: 1050px)  {
     .row-cols-8 .col {
         flex: 0 0 33.33333%;
         width: 33.33333%;
     }
 }
-@media (max-width: 576px)  {
+@media (max-width: 880px)  {
     .row-cols-8 .col {
         flex: 0 0 50%;
         width: 50%;

@@ -213,11 +213,12 @@ main .good-morning-container .card-title {
     visibility: visible;
 }
 
-.welcome-card {
+/* start Play buttons in the "Good morning" container */
+
+/* .welcome-card {
     display: flex;
-    position: relative;
-        
-}
+    position: relative;       
+} */
 
 .good-morning-container .btn-transparent .play-button-cards {
     background-color: #1bd760;
@@ -225,7 +226,6 @@ main .good-morning-container .card-title {
     height: 48px;
     width: 48px;
 }
-
 
 .welcome-card .btn-wrapper {
     align-self: center;
@@ -235,15 +235,15 @@ main .good-morning-container .card-title {
     position: absolute;
     margin-top: 0;
     margin-bottom: 0;
-    bottom: 15px;
-    right: 18px;
-    opacity: 0;
+    bottom: 25px;
+    right: 23px;
+    /* opacity: 0; */
     transition: all 0.3s ease;
     z-index: 0;
     box-shadow: 1px 3px 10px #000;
 }
 
-.welcome-card .btn-wrapper .btn-transparent .d-none {
+/* .welcome-card .btn-wrapper .btn-transparent .d-none {
     margin: 0 auto;
     top: 33%;
     left: 4%;
@@ -254,9 +254,61 @@ main .good-morning-container .card-title {
     border-width: 0.5em 0 0.5em 0.9em;
     border-color: transparent transparent transparent rgb(27, 27, 27);
     opacity: 0.75;
-}
+} */
 
 .welcome-card .btn-wrapper:hover {
+    background-color: #1cdf63;
+    scale: 1.1;
+    opacity: 1;
+}
+
+/* end Play buttons in the "Good morning" container */
+
+/* start Play buttons in the other two containers */
+
+.recently-played {
+    display: flex;
+    position: relative; 
+}
+
+.main-container .btn-transparent .play-button-cards {
+    background-color: #1bd760;
+    border-radius: 500px;
+    height: 48px;
+    width: 48px;
+}
+
+.recently-played .card img .btn-wrapper {
+    align-self: center;
+    margin: 25% auto;
+    cursor: pointer;
+    border-radius: 50%;
+    position: absolute;
+    margin-top: 0;
+    margin-bottom: 0;
+    bottom: 15px;
+    top: 150px;
+    right: 22px;
+    /* opacity: 0; */
+    transition: all 0.3s ease;
+    z-index: 0;
+    box-shadow: 1px 3px 10px #000;
+}
+
+/* .recently-played .btn-wrapper .btn-transparent .d-none {
+    margin: 0 auto;
+    top: 33%;
+    left: 4%;
+    position: relative;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0.5em 0 0.5em 0.9em;
+    border-color: transparent transparent transparent rgb(27, 27, 27);
+    opacity: 0.75;
+} */
+
+.recently-played .card img .btn-wrapper:hover {
     background-color: #1cdf63;
     scale: 1.1;
     opacity: 1;

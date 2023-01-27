@@ -9,6 +9,10 @@ main #albumWrapper {
   margin-bottom: 0;
 }
 
+#albumInfoWrapper {
+  padding-inline: 30px;
+}
+
 #albumInfoWrapper img {
   -webkit-box-shadow: 0px 0px 30px 2px rgba(0, 0, 0, 0.45);
   -moz-box-shadow: 0px 0px 30px 2px rgba(0, 0, 0, 0.45);
@@ -29,7 +33,7 @@ main #albumWrapper {
 }
 
 #mediaButtonsWrapper {
-  padding-inline: 22px;
+  padding-inline: 30px;
   height: 100px;
 }
 
@@ -82,7 +86,7 @@ main #albumWrapper {
 }
 
 #musicTableWrapper {
-  padding-inline: 20px;
+  padding-inline: 30px;
   padding-bottom: 10px;
 }
 
@@ -95,9 +99,9 @@ main #albumWrapper {
   background: linear-gradient(
     to top,
     #b7b7b750,
-    #b7b7b750 1px,
-    #ffffff00 1px,
-    #ffffff00 100%
+    #b7b7b750 0.5px,
+    #28282828 0.5px,
+    #28282828 100%
   );
 }
 
@@ -150,57 +154,27 @@ main #albumWrapper {
   opacity: 0;
 }
 
-/*  FOOTER RELATED PART  */
-
-#footer .socialLinks a {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
-  background-color: #292929;
-  border-radius: 50%;
+#musicTableWrapper tbody tr.selected {
+  background-color: hsla(0, 0%, 100%, 0.3);
 }
 
-#footer .socialLinks a:hover {
-  background-color: #727272;
-  cursor: default;
+#musicTableWrapper tbody tr.selected i {
+  opacity: 100%;
 }
 
-#footer {
-  margin-bottom: 6rem;
+#musicTableWrapper tbody tr.selected .numberToPlayIcon > span {
+  opacity: 0%;
 }
 
-#footer span {
-  font-weight: 700;
-  color: #fff;
-}
+/* ALERT RELATED */
 
-#footer span:nth-last-child(1) {
-  font-weight: 400;
-  color: #a6a6a6;
-}
-
-#footer a:not(.socialLinks a) {
-  color: #a6a6a6;
-  width: max-content;
-}
-
-#footer a:hover {
-  color: #fff;
-}
-
-.footerLegal {
-  border-top: solid 0.3px rgba(245, 245, 245, 0.226);
-  padding-top: 3rem;
-  margin-top: 3rem;
-  margin-bottom: 1.5rem;
-}
-
-.footerLegal a {
-  text-decoration: none;
-}
-
-#footer .footerLegal a:hover {
+#alertContainer .alert {
+  margin-bottom: 7rem;
+  max-width: 450px;
+  margin-inline: auto;
+  background-color: #2e77d0;
+  border-radius: 0.75rem;
+  padding-inline: 0;
+  box-shadow: 0px 0px 3px 3px rgba(0, 0, 0, 0.3);
   color: #fff;
 }

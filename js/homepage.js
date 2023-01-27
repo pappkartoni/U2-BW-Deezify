@@ -86,7 +86,6 @@ const renderGoodMorningSongs = async function () {
           const btn = e.target.closest(".play-button-cards")
           const audio = document.querySelector("audio")
           if (!btn.classList.contains("playing")) {
-            console.log("boop")
             getArtistTopSongs(btn.dataset.tracklist)
             btn.innerHTML = `<svg role="img" height="24" width="24" aria-hidden="true" viewBox="0 0 24 24" data-encore-id="icon" class="Svg-sc-ytk21e-0 uPxdw"><path d="M5.7 3a.7.7 0 00-.7.7v16.6a.7.7 0 00.7.7h2.6a.7.7 0 00.7-.7V3.7a.7.7 0 00-.7-.7H5.7zm10 0a.7.7 0 00-.7.7v16.6a.7.7 0 00.7.7h2.6a.7.7 0 00.7-.7V3.7a.7.7 0 00-.7-.7h-2.6z"></path></svg>`
 
@@ -94,11 +93,9 @@ const renderGoodMorningSongs = async function () {
           } else {
             togglePlay()
             if (!audio.classList.contains("playing")) {
-              console.log("no playing")
               //TODO document.querySelector(".container-fluid .play-button").innerHTML = `<svg role="img" height="28" width="28" aria-hidden="true" viewBox="0 0 24 24" data-encore-id="icon" class="Svg-sc-ytk21e-0 uPxdw"><path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z"></path></svg>`
               btn.innerHTML = `<svg role="img" height="24" width="24" viewBox="0 0 24 24"><path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z"></path></svg>`
             }   else {
-              console.log("has playing")
               //document.querySelector(".container-fluid .play-button").innerHTML = `<svg role="img" height="28" width="28" aria-hidden="true" viewBox="0 0 24 24" data-encore-id="icon" class="Svg-sc-ytk21e-0 uPxdw"><path d="M5.7 3a.7.7 0 00-.7.7v16.6a.7.7 0 00.7.7h2.6a.7.7 0 00.7-.7V3.7a.7.7 0 00-.7-.7H5.7zm10 0a.7.7 0 00-.7.7v16.6a.7.7 0 00.7.7h2.6a.7.7 0 00.7-.7V3.7a.7.7 0 00-.7-.7h-2.6z"></path></svg>`
               btn.innerHTML = `<svg role="img" height="24" width="24" aria-hidden="true" viewBox="0 0 24 24" data-encore-id="icon" class="Svg-sc-ytk21e-0 uPxdw"><path d="M5.7 3a.7.7 0 00-.7.7v16.6a.7.7 0 00.7.7h2.6a.7.7 0 00.7-.7V3.7a.7.7 0 00-.7-.7H5.7zm10 0a.7.7 0 00-.7.7v16.6a.7.7 0 00.7.7h2.6a.7.7 0 00.7-.7V3.7a.7.7 0 00-.7-.7h-2.6z"></path></svg>`
             }
@@ -164,7 +161,6 @@ const playAlbum = (tracks) => {
   }
   tracks.forEach((song) => songsToPlay.push(song))
   playIndex = 0
-  console.log(songsToPlay)
 }
 
 const setWelcomeMessage = () => {
@@ -184,7 +180,6 @@ const setWelcomeMessage = () => {
 
 const changeBGColorOnScroll = () => {
   var scroll = window.scrollY;
-  console.log(scroll);
   if (scroll >= 120) {
     header.classList.add("changedBG");
   } else {
@@ -194,7 +189,6 @@ const changeBGColorOnScroll = () => {
 
 
 const togglePlay = () => {
-  console.log("toggle play")
   const audio = document.querySelector("audio")
   audio.classList.toggle("playing") 
   toggleButtons()
@@ -206,10 +200,8 @@ const togglePlay = () => {
 }
 
 const toggleButtons = () => {
-  console.log("toggle buttons")
   const audio = document.querySelector("audio")
   if (!audio.classList.contains("playing")) {
-      console.log("toggle no playing")
       document.querySelector(".play-button-footer").innerHTML = `<svg role="img" height="16" width="16" aria-hidden="true" viewBox="0 0 16 16" data-encore-id="icon" class="Svg-sc-ytk21e-0 uPxdw"><path d="M3 1.713a.7.7 0 011.05-.607l10.89 6.288a.7.7 0 010 1.212L4.05 14.894A.7.7 0 013 14.288V1.713z"></path></svg>`
       //TODO document.querySelector(".container-fluid .play-button").innerHTML = `<svg role="img" height="28" width="28" aria-hidden="true" viewBox="0 0 24 24" data-encore-id="icon" class="Svg-sc-ytk21e-0 uPxdw"><path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z"></path></svg>`
       //document.querySelector("header #playButton").innerHTML = `<svg role="img" height="24" width="24" viewBox="0 0 24 24"><path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z"></path></svg>`
@@ -229,7 +221,6 @@ const highlightSong = (div) => {
 }
 
 const playSong = (index) => {
-  console.log("play song")
   const song = songsToPlay[index]
   const player = document.querySelector("audio")
   //TODO document.querySelectorAll(".text-green").forEach((elem) => elem.classList.remove("text-green"))
@@ -238,11 +229,8 @@ const playSong = (index) => {
   document.querySelector(".footer-info img").src = song.album.cover_medium
   document.querySelector(".footer-info h6").innerText = song.title
   document.querySelector(".footer-info span").innerText = song.artist.name
-  console.log("player paused before new song", player.paused)
   player.src = song.preview
-  console.log("player paused after new song", player.paused)
   if(!player.classList.contains("playing")) {
-    console.log("playsong paused behavior")
       togglePlay()
   } else {
       player.play()
@@ -257,9 +245,7 @@ const prevSong = () => {
   }
 }
 const nextSong = () => {
-  console.log("next song")
   if (playIndex < songsToPlay.length - 1) {
-      console.log("go next")
       playIndex++
       playSong(playIndex)
   } else if (songsToPlay.length) {
@@ -272,7 +258,6 @@ const nextSong = () => {
     if (playIndex < songsToPlay.length - 1) { 
       nextSong()
     } else {
-      console.log("ended")
       document.querySelector("audio").classList.toggle("playing") 
       toggleButtons()
   }
@@ -353,7 +338,6 @@ const getArtistTopSongs = async (url) => {
           }
           songs.data.forEach((song) => songsToPlay.push(song))
           playIndex = 0
-          console.log(songsToPlay)
           playSong(playIndex)
       } else {
           throw res.status + res.statusText

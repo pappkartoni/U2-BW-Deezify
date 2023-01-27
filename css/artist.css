@@ -1,0 +1,103 @@
+.jumbotron-fluid {
+    height: 40vh;
+    min-height: 340px;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    background-size: 100% 100%;
+    background-size: cover;
+    background-position: center;
+    padding: 0 16px 24px 16px;
+}
+
+.jumbotron-fluid h1 {
+    font-size: 6rem;
+    font-weight: 900;
+}
+
+h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.card {
+    border: none;
+    background: none
+}
+
+#top > div {
+    padding: 0 16px;
+    border-radius: 4px;
+}
+#top > div:hover {
+    background-color: hsla(0,0%,100%,.1)
+}
+#top > div:not(.highlighted) button, #top  > div:not(.highlighted) .bi-heart {
+    opacity: 0;
+}
+#top > div:hover button, #top > div:hover .bi-heart {
+    opacity: 1;
+}
+
+#top > div.highlighted {
+    background-color: hsla(0,0%,100%,.3);
+}
+
+#top > div.lighlighted button {
+    opacity: 1;
+}
+#artist {
+    padding: 0 16px;
+}
+
+#artpick {
+    max-width: 100%;
+}
+#artpick .artpick-info {
+    max-width: 100%;
+}
+#artpick a {
+    color: #a7a7a7;
+}
+#artpick a:hover {
+    text-decoration: none;
+}
+h5 {
+    margin: 8px 0 0 0;
+}
+#artpick span img {
+    width: 24px;
+    border-radius: 500px;
+}
+#artpick .col-3 {
+    min-width: 80px;
+}
+
+.top-song-nr {
+    position: relative;
+}
+.top-song-nr i {
+    top: -45%;
+    left: -8px;
+    font-size: 2rem;
+    opacity: 0
+}
+
+#top > div.highlighted .top-song-nr span, #top > div:hover .top-song-nr span {
+    opacity: 0;
+}
+
+#top > div:hover .top-song-nr i {
+    opacity: 1;
+}
+#top > div.highlighted .top-song-nr i {
+    opacity: 1;
+}
+
+#top .text-green.top-song-nr i {
+    opacity: 1;
+}
+
+#top .text-green.top-song-nr span {
+    opacity: 0;
+}

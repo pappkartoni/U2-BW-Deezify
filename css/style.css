@@ -1,0 +1,644 @@
+@font-face {
+  font-family: circular;
+  src: url("../fonts/Circular/CircularStd-Book.otf") format("opentype");
+}
+body {
+  background-color: #121212;
+  color: #a7a7a7;
+  font-family: circular;
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: white;
+}
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+section:not(#alertContainer) {
+  margin-bottom: 16px;
+}
+
+section
+  > .container-fluid:not(
+    #mediaButtonsWrapper,
+    #albumInfoWrapper,
+    #musicTableWrapper
+  ) {
+  margin-bottom: 24px;
+}
+.navbar-fixed-left {
+  position: fixed;
+  width: 241px;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 4;
+  flex-direction: column;
+  align-items: start;
+  position: fixed;
+  width: 241px;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 4;
+  flex-direction: column;
+  align-items: start;
+}
+
+.bg-black {
+  background-color: black;
+  background-color: black;
+}
+
+.navbar-fix {
+  margin-left: 241px;
+  margin-left: 241px;
+}
+
+/* HEADER RELATED PART */
+
+header .btn-group:nth-of-type(1) button {
+  display: inline-flex;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  border: none;
+  color: #fff;
+  height: 32px;
+  width: 32px;
+  cursor: pointer;
+  opacity: 50%;
+  transition: all 150ms;
+}
+
+header .btn-group:nth-of-type(1) button:hover {
+  opacity: 100%;
+}
+
+header .btn-group:nth-of-type(1) button i {
+  line-height: 16px;
+}
+
+header button:focus,
+#mediaButtonsWrapper button:focus {
+  box-shadow: none;
+}
+
+header {
+  padding-inline: 22px;
+  transition: background-color 300ms, opacity 300ms;
+}
+
+@media (max-width: 685px) {
+  header h5 {
+    white-space: nowrap;
+    max-width: 230px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  header #prevButton {
+    display: none;
+  }
+
+  header .dropdownButton {
+    display: none !important;
+  }
+}
+
+header.halfOp {
+  background-color: #1e1e1e;
+  opacity: 75%;
+}
+
+header.changedBG {
+  background-color: #1e1e1e;
+  opacity: 100%;
+}
+
+.dropdownButton {
+  padding: 0 0;
+  overflow: hidden;
+  align-items: center;
+}
+
+.dropdownButton:focus {
+  box-shadow: none;
+}
+
+.dropdownButton > span > span {
+  max-width: 100px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.showOnScroll {
+  opacity: 0%;
+  transition: opacity 300ms;
+}
+
+.showOnScroll.opacity-75 {
+  opacity: 75%;
+}
+
+.showOnScroll.opacity-100 {
+  opacity: 100%;
+}
+
+#playButton {
+  cursor: default;
+}
+
+.showOnScroll button {
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: default !important;
+  background-color: #1fdf64;
+  min-width: 48px;
+  min-height: 48px;
+  border-radius: 50%;
+  transition: all 150ms;
+}
+
+.showOnScroll button:hover {
+  transform: scale(1.04);
+  background-color: #39e678;
+}
+
+.dropdown-menu.dropdown-menu-right {
+  width: 200px;
+  background-color: #2e2e2e;
+  color: #fff;
+  padding-block: 0.2rem;
+  padding-inline: 0.2rem;
+}
+
+.dropdown-menu.dropdown-menu-right a {
+  cursor: default !important;
+}
+
+.dropdown-item {
+  padding: 0.25rem 1rem;
+}
+
+.dropdown-menu.dropdown-menu-right a {
+  color: inherit;
+}
+
+.dropdown-menu.dropdown-menu-right a:hover {
+  background-color: #626262;
+}
+
+.play-button {
+  background-color: #1ed760;
+  border-radius: 500px;
+  height: 56px;
+  width: 56px;
+  margin-right: 32px;
+}
+
+.btn-transparent {
+  border: none;
+  background: none;
+  padding: 0;
+  font-size: 12px;
+  color: #a7a7a7;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.btn-transparent:hover {
+  cursor: default;
+}
+
+.btn-transparent:hover .play-button {
+  scale: 1.04;
+}
+
+.btn-transparent > svg {
+  fill: #a7a7a7;
+}
+
+.btn-transparent:hover > svg {
+  fill: white;
+}
+
+.btn-clear {
+  border: 1px solid white;
+  border-radius: 4px;
+  background-color: transparent;
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 7px 15px;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 0.1em;
+  line-height: 16px;
+  margin-right: 24px;
+}
+.btn-clear:hover {
+  cursor: default;
+}
+main:not(#loginMain) {
+  margin-bottom: 6rem;
+}
+main > .container-fluid:not(#loginHeader) {
+  padding: 24px 32px;
+}
+
+/* Navbar stuff */
+.scroll-container ul {
+  list-style-type:none;
+}
+.scroll-container a {
+  color:#a7a7a7;
+  text-decoration: none;
+}
+
+.scroll-container {
+  /* border: 3px solid red; */
+  position: absolute;
+  margin: -8px 0px;
+  width: 210px;
+  height: 479px;
+  margin-top: 380px;
+  padding-top: 15px;
+  margin-right: 10px;
+  z-index: 5;
+  border-top: 1px solid rgba(128, 128, 128, 0.395);
+}
+
+.scroll-container .overflow-auto {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  transform: translateZ(0);
+  vertical-align: baseline;
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.navigation ul li .active svg {
+  fill: currentcolor;
+}
+
+.navigation ul li svg {
+  fill: currentcolor;
+}
+
+.navigation ul li span {
+  margin-left: 20px;
+  padding: 0 ;
+  vertical-align: baseline;
+}
+
+::-webkit-scrollbar {
+  width: 11px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #97979777;
+  height: 2px;
+  /* visibility: hidden; */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ffffff77;
+  transition: 0.5s;
+  visibility: visible;
+}
+
+.navbar .d-flex img {
+  width: 130px;
+  margin-left: 8%;
+  margin-top: 10%;
+  margin-bottom: 8%;
+}
+
+.navbar-fixed-left {
+  position: fixed;
+  width: 241px;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 4;
+  flex-direction: column;
+  align-items: start;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.bg-black {
+  background-color: black;
+}
+
+.justify-content-start {
+  flex-wrap: wrap;
+}
+
+.text-green {
+  color: #1ed760 !important;
+}
+
+.navbar ul {
+  padding-left: 10px;
+}
+.navbar .navigation ul li {
+  list-style: none;
+  margin-top: 20%;
+}
+
+.navbar .navigation ul li {
+  padding: 0px 5px;
+}
+
+.navbar .navigation ul li a {
+  color: #b3b3b3;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 90%;
+}
+
+.navbar .navigation ul li a:hover,
+.navbar .navigation ul li a:active,
+.navbar .navigation ul li a:focus {
+  color: #ffffff;
+}
+
+.navbar .navigation ul li a:hover ion-icon,
+.navbar .navigation ul li a:active ion-icon,
+.navbar .navigation ul li a:focus ion-icon {
+  color: #b3b3b3;
+}
+
+.navbar .navigation ul li ion-icon {
+  font-size: 150%;
+  margin-right: 2vh;
+}
+
+.navbar .navigation ul li a:hover ion-icon:hover,
+.navbar .navigation ul li a:active ion-icon:active,
+.navbar .navigation ul li a:focus ion-icon:focus {
+  color: #ffffff;
+}
+
+/* Footer stuff */
+
+footer {
+  background-color: #181818;
+  border-top: 1px solid #282828;
+  margin: 0;
+  padding: 0 16px;
+  height: 91px;
+  min-width: 620px;
+}
+
+footer h6 {
+  font-size: 14px;
+  margin-bottom: 0;
+}
+
+footer span {
+  font-size: 11px;
+}
+
+footer path {
+  fill: #a7a7a7;
+}
+
+footer .btn-transparent {
+  width: 32px;
+  height: 32px;
+}
+
+footer .btn-transparent:hover > svg > path {
+  fill: white;
+}
+.play {
+  margin-inline: 16px;
+}
+.play-button-footer {
+  background-color: white;
+  border-radius: 500px;
+  height: 32px;
+  width: 32px;
+}
+
+.play-button-footer path {
+  fill: black;
+}
+
+.play-button-footer:hover {
+  scale: 1.04;
+}
+.buttonbar {
+  margin-bottom: 8px;
+}
+.progress {
+  height: 4px;
+  background-color: hsla(0, 0%, 100%, 0.3);
+  border-radius: 2px;
+  margin-inline: 8px;
+}
+.curDur,
+.maxDur {
+  font-size: 0.6875rem;
+  font-weight: 400;
+  width: 28px;
+}
+.w-40 {
+  width: 40%;
+}
+.w-30 {
+  width: 30%;
+}
+
+.volume {
+  flex: 0 1 125px;
+  margin-right: 4px;
+  align-items: center;
+}
+input[type="range"] {
+  -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
+  width: 100%; /* Specific width is required for Firefox. */
+  height: 4px;
+  cursor: pointer;
+  background: linear-gradient(
+    to right,
+    white 0%,
+    white 50%,
+    hsla(0, 0%, 100%, 0.3) 50%,
+    hsla(0, 0%, 100%, 0.3) 100%
+  );
+  border-radius: 2px; /* Otherwise white in Chrome */
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+}
+
+input[type="range"]:focus {
+  outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
+}
+
+input[type="range"]::-ms-track {
+  width: 100%;
+  cursor: pointer;
+
+  /* Hides the slider so custom styles can be added */
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+
+/* input[type="range"]:focus::-webkit-slider-runnable-track {
+  background: hsla(0, 0%, 100%, 0.3);
+}
+
+input[type="range"]::-moz-range-track {
+  width: 100%;
+  height: 4px;
+  cursor: pointer;
+  background: hsla(0, 0%, 100%, 0.3);
+  border-radius: 2px;
+}
+
+input[type="range"]::-ms-track {
+  width: 100%;
+  height: 4px;
+  cursor: pointer;
+  background: hsla(0, 0%, 100%, 0.3);
+  border-radius: 2px;
+}
+
+input[type="range"]::-ms-fill-lower {
+  background: #1ed760;
+  border-radius: 2px;
+}
+input[type="range"]:focus::-ms-fill-lower {
+  background: #1ed760;
+}
+input[type="range"]::-ms-fill-upper {
+  background: hsla(0, 0%, 100%, 0.3);
+  border-radius: 2px;
+}
+
+input[type="range"]:focus::-ms-fill-upper {
+  background: hsla(0, 0%, 100%, 0.3);
+} */
+
+/* thumb */
+/* Chrome */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 12px;
+  width: 12px;
+  border-radius: 500px;
+  background: white;
+  opacity: 0;
+}
+
+input[type="range"]:hover::-webkit-slider-thumb,
+input[type="range"]:focus::-webkit-slider-thumb {
+  opacity: 1;
+}
+
+/* Firefox */
+input[type="range"]::-moz-range-thumb {
+  height: 12px;
+  width: 12px;
+  border-radius: 500px;
+  background: white;
+}
+
+/* IE */
+input[type="range"]::-ms-thumb {
+  height: 12px;
+  width: 12px;
+  border-radius: 500px;
+  background: white;
+}
+
+/*  FOOTER RELATED PART  */
+
+#footer .socialLinks a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background-color: #292929;
+  border-radius: 50%;
+}
+
+#footer .socialLinks a:hover {
+  background-color: #727272;
+  cursor: default;
+}
+
+#footer {
+  margin-bottom: 6rem;
+  padding-inline: 30px;
+}
+
+#footer span {
+  font-weight: 700;
+  color: #fff;
+}
+
+#footer span:nth-last-child(1) {
+  font-weight: 400;
+  color: #a6a6a6;
+}
+
+#footer a:not(.socialLinks a) {
+  color: #a6a6a6;
+  width: max-content;
+}
+
+#footer a:hover {
+  color: #fff;
+}
+
+.footerLegal {
+  border-top: solid 0.3px rgba(245, 245, 245, 0.226);
+  padding-top: 3rem;
+  margin-top: 3rem;
+  margin-bottom: 1.5rem;
+}
+
+.footerLegal a {
+  text-decoration: none;
+}
+
+#footer .footerLegal a:hover {
+  color: #fff;
+}
+
+#alertContainer .alert {
+  margin-bottom: 7rem;
+  max-width: 450px;
+  margin-inline: auto;
+  background-color: #2e77d0;
+  border-radius: 0.75rem;
+  padding-inline: 0;
+  box-shadow: 0px 0px 3px 3px rgba(0, 0, 0, 0.3);
+  color: #fff;
+}

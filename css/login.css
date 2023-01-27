@@ -1,0 +1,156 @@
+body {
+  user-select: none;
+  background-color: #121212;
+}
+
+header > div {
+  border-bottom: 1px solid rgb(217, 218, 220);
+  padding: 25px 0px 10px;
+}
+
+header > div > div {
+  height: 10vh;
+  padding: 0px 0px 12px;
+}
+
+#loginWrapper {
+  max-width: 450px;
+  width: 100%;
+  margin-inline: 15px;
+}
+
+#loginWrapper button {
+  cursor: default;
+  color: white;
+  border-radius: 500px;
+  font-weight: 500;
+  padding: 13px 31px;
+  border: 1px solid #878787;
+}
+
+#loginWrapper > div > button:hover {
+  box-shadow: inset 0 0 0 1px #fff;
+}
+
+#loginWrapper > div > button:nth-of-type(1) {
+  background-color: #1877f2;
+}
+
+#loginWrapper > div > button:nth-of-type(2) {
+  background-color: #191919;
+}
+
+#loginWrapper > div > button:nth-of-type(3) {
+  background-color: #ffffff;
+  color: #878787;
+}
+
+#loginWrapper > div > button:nth-of-type(3):hover {
+  box-shadow: inset 0 0 0 1px #000;
+}
+
+#loginWrapper > div > div hr {
+  margin: 12px 0px 20px;
+  flex: 1 1 0%;
+  border: 1px solid rgb(217, 218, 220);
+}
+
+#loginWrapper > div > div span {
+  flex: 0.3 1 0%;
+  color: #fff;
+  align-self: center;
+  text-align: center;
+  line-height: 1px;
+  font-weight: 700;
+  font-size: 12px;
+}
+
+#inputWrapper #login {
+  background-color: #169b45;
+  max-width: 150px;
+  color: #191919;
+  transition: all 100ms;
+  cursor: default;
+  color: white;
+  border-radius: 500px;
+  font-weight: 500;
+  padding: 13px 31px;
+  border: 1px solid #878787;
+}
+
+#inputWrapper #login:hover {
+  background-color: #1fdf64;
+  transform: scale(1.05);
+  outline: none;
+}
+
+#inputWrapper button:nth-last-of-type(1) {
+  background-color: #191919;
+}
+
+#inputWrapper button:nth-last-of-type(1):hover {
+  box-shadow: inset 0 0 0 1px #fff;
+}
+
+#inputWrapper input:not(#passwordInput) {
+  border: 1px solid #878787;
+  border-radius: 0.5rem;
+  background-color: transparent;
+  color: #fff;
+  padding: 14px;
+}
+
+#inputWrapper input:hover {
+  box-shadow: inset 0 0 0 1px #fff;
+}
+
+#inputWrapper input:focus {
+  box-shadow: inset 0 0 0 3px #fff;
+}
+
+#inputWrapper #passwordInput {
+  background-color: transparent;
+  border-top-left-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+  border: 1px solid #878787;
+  color: #fff;
+}
+
+#inputWrapper #passwordInput ~ div {
+  color: #fff;
+  width: 38px;
+  border: 1px solid #878787;
+  border-left: none;
+  border-top-right-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+}
+
+#inputWrapper #passwordInput ~ div:hover {
+  box-shadow: inset 0 0 0 1px #fff;
+}
+
+#inputWrapper #passwordInput ~ div:hover svg {
+  transform: scale(1.15);
+}
+
+#inputWrapper .my-3 a {
+  color: #fff;
+  text-decoration: underline;
+}
+
+#inputWrapper .my-3 a:hover {
+  color: #1fdf64;
+}
+
+#rememberMe {
+  display: inline-block;
+  background-color: #b8e2f2;
+  border-radius: 0.1rem;
+  width: 15px;
+  height: 15px;
+  border: 0.5px solid #878787;
+}
+
+#rememberMe.selected {
+  background-color: #169b45;
+}

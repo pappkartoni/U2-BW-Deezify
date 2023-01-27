@@ -1,0 +1,256 @@
+.d-flex .arrows-container ion-icon {
+    color:#1b1b1b;
+}
+
+.navbar-fixed-left {
+    position: fixed;
+    width: 241px;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 4;
+    flex-direction: column;
+    align-items: start;
+}
+.col a, .col-lg-4 a {
+    text-decoration: none;
+}
+
+h1 {
+    font-size: 2rem;
+    font-weight: 700;
+}
+main {
+    margin-top: 80px;
+}
+
+.bg-black {
+    background-color: black;
+}
+
+.navbar-fix {
+    margin-left: 241px;
+}
+
+main .good-morning-container .card img {
+    width: 80px;
+}
+
+main .container-fluid .card {
+    background-color: hsla(0,0%,100%,.1);
+    color: #fff;
+        padding: 15px;
+}
+main .container-fluid .card .card-body {
+    padding: 0;
+    min-height: 65px;
+} 
+
+/* main .container-fluid img {
+    margin-bottom: 16px;
+} */
+
+main .container-fluid .card-title {
+    font-size: 1rem;
+    font-weight: 700;
+}
+main .container-fluid .card-subtitle {
+    font-size: 0.875rem;
+    color: #a7a7a7;
+    font-weight: 400;
+}
+.row-cols-8 .col {
+    flex: 0 0 12.5%;
+    width: 12.5%;
+}
+
+@media (max-width: 1740px)  {
+    .row-cols-8 .col {
+        flex: 0 0 14.285%;
+        width: 14.285%;
+    }
+}
+@media (max-width: 1570px)  {
+    .row-cols-8 .col {
+        flex: 0 0 16.6666%;
+        width: 16.6666%;
+    }
+/*     main .container-fluid .card-title {
+        font-size: 15px;
+    }
+    main .container-fluid .card-subtitle {
+        font-size: 13px;
+    } */
+}
+@media (max-width: 1450px)  {
+    .row-cols-8 .col {
+        flex: 0 0 20%;
+        width: 20%;
+    }
+}
+@media (max-width: 1250px)  {
+    .row-cols-8 .col {
+        flex: 0 0 25%;
+        width: 25%;
+    }
+/*     main .container-fluid .card-title {
+        font-size: 14px;
+    }
+    main .container-fluid .card-subtitle {
+        font-size: 12px;
+    } */
+}
+@media (max-width: 1050px)  {
+    .row-cols-8 .col {
+        flex: 0 0 33.33333%;
+        width: 33.33333%;
+    }
+}
+@media (max-width: 880px)  {
+    .row-cols-8 .col {
+        flex: 0 0 50%;
+        width: 50%;
+    }
+/*     main .container-fluid .card-title {
+        font-size: 13px;
+    }
+    main .container-fluid .card-subtitle {
+        font-size: 11px;
+    } */
+}
+.good-morning-container h5 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 0;
+    padding-left: 16px;
+}
+.good-morning-container .welcome-card {
+    background-color: hsla(0,0%,100%,.1);
+    transition: 0.7s;
+    border-radius: 4px;
+    overflow: hidden;
+    margin: 10px 6px;
+}
+
+.good-morning-container .row {
+    margin-left: -20px;
+    margin-right: -8px;
+}
+
+.good-morning-container .welcome-card:hover {
+    background-color: hsla(0,0%,100%,.2);
+    cursor: pointer;
+}
+
+main .container-fluid .card:hover,
+.shows-to-try .card:hover {
+    cursor: pointer;
+    background-color: hsla(0,0%,100%,.2);
+    transition: 0.7s;
+}
+
+main .good-morning-container .card { 
+    width: 100%;
+    height: 80px;
+    background-color: hsla(0,0%,100%,.1);
+    text-align: left;
+    position: relative;
+    padding: 0;
+    overflow: hidden;
+}
+
+main .good-morning-container .card:hover {
+    cursor: pointer;
+    background-color: hsla(0,0%,100%,.2);
+    transition: 0.7s;
+}
+
+main .good-morning-container .card-body {
+    justify-content: flex-start;
+    color: #fff;
+    padding-left: 12px;
+    position: inherit;
+}
+main .good-morning-container .card-title {
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1rem;
+    padding: 0;
+    margin: 0;
+}
+
+/* start Play buttons in the "Good morning" container */
+
+/* .welcome-card {
+    display: flex;
+    position: relative;       
+} */
+
+.good-morning-container .btn-transparent .play-button-cards {
+    background-color: #1bd760;
+    border-radius: 500px;
+    height: 48px;
+    width: 48px;
+}
+
+.welcome-card .btn-wrapper {
+    align-self: center;
+    margin: 25% auto;
+    cursor: pointer;
+    border-radius: 50%;
+    position: absolute;
+    margin-top: 0;
+    margin-bottom: 0;
+    bottom: 25px;
+    right: 23px;
+    opacity: 0;
+    transition: all 0.3s ease;
+    z-index: 0;
+    box-shadow: 1px 3px 10px #000;
+    background-color: #1cdf63;
+}
+
+.welcome-card:hover .btn-wrapper {
+    opacity: 1;
+}
+.btn-wrapper:hover {
+    scale: 1.04;
+}
+
+/* end Play buttons in the "Good morning" container */
+
+/* start Play buttons in the other two containers */
+
+.img-wrapper {
+    margin-bottom: 16px;
+    position: relative;
+}
+
+.img-wrapper .btn-transparent {
+    position: absolute;
+    right: 8px;
+    bottom: 8px;
+    opacity: 0;
+    transition: all 0.3s ease;
+    z-index: 4;
+}
+.card:hover .img-wrapper .btn-transparent {
+    opacity: 1;
+}
+
+.card .img-wrapper .btn-transparent:hover {
+    scale: 1.04;
+}
+
+.main-container .btn-transparent .play-button-cards {
+    background-color: #1bd760;
+    border-radius: 500px;
+    height: 48px;
+    width: 48px;
+}
+
+.recently-played .btn-transparent:hover {
+    background-color: none;
+    border-radius: 500px;
+    opacity: 1;
+}
